@@ -10,6 +10,15 @@ MIT
 @angular/router
 MIT
 
+@microsoft/fast-web-utilities
+MIT
+
+@saffron/core-components
+SEE LICENSE IN LICENSE
+
+@saffron/core-styles
+SEE LICENSE IN LICENSE
+
 rxjs
 Apache-2.0
                                Apache License

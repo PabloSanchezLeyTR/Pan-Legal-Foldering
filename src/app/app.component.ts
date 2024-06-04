@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { SafButton } from '@saffron/core-components';
 
+SafButton();
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pan-legal-foldering';
+
 }

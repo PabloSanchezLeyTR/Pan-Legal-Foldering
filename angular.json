@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@saffron/core-styles/dist/index.css",
               "src/styles.sass"
             ],
             "scripts": []
