@@ -1,1 +1,54 @@
-<saf-button appearance="primary">Click</saf-button>
+<div class="container-fluid px-0 mx-0">
+  <div class="row px-0 mx-0">
+    <div class="col-auto px-0 mx-0">
+      <div class="cocounsel-side-nav">
+        <div class="row justify-content-center mx-0 pt-2">
+          <div class="col-auto px-0">
+            <saf-button
+                appearance="tertiary"
+                icon-only
+                a11y-aria-label="Add new"
+                style="margin-inline-end: 16px; margin-bottom: 8px;"
+            >
+                <saf-icon icon-name="plus" appearance="solid" presentation> </saf-icon>
+            </saf-button>
+            <saf-divider orientation="horizontal" role="separator" mode="onLight">
+            </saf-divider>
+          </div>
+        </div>
+        <div class="row cocounsel-menu justify-content-center px-0 mx-0 text-center pt-2">
+          <div class="col- px-0 mx-2">
+            <p>CoCounsel</p>
+          </div>
+          <div class="col- me-4">
+            <saf-button
+                appearance="tertiary"
+                icon-only
+                a11y-aria-label="Add new"
+                style="margin-inline-end: 16px; margin-bottom: 8px;"
+            >
+                <saf-icon icon-name="message-plus" appearance="light" presentation> </saf-icon>
+            </saf-button>
+          </div>
+          <div class="col- me-4">
+            <saf-button
+                appearance="tertiary"
+                icon-only
+                a11y-aria-label="Add new"
+                style="margin-inline-end: 16px; margin-bottom: 8px;"
+            >
+                <saf-icon icon-name="clock-rotate-left" appearance="light" presentation> </saf-icon>
+            </saf-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto ps-0">
+      <app-side-nav></app-side-nav>
+    </div>
+    <div class="col px-0">
+      <app-page></app-page>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

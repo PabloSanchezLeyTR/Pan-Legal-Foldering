@@ -1,0 +1,33 @@
+<div id="sidenav-demo-container">
+  <saf-side-nav id="sidenav" state="open" aria-label="Side navigation" close-aria-label="Collapse side nav"
+    open-svg-name="arrow-right-from-line" close-svg-name="arrow-left-from-line">
+    <ng-container *ngFor="let menu of menuItems">
+
+      <saf-menu-item *ngIf="!menu.subLevel" [id]="menu.label" has-link="false"><saf-icon [attr.icon-name]="menu.icon"
+          slot="start"></saf-icon>{{menu.label}}</saf-menu-item>
+
+      <saf-menu-item #trigger *ngIf="menu.subLevel" id="button-menu-trigger"
+        [attr.aria-expanded]="open ? 'true' : 'false'" aria-controls="button-menu-overlay" appearance="tertiary"
+        a11y-aria-label="User profile" (click)="clickHandler()" (keydown)="handleTriggerKeydown($event)"
+        has-link="false">
+        <saf-icon [attr.icon-name]="menu.icon" slot="start"></saf-icon><saf-icon *ngIf="!open" slot="end"
+          class="chevron-end" icon-name="chevron-down" appearance="solid" presentation>
+        </saf-icon>
+        <saf-icon *ngIf="open" slot="end" class="chevron-end" icon-name="chevron-up" appearance="solid" presentation>
+        </saf-icon>{{menu.label}}
+      </saf-menu-item>
+      <saf-anchored-region *ngIf="menu.subLevel" [attr.hidden]="open ? null : ''" anchor="button-menu-trigger" class="region"
+        vertical-default-position="bottom" horizontal-default-position="left" horizontal-inset="false"
+        horizontal-scaling="content" vertical-inset="false" vertical-scaling="content">
+        <saf-menu *ngIf="open" id="button-menu-overlay" aria-label="My Menu" #menu>
+          <saf-menu-item *ngFor="let item of items" (click)="closeMenu()" (keydown)="handleMenuItemKeydown($event)">{{
+            item.text }}</saf-menu-item>
+        </saf-menu>
+      </saf-anchored-region>
+    </ng-container>
+
+
+
+
+  </saf-side-nav>
+</div>
