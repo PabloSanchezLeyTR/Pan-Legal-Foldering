@@ -3,7 +3,7 @@
     open-svg-name="arrow-right-from-line" close-svg-name="arrow-left-from-line">
     <ng-container *ngFor="let menu of menuItems">
 
-      <saf-menu-item *ngIf="!menu.subLevel" [id]="menu.label" has-link="false"><saf-icon [attr.icon-name]="menu.icon"
+      <saf-menu-item *ngIf="!menu.subLevel" [id]="menu.label" [routerLink]="menu.route" routerLinkActive="active" has-link="false"><saf-icon [attr.icon-name]="menu.icon"
           slot="start"></saf-icon>{{menu.label}}</saf-menu-item>
 
       <saf-menu-item #trigger *ngIf="menu.subLevel" id="button-menu-trigger"

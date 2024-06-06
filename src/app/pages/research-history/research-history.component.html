@@ -1,0 +1,90 @@
+<div class="row mx-0 mt-4">
+  <div class="col-">
+    <h1 class="h1-title">Research History</h1>
+  </div>
+</div>
+
+<div class="row mx-0 align-items-end justify-content-between pe-2 mt-4">
+  <div class="col-11">
+    <saf-search-field density="compact" id="search-field" label="" instructional-text=""
+      a11y-aria-description="search by keyword or phrase">
+    </saf-search-field>
+  </div>
+  <div class="col text-end">
+    <saf-button #trigger id="button-menu-trigger" [attr.aria-expanded]="open ? 'true' : 'false'" density="compact"
+      aria-controls="button-menu-overlay" appearance="secondary" a11y-aria-label="User profile" (click)="clickHandler()"
+      (keydown)="handleTriggerKeydown($event)"><saf-icon slot="end" icon-name="chevron-down" appearance="solid"
+        presentation></saf-icon>
+      Sort by
+    </saf-button>
+    <saf-anchored-region [attr.hidden]="open ? null : ''" anchor="button-menu-trigger" class="region"
+      vertical-default-position="bottom" horizontal-default-position="left" horizontal-inset="false"
+      horizontal-scaling="content" vertical-inset="false" vertical-scaling="content">
+      <saf-menu *ngIf="open" id="button-menu-overlay" aria-label="My Menu" #menu>
+        <saf-menu-item *ngFor="let item of items" (click)="closeMenu()" (keydown)="handleMenuItemKeydown($event)">{{
+          item.text }}</saf-menu-item>
+      </saf-menu>
+    </saf-anchored-region>
+  </div>
+</div>
+
+<div class="row mx-0 align-items-end mt-3">
+  <div class="col-auto">
+    <h2 class="mb-0">Filter by:</h2>
+  </div>
+  <div class="col-auto">
+    <saf-chip clickable="true" closeable="false" closabletooltip="false">
+      Chip label
+    </saf-chip>
+  </div>
+</div>
+
+<div class="row mx-0 pe-2 mt-4">
+  <div *ngFor="let item of researhHistoryItems" class="col- py-2">
+    <div style=" margin: 0 auto;">
+      <saf-card appearance="horizontal" heading-level="2" image-bleed="true" density="inherit">
+
+        <div slot="media" class="iconCard">
+          <saf-icon color="#47B0FF" [attr.icon-name]="item.icon" appearance="light">
+          </saf-icon>
+          <p class="mb-0 icontext">{{item.labelIcon}}</p>
+        </div>
+        <div slot="heading"><saf-anchor href="https://www.reuters.com/" target="_blank">{{item.titleLink}}</saf-anchor></div>
+        <saf-chip clickable="false" closeable="false" closabletooltip="false">
+          Chip label
+        </saf-chip>
+
+
+        <div slot="controls">
+          <div *ngIf="item.searchType" class="row mx-0">
+            <div class="col- px-0">
+              <p class="mb-0"><strong>Search type:</strong> {{item.searchType}}</p>
+            </div>
+            <div class="col- px-0">
+              <p class="mb-0"><strong>Content:</strong> {{item.content}}</p>
+            </div>
+            <div class="col- px-0">
+              <p class="mb-0"><strong>Jurisdiction:</strong> {{item.jurisdiction}}</p>
+            </div>
+          </div>
+          <div *ngIf="!item.searchType" class="row mx-0">
+            <div class="col- px-0">
+              <p class="mb-0">{{item.aditionalText}}</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div slot="controls">
+          <div class="row mx-0">
+            <div class="col- px-0">
+              <small>Accessed: {{item.accessTime}} • {{item.customer}}</small>
+            </div>
+          </div>
+        </div>
+
+      </saf-card>
+    </div>
+  </div>
+</div>

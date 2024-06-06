@@ -1,37 +1,33 @@
 import { Component, ViewChild } from '@angular/core';
-import { MenuItemClass } from '../model/menuItemClass';
-import { MenuItem } from '../interfaces/side-nav-menu-items';
+import { ResearchHistoryItem } from 'src/app/shared/interfaces/research-history';
+import { ResearchHistoryClass } from 'src/app/shared/model/research-historyClass';
 
 @Component({
-  selector: 'app-side-nav',
-  templateUrl: './side-nav.component.html',
-  styleUrls: ['./side-nav.component.less']
+  selector: 'app-research-history',
+  templateUrl: './research-history.component.html',
+  styleUrls: ['./research-history.component.less']
 })
-export class SideNavComponent {
+export class ResearchHistoryComponent {
 
   open: boolean = false;
 
   @ViewChild('menu', { static: false }) menu: any;
   @ViewChild('trigger', { static: false }) trigger: any;
 
+  items = [
+    { text: 'Menu item 1', id: 'menu_item_1' },
+    { text: 'Menu item 2', id: 'menu_item_2' },
+    { text: 'Menu item 3', id: 'menu_item_3' },
+  ];
+
+  researhHistoryItems: ResearchHistoryItem[] = [
+    new ResearchHistoryClass(1, "magnifying-glass", "Search", "Husky intern eletronics (76)", "Plain language", "Cases", "All State & Federal", "March 01, 2024 at 07:36 AM", "Client A", ""),
+    new ResearchHistoryClass(1, "file-lines", "Document view", "TEC Olmos, LLC v. ConocoPhilips Company", "", "", "", "March 01, 2024 at 07:36 AM", "Client A", "Tex.App.-Hous.(1 Dist.)   •   May 31, 2018    •   555 S.W.3d 176"),
+  ];
+
+
   private triggerBtn: HTMLElement | null = null;
   clickOutsideHandler: any;
-
-  items = [
-    { text: 'Virtual folder 1', id: 'menu_item_1' },
-    { text: 'Virtual folder 2', id: 'menu_item_2' },
-    { text: 'Virtual folder 3', id: 'menu_item_3' },
-  ];
-
-  menuItems: MenuItem[] = [
-    new MenuItemClass(1, "house", "My Content", false, "my-research"),
-    new MenuItemClass(2, "clock-rotate-left", "Research history", false, "research-history"),
-    new MenuItemClass(3, "folder", "My folders", true, ""),
-    new MenuItemClass(4, "tag", "My Tags", false, ""),
-    new MenuItemClass(5, "notes", "Annotations", false, ""),
-    new MenuItemClass(6, "people-group", "Shared with me", false, ""),
-    new MenuItemClass(7, "trash-can", "Recycle bin", false, ""),
-  ];
 
   ngOnInit() {
     this.clickOutsideHandler = this.handleClickOutside.bind(this);
