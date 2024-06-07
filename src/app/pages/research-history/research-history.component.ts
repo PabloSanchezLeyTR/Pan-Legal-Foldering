@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ResearchHistoryItem } from 'src/app/shared/interfaces/research-history';
 import { ResearchHistoryClass } from 'src/app/shared/model/research-historyClass';
 
@@ -13,6 +13,7 @@ export class ResearchHistoryComponent {
 
   @ViewChild('menu', { static: false }) menu: any;
   @ViewChild('trigger', { static: false }) trigger: any;
+  @ViewChildren("searchInput") searchInput!: QueryList<ElementRef>; // Initialize the searchInput property
 
   items = [
     { text: 'Menu item 1', id: 'menu_item_1' },
@@ -20,9 +21,15 @@ export class ResearchHistoryComponent {
     { text: 'Menu item 3', id: 'menu_item_3' },
   ];
 
+  chipSearch: { chiplabel: string }[] = [];
+
+  filtered: Object[] = [];
+
+  searchText!: string;
+
   researhHistoryItems: ResearchHistoryItem[] = [
-    new ResearchHistoryClass(1, "magnifying-glass", "Search", "Husky intern eletronics (76)", "Plain language", "Cases", "All State & Federal", "March 01, 2024 at 07:36 AM", "Client A", ""),
-    new ResearchHistoryClass(1, "file-lines", "Document view", "TEC Olmos, LLC v. ConocoPhilips Company", "", "", "", "March 01, 2024 at 07:36 AM", "Client A", "Tex.App.-Hous.(1 Dist.)   •   May 31, 2018    •   555 S.W.3d 176"),
+    new ResearchHistoryClass(1, "magnifying-glass", "Search", "Husky intern eletronics (76)", "Plain language", "Cases", "All State & Federal", "March 01, 2024 at 07:36 AM", "Client A", "", [ { id: 1, chiplabel: "Chip 1" }, { id: 2, chiplabel: "Chip 2" }, { id: 3, chiplabel: "Chip 3" } ]),
+    new ResearchHistoryClass(1, "file-lines", "Document view", "TEC Olmos, LLC v. ConocoPhilips Company", "", "", "", "March 01, 2024 at 07:36 AM", "Client A", "Tex.App.-Hous.(1 Dist.)   •   May 31, 2018    •   555 S.W.3d 176", [ { id: 1, chiplabel: "Chip 1" }, { id: 2, chiplabel: "Chip 4" } ]),
   ];
 
 
@@ -76,6 +83,8 @@ export class ResearchHistoryComponent {
     }
   }
 
+
+
   handleTriggerKeydown(e: KeyboardEvent) {
     // The menu can be opened by using the Down Arrow, Up Arrow, Enter key or the Spacebar.
     // https://trten.sharepoint.com/sites/intr-digital-accessibility-coe/SitePages/Dropdown---Actions-Menu.aspx#functional-requirements
@@ -85,6 +94,21 @@ export class ResearchHistoryComponent {
         this.menu.nativeElement.focus();
       });
     }
+  }
+
+  search(e: any) {
+    this.chipSearch.push({chiplabel: e.target._currentValue});
+    this.searchText = e.target._currentValue;
+    this.clearInput();
+  }
+
+  clearInput() {
+    this.searchInput.first.nativeElement.value = '';
+  }
+
+  removeChip(e: any){
+    this.chipSearch.splice(e,1);
+    this.searchText = '';
   }
 
 }

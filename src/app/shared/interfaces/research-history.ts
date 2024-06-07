@@ -8,5 +8,6 @@ export interface ResearchHistoryItem {
   jurisdiction: string;
   accessTime: string;
   customer: string;
-  aditionalText: string
+  aditionalText: string;
+  chips: Array<any>;
 }

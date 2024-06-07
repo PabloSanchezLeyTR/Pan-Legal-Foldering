@@ -6,7 +6,7 @@
 
 <div class="row mx-0 align-items-end justify-content-between pe-2 mt-4">
   <div class="col-11">
-    <saf-search-field density="compact" id="search-field" label="" instructional-text=""
+    <saf-search-field #searchInput (change)="search($event)" (clear)="clearInput()" density="compact" id="search-field" label="" instructional-text=""
       a11y-aria-description="search by keyword or phrase">
     </saf-search-field>
   </div>
@@ -33,14 +33,14 @@
     <h2 class="mb-0">Filter by:</h2>
   </div>
   <div class="col-auto">
-    <saf-chip clickable="true" closeable="false" closabletooltip="false">
-      Chip label
+    <saf-chip *ngFor="let chipF of chipSearch; let i=index" clickable="true" closeable="false" (click)="removeChip(i)" closabletooltip="false" class="pe-2">
+      {{chipF.chiplabel}}
     </saf-chip>
   </div>
 </div>
 
 <div class="row mx-0 pe-2 mt-4">
-  <div *ngFor="let item of researhHistoryItems" class="col- py-2">
+  <div *ngFor="let item of researhHistoryItems | searchFilter: searchText" class="col- py-2">
     <div style=" margin: 0 auto;">
       <saf-card appearance="horizontal" heading-level="2" image-bleed="true" density="inherit">
 
@@ -50,8 +50,8 @@
           <p class="mb-0 icontext">{{item.labelIcon}}</p>
         </div>
         <div slot="heading"><saf-anchor href="https://www.reuters.com/" target="_blank">{{item.titleLink}}</saf-anchor></div>
-        <saf-chip clickable="false" closeable="false" closabletooltip="false">
-          Chip label
+        <saf-chip *ngFor="let chip of item.chips" clickable="false" closeable="false" closabletooltip="false" class="pe-2">
+          {{chip.chiplabel}}
         </saf-chip>
 
 
