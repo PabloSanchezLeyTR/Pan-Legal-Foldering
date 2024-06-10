@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'research-history', component: ResearchHistoryComponent },
   { path: 'my-research', component: MyResearchComponent},
   {path: '404', component: ResearchHistoryComponent},
+  { path: '**', component: ResearchHistoryComponent }
 ];
 
 @NgModule({
