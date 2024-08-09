@@ -27,6 +27,8 @@ export class ResearchHistoryComponent {
 
   searchText!: string;
 
+  alert = false;
+
   researhHistoryItems: ResearchHistoryItem[] = [
     new ResearchHistoryClass(1, "magnifying-glass", "Search", "Husky intern eletronics (76)", "Plain language", "Cases", "All State & Federal", "March 01, 2024 at 07:36 AM", "Client A", "", [ { id: 1, chiplabel: "Chip 1" }, { id: 2, chiplabel: "Chip 2" }, { id: 3, chiplabel: "Chip 3" } ]),
     new ResearchHistoryClass(1, "file-lines", "Document view", "TEC Olmos, LLC v. ConocoPhilips Company", "", "", "", "March 01, 2024 at 07:36 AM", "Client A", "Tex.App.-Hous.(1 Dist.)   •   May 31, 2018    •   555 S.W.3d 176", [ { id: 1, chiplabel: "Chip 1" }, { id: 2, chiplabel: "Chip 4" } ]),
@@ -109,6 +111,10 @@ export class ResearchHistoryComponent {
   removeChip(e: any){
     this.chipSearch.splice(e,1);
     this.searchText = '';
+  }
+
+  showAlert() {
+    this.alert = true;
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SafAnchor, SafBadge, SafButton, SafCard, SafChip, SafDivider, SafIcon, SafMenuItem, SafSearchField, SafSideNav, SafTooltip } from '@saffron/core-components';
+import { SafAlert, SafAnchor, SafBadge, SafButton, SafCard, SafChip, SafDivider, SafIcon, SafMenuItem, SafSearchField, SafSideNav, SafTooltip } from '@saffron/core-components';
 
 SafButton();
 SafSideNav();
@@ -12,6 +12,7 @@ SafChip();
 SafCard();
 SafBadge();
 SafAnchor();
+SafAlert();
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
