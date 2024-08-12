@@ -118,4 +118,8 @@ export class ResearchHistoryComponent {
     this.alert = true;
   }
 
+  handleAlertOnClose() {
+    this.alert = false;
+  }
+
 }
