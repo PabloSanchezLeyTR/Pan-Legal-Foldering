@@ -28,7 +28,7 @@ export class ResearchHistoryComponent {
   searchText!: string;
 
   alert = false;
-  alertType = 'sucess';
+  alertType = 'success';
 
   researhHistoryItems: ResearchHistoryItem[] = [
     new ResearchHistoryClass(1, "magnifying-glass", "Search", "Husky intern eletronics (76)", "Plain language", "Cases", "All State & Federal", "March 01, 2024 at 07:36 AM", "Client A", "", [ { id: 1, chiplabel: "Chip 1" }, { id: 2, chiplabel: "Chip 2" }, { id: 3, chiplabel: "Chip 3" } ]),
