@@ -101,7 +101,8 @@
 
 <saf-alert class="show-alert" *ngIf="alert"
 announce="true"
+icon-aria-label="icon aria label"
 [attr.appearance]="alertType"
-alert-type="toast" duration="10" close-aria-label="Close"  (click)="handleAlertOnClose()">
+alert-type="toast" duration="10" close-aria-label="Close" (click)="handleAlertOnClose()">
   mensaje qui
  </saf-alert>
