@@ -1,4 +1,5 @@
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, NgZone, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { ResearchHistoryItem } from 'src/app/shared/interfaces/research-history';
 import { ResearchHistoryClass } from 'src/app/shared/model/research-historyClass';
 
@@ -10,6 +11,7 @@ import { ResearchHistoryClass } from 'src/app/shared/model/research-historyClass
 export class ResearchHistoryComponent {
 
   open: boolean = false;
+  model: NgbDateStruct | undefined;
 
   @ViewChild('menu', { static: false }) menu: any;
   @ViewChild('trigger', { static: false }) trigger: any;
@@ -29,6 +31,7 @@ export class ResearchHistoryComponent {
 
   alert = false;
   alertType = 'success';
+  previousAnnouncement = false;
 
   researhHistoryItems: ResearchHistoryItem[] = [
     new ResearchHistoryClass(1, "magnifying-glass", "Search", "Husky intern eletronics (76)", "Plain language", "Cases", "All State & Federal", "March 01, 2024 at 07:36 AM", "Client A", "", [ { id: 1, chiplabel: "Chip 1" }, { id: 2, chiplabel: "Chip 2" }, { id: 3, chiplabel: "Chip 3" } ]),
@@ -38,6 +41,8 @@ export class ResearchHistoryComponent {
 
   private triggerBtn: HTMLElement | null = null;
   clickOutsideHandler: any;
+
+  constructor(private _ngZone: NgZone) {}
 
   ngOnInit() {
     this.clickOutsideHandler = this.handleClickOutside.bind(this);
@@ -114,12 +119,17 @@ export class ResearchHistoryComponent {
     this.searchText = '';
   }
 
-  showAlert() {
-    this.alert = true;
-  }
+  onNavigate(e: any){
+    console.log(e, 'testss');
+    const addRole = document.getElementsByClassName('ngb-dp-arrow');
+    setTimeout(() => {
+     console.log(addRole[0].querySelector('button'), 'addRole');
+     addRole[0].querySelector('button')?.addEventListener('click', () => {
+        console.log('test');
+        this.previousAnnouncement = true;
+     });
+    }, 0);
 
-  handleAlertOnClose() {
-    this.alert = false;
   }
 
 }

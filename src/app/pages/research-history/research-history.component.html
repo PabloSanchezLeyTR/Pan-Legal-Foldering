@@ -90,19 +90,23 @@
 </div>
 
 
-<saf-button density="inherit" (click)="showAlert()">
-  Button
-</saf-button>
-  <!-- <saf-alert  [attr.appearance]="alertType" alert-type="toast" duration="10" close-aria-label="Close alert" announce="true" id="alert-default" hide-close-button="false">
-  Replace this message with your own notification message.
-  <saf-anchor href="https://tr.com" slot="link">Optional link here</saf-anchor>
-</saf-alert> -->
 
 
-<saf-alert class="show-alert" *ngIf="alert"
-announce="true"
-icon-aria-label="icon aria label"
-[attr.appearance]="alertType"
-alert-type="toast" duration="10" close-aria-label="Close" (click)="handleAlertOnClose()">
-  mensaje qui
- </saf-alert>
+ <form class="row row-cols-sm-auto">
+	<div class="col-12">
+		<div class="input-group">
+			<input
+				class="form-control"
+				placeholder="yyyy-mm-dd"
+				name="dp"
+				[(ngModel)]="model"
+				ngbDatepicker
+				#d="ngbDatepicker"
+        (navigate)="onNavigate(d)"
+			/>
+			<button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+		</div>
+	</div>
+</form>
+<saf-sr-only *ngIf="previousAnnouncement" id="sr-only">  <span>Visible to screen reader</span>  </saf-sr-only>
+
