@@ -107,7 +107,7 @@
 			<button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
 		</div>
     <div role="status" aria-atomic="true">
-      <saf-sr-only id="sr-only">  <span>Visible to screen reader</span>  </saf-sr-only>
+      <saf-sr-only *ngIf="previousAnnouncement" id="sr-only">  <span>Visible to screen reader</span>  </saf-sr-only>
     </div>
 
 	</div>

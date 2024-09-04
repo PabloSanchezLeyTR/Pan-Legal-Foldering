@@ -121,16 +121,16 @@ export class ResearchHistoryComponent {
 
   onNavigate(e: any){
     console.log(e, 'testss');
+    this.previousAnnouncement = false;
     const addRole = document.getElementsByClassName('ngb-dp-arrow');
     setTimeout(() => {
      console.log(addRole[0].querySelector('button'), 'addRole');
      addRole[0].querySelector('button')?.addEventListener('click', () => {
         console.log('test');
         this.previousAnnouncement = true;
-        this.previousAnnouncement = false;
-        setTimeout(() => {
-          this.previousAnnouncement = false;
-         }, 200);
+        // setTimeout(() => {
+        //   this.previousAnnouncement = false;
+        //  }, 200);
      });
     }, 0);
 
