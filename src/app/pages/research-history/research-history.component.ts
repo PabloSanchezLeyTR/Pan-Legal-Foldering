@@ -127,6 +127,10 @@ export class ResearchHistoryComponent {
      addRole[0].querySelector('button')?.addEventListener('click', () => {
         console.log('test');
         this.previousAnnouncement = true;
+        this.previousAnnouncement = false;
+        setTimeout(() => {
+          this.previousAnnouncement = false;
+         }, 200);
      });
     }, 0);
 
