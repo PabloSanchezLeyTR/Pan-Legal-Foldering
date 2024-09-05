@@ -126,19 +126,19 @@ export class ResearchHistoryComponent {
     console.log(e, 'testwww');
   }
 
-  onNavigate(e: any) {
+  onNavigate(e: any){
     this.getMonthName(e.next.month);
     this.previousAnnouncement = false;
-    this.dtePickermessage = `${this.monthSelected} ${e.next.year} selected`;
-    console.log(this.dtePickermessage);
-
-    const prevNextBtn = Array.from(document.getElementsByClassName('ngb-dp-arrow'));
-    prevNextBtn.forEach(btn => {
-        btn.querySelector('button')?.addEventListener('click', () => {
-            this.previousAnnouncement = true;
-        });
-    });
-}
+    this.dtePickermessage = this.monthSelected + ' ' + e.next.year + ' selected';
+    const prevNextBtn = document.getElementsByClassName('ngb-dp-arrow');
+    setTimeout(() => {
+      for (let i = 0; i < prevNextBtn.length; i++) {
+        prevNextBtn[i].querySelector('button')?.addEventListener('click', () => {
+          this.previousAnnouncement = true;
+       });
+      }
+    }, 0);
+  }
 
    getMonthName(month: number): string {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
