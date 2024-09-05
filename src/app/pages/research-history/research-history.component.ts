@@ -32,6 +32,8 @@ export class ResearchHistoryComponent {
   alert = false;
   alertType = 'success';
   previousAnnouncement = false;
+  dtePickermessage: string = '';
+  monthSelected : string = ''
 
   researhHistoryItems: ResearchHistoryItem[] = [
     new ResearchHistoryClass(1, "magnifying-glass", "Search", "Husky intern eletronics (76)", "Plain language", "Cases", "All State & Federal", "March 01, 2024 at 07:36 AM", "Client A", "", [ { id: 1, chiplabel: "Chip 1" }, { id: 2, chiplabel: "Chip 2" }, { id: 3, chiplabel: "Chip 3" } ]),
@@ -119,21 +121,35 @@ export class ResearchHistoryComponent {
     this.searchText = '';
   }
 
+  onDateSelect(e: any) {
+    console.log(this.model);
+    console.log(e, 'testwww');
+  }
+
   onNavigate(e: any){
-    console.log(e, 'testss');
+    this.getMonthName(e.next.month);
     this.previousAnnouncement = false;
-    const addRole = document.getElementsByClassName('ngb-dp-arrow');
+    this.dtePickermessage = this.monthSelected + ' ' + e.next.year + ' selected';
+    console.log(this.dtePickermessage);
+    const prevNextBtn = document.getElementsByClassName('ngb-dp-arrow');
     setTimeout(() => {
-     console.log(addRole[0].querySelector('button'), 'addRole');
-     addRole[0].querySelector('button')?.addEventListener('click', () => {
-        console.log('test');
-        this.previousAnnouncement = true;
-        // setTimeout(() => {
-        //   this.previousAnnouncement = false;
-        //  }, 200);
-     });
+      for (let i = 0; i < prevNextBtn.length; i++) {
+        prevNextBtn[i].querySelector('button')?.addEventListener('click', () => {
+          this.previousAnnouncement = true;
+       });
+
+      }
     }, 0);
 
   }
+
+   getMonthName(month: number): string {
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    if (month < 1 || month > 12) {
+        return "Invalid month number. Please enter a number between 1 and 12.";
+    }
+    this.monthSelected = months[month - 1];
+    return this.monthSelected;
+}
 
 }
