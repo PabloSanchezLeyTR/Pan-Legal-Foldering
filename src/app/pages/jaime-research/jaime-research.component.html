@@ -1,0 +1,503 @@
+<div *ngIf="page1" class="Component-heading mx-4">
+  <h3 id="wijmo">Wijmo</h3>
+</div>
+<div *ngIf="page1" class="mx-4" style="--var-density: 'inherit'">
+    <saf-toolbar [density]="isCompactDensity ? 'compact' : 'standard'">
+      <div slot="top-row-start">
+        <saf-button appearance="primary" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'">
+          <saf-icon slot="start" icon-name="plus" appearance="light"></saf-icon>
+          Add
+        </saf-button>
+        <saf-button appearance="secondary" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'">
+          <saf-icon
+            slot="start"
+            icon-name="paper-plane"
+            appearance="light"
+          ></saf-icon>
+          Send
+        </saf-button>
+        <saf-button appearance="secondary" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'">
+          <saf-icon
+            slot="start"
+            icon-name="arrow-up-from-bracket"
+            appearance="light"
+          ></saf-icon>
+          Upload
+        </saf-button>
+        <saf-button appearance="secondary" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'">
+          <saf-icon
+            slot="start"
+            icon-name="share-from-square"
+            appearance="light"
+          ></saf-icon>
+          Share
+        </saf-button>
+        <saf-button
+          #modalButton
+          appearance="secondary"
+          [attr.density]="isCompactDensity === true ? 'compact' : 'standard'"
+          (click)="openSecondPage()">
+          <saf-icon
+            slot="start"
+            icon-name="arrow-up-from-bracket"
+            appearance="light"
+          ></saf-icon>
+            Modal
+        </saf-button>
+      </div>
+      <div slot="top-row-end">
+        <span style="font: var(--saf-type-body-default-md-strong-standard)"
+          >Search</span
+        >
+        <saf-search-field id="saf-search-field" [value]="filter" (input)="searchFilter($event)" (clear)="searchFilter($event)" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'"></saf-search-field>
+      </div>
+      <div slot="bottom-row-start">
+        <saf-checkbox
+          [checked]="currentSelectAllState === SELECT_ALL.ALL_SELECTED"
+          [indeterminate]="currentSelectAllState === SELECT_ALL.SOME_SELECTED"
+          (change)="selectAllToolbar()"
+          style="margin-left: 16px"
+        >Select all</saf-checkbox>
+        {{ selectedIdsToolbar.length }} selected
+        <saf-button appearance="tertiary" class="demo-1440-block" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'">
+          <saf-icon
+            slot="start"
+            icon-name="pen-line"
+            appearance="light"
+          ></saf-icon>
+          Edit
+        </saf-button>
+        <saf-button appearance="tertiary" class="demo-1440-block" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'">
+          <saf-icon
+            slot="start"
+            icon-name="arrow-down-to-bracket"
+            appearance="light"
+          ></saf-icon>
+          Download
+        </saf-button>
+        <saf-button appearance="tertiary" class="demo-1440-block" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'">
+          <saf-icon
+            slot="start"
+            icon-name="trash-can"
+            appearance="light"
+          ></saf-icon>
+          Delete
+        </saf-button>
+      </div>
+      <div slot="bottom-row-end">
+        <saf-tooltip anchor="keyboard-btn" placement="top" aria-hidden="true">
+          Keyboard interactions
+        </saf-tooltip>
+        <saf-button
+          id="keyboard-btn"
+          appearance="secondary"
+          icon-only
+          a11y-aria-label="Keyboard interactions"
+          className="demo-1440-hidden"
+          (click)="handleOpenDrawer('bottomDrawerRef')"
+          [attr.density]="isCompactDensity === true ? 'compact' : 'standard'"
+        >
+          <saf-icon icon-name="keyboard" presentation></saf-icon>
+        </saf-button>
+        <saf-button appearance="secondary" class="demo-1440-block" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'">
+          <saf-icon slot="start" icon-name="filter" appearance="light"></saf-icon>
+          Filter
+        </saf-button>
+        <saf-button appearance="secondary" class="demo-1440-block" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'">
+          <saf-icon
+            slot="start"
+            icon-name="list-tree"
+            appearance="light"
+          ></saf-icon>
+          Group
+        </saf-button>
+        <saf-button appearance="secondary" class="demo-1440-block" [attr.density]="isCompactDensity === true ? 'compact' : 'standard'">
+          <saf-icon slot="start" icon-name="eye" appearance="light"></saf-icon>
+          Show/hide
+        </saf-button>
+        <saf-divider orientation="vertical" style="height: 42px"></saf-divider>
+        <span *ngIf="itemsSourceToolbar.totalItemCount">(Showing {{ pageIndexToolbar * itemsSourceToolbar.pageSize + 1 }} to
+          {{
+            Math.min(
+            (pageIndexToolbar + 1) * itemsSourceToolbar.pageSize,
+            itemsSourceToolbar.totalItemCount
+            )
+          }}
+          of {{ itemsSourceToolbar.totalItemCount }} items)</span>
+          <span *ngIf="!itemsSourceToolbar.totalItemCount">(Showing 0 items)</span>
+      </div>
+    </saf-toolbar>
+    <!-- Grid -->
+    <wj-flex-grid
+      #gridRef
+      [itemsSource]="itemsSourceToolbar"
+      selectionMode="CellRange"
+      [showMarquee]="true"
+      [anchorCursor]="true"
+      [isReadOnly]="false"
+      headersVisibility="All"
+      headersFocusability="All"
+      (initialized)="initGrid(gridRef)"
+      aria-labelledby="tableHeader-toolbar"
+      aria-describedby="tableDescription-toolbar"
+      data-testid="table-toolbar"
+      style="margin-top: 16px"
+      [ngClass]="{
+        'wj-flexgrid': true,
+        'wj-flexsheet': isFlexsheet,
+        'saf-flexgrid--compact': isCompactDensity
+      }"
+      [alternatingRowStep]="isAlternatingRows ? 1 : 0"
+    >
+      <wj-flex-grid-column
+        [width]="'92'"
+        binding="id"
+        header="ID"
+      >
+        <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+          <span>{{ col.header }}</span>
+          <span
+            [ngStyle]="{
+              'display': 'inline-block',
+              'height': isCompactDensity ? '24px' : '32px',
+              'width': isCompactDensity ? '24px' : '32px',
+              'text-align': 'center',
+              'align-content': 'center',
+              'margin-left': '16px',
+              'margin-right': '4px'}"
+              >
+          <saf-icon
+            [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+            appearance="light"
+          ></saf-icon>
+          </span>
+        </ng-template>
+      </wj-flex-grid-column>
+      <wj-flex-grid-column
+        width="*"
+        binding="country"
+        header="Country"
+      >
+        <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+          <span>{{ col.header }}</span>
+          <span
+            [ngStyle]="{
+              'display': 'inline-block',
+              'height': isCompactDensity ? '24px' : '32px',
+              'width': isCompactDensity ? '24px' : '32px',
+              'text-align': 'center',
+              'align-content': 'center',
+              'margin-left': '16px',
+              'margin-right': '4px'}"
+              >
+          <saf-icon
+            [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+            appearance="light"
+          ></saf-icon>
+          </span>
+        </ng-template>
+      </wj-flex-grid-column>
+      <wj-flex-grid-column
+        binding="select"
+        header="Select"
+        [dataMap]="selectDataMap"
+        [width]="120"
+      >
+        <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+          <span>{{ col.header }}</span>
+          <span
+            [ngStyle]="{
+              'display': 'inline-block',
+              'height': isCompactDensity ? '24px' : '32px',
+              'width': isCompactDensity ? '24px' : '32px',
+              'text-align': 'center',
+              'align-content': 'center',
+              'margin-left': '16px',
+              'margin-right': '4px'}"
+              >
+          <saf-icon
+            [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+            appearance="light"
+          ></saf-icon>
+          </span>
+        </ng-template>
+      </wj-flex-grid-column>
+      <wj-flex-grid-column
+        [width]="145"
+        binding="checkbox"
+        header="Checkbox"
+      >
+        <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+          <span>{{ col.header }}</span>
+          <span
+            [ngStyle]="{
+              'display': 'inline-block',
+              'height': isCompactDensity ? '24px' : '32px',
+              'width': isCompactDensity ? '24px' : '32px',
+              'text-align': 'center',
+              'align-content': 'center',
+              'margin-left': '16px',
+              'margin-right': '4px'}"
+              >
+          <saf-icon
+            [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+            appearance="light"
+          ></saf-icon>
+          </span>
+        </ng-template>
+      </wj-flex-grid-column>
+      <wj-flex-grid-column
+        [width]="121"
+        header="Status"
+        binding="status"
+      >
+        <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+          <span>{{ col.header }}</span>
+          <span
+            [ngStyle]="{
+              'display': 'inline-block',
+              'height': isCompactDensity ? '24px' : '32px',
+              'width': isCompactDensity ? '24px' : '32px',
+              'text-align': 'center',
+              'align-content': 'center',
+              'margin-left': '16px',
+              'margin-right': '4px'}"
+              >
+          <saf-icon
+            [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+            appearance="light"
+          ></saf-icon>
+          </span>
+        </ng-template>
+      </wj-flex-grid-column>
+      <wj-flex-grid-column
+        width="*"
+        header="Link"
+        [cellTemplate]="linkCellTemplate"
+        [allowSorting]="false"
+      >
+        <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+          <span>{{ col.header }}</span>
+          <span
+            [ngStyle]="{
+              'display': 'inline-block',
+              'height': isCompactDensity ? '24px' : '32px',
+              'width': isCompactDensity ? '24px' : '32px',
+              'text-align': 'center',
+              'align-content': 'center',
+              'margin-left': '16px',
+              'margin-right': '4px'}"
+              >
+          <saf-icon
+            [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+            appearance="light"
+          ></saf-icon>
+          </span>
+        </ng-template>
+      </wj-flex-grid-column>
+      <wj-flex-grid-filter [filterColumns]="['country']"></wj-flex-grid-filter>
+    </wj-flex-grid>
+    <!-- Pagination -->
+    <saf-pagination [attr.density]="isCompactDensity === true ? 'compact' : 'standard'"
+      [totalItemCount]="itemsSourceToolbar.totalItemCount"
+      [itemsPerPage]="itemsSourceToolbar.pageSize"
+      [currentPageIndex]="itemsSourceToolbar.pageIndex + 1"
+      (change)="_setPageIndexToolbar($event)"
+      (items-per-page-change)="setItemsPerPageToolbar($event)"
+      [hasBorder]="true"
+      style="margin-top: -6px"
+      data-aria-live="polite"
+      items-label="items"
+    ></saf-pagination>
+</div>
+<div *ngIf="page2" class="Component-heading mx-4">
+  <div style="display: flex;">
+    <saf-button
+    appearance="tertiary"
+    icon-only
+    a11y-aria-label="Add new"
+    style="margin-inline-end: 16px; margin-bottom: 8px;"
+    (click)="openFirstPage()"
+  >
+    <saf-icon icon-name="chevron-left" appearance="solid" presentation> </saf-icon>
+    </saf-button>
+  <h1 id="wijmo">Exit experience</h1>
+  </div>
+  <saf-divider style="margin: 20px 0" role="presentation"></saf-divider>
+  <h3 id="wijmo">Contextual title 2</h3>
+</div>
+<div *ngIf="page2" class="mx-4" style="--var-density: 'inherit'">
+  <saf-breadcrumb aria-label="Breadcrumb">
+    <saf-breadcrumb-item href="#1" (click)="openFirstPage()"> Contextual Title 1 </saf-breadcrumb-item>
+    <saf-breadcrumb-item> Contextual Title 2 </saf-breadcrumb-item>
+ </saf-breadcrumb>
+<wj-flex-grid
+  #gridRef2
+  [itemsSource]="itemsSourceToolbar2"
+  selectionMode="CellRange"
+  [showMarquee]="true"
+  [anchorCursor]="true"
+  [isReadOnly]="false"
+  headersVisibility="All"
+  headersFocusability="All"
+  (initialized)="initGrid2(gridRef2)"
+  aria-labelledby="tableHeader-toolbar"
+  aria-describedby="tableDescription-toolbar"
+  data-testid="table-toolbar"
+  style="margin-top: 16px"
+  [ngClass]="{
+    'wj-flexgrid': true,
+    'wj-flexsheet': isFlexsheet,
+    'saf-flexgrid--compact': isCompactDensity
+  }"
+  [alternatingRowStep]="isAlternatingRows ? 1 : 0"
+>
+  <wj-flex-grid-column
+    [width]="'92'"
+    binding="id"
+    header="ID"
+  >
+    <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+      <span>{{ col.header }}</span>
+      <span
+        [ngStyle]="{
+          'display': 'inline-block',
+          'height': isCompactDensity ? '24px' : '32px',
+          'width': isCompactDensity ? '24px' : '32px',
+          'text-align': 'center',
+          'align-content': 'center',
+          'margin-left': '16px',
+          'margin-right': '4px'}"
+          >
+      <saf-icon
+        [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+        appearance="light"
+      ></saf-icon>
+      </span>
+    </ng-template>
+  </wj-flex-grid-column>
+  <wj-flex-grid-column
+    width="*"
+    binding="country"
+    header="Country"
+  >
+    <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+      <span>{{ col.header }}</span>
+      <span
+        [ngStyle]="{
+          'display': 'inline-block',
+          'height': isCompactDensity ? '24px' : '32px',
+          'width': isCompactDensity ? '24px' : '32px',
+          'text-align': 'center',
+          'align-content': 'center',
+          'margin-left': '16px',
+          'margin-right': '4px'}"
+          >
+      <saf-icon
+        [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+        appearance="light"
+      ></saf-icon>
+      </span>
+    </ng-template>
+  </wj-flex-grid-column>
+  <wj-flex-grid-column
+    [width]="120"
+    binding="select"
+    header="Select"
+    [dataMap]="selectDataMap"
+  >
+    <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+      <span>{{ col.header }}</span>
+      <span
+        [ngStyle]="{
+          'display': 'inline-block',
+          'height': isCompactDensity ? '24px' : '32px',
+          'width': isCompactDensity ? '24px' : '32px',
+          'text-align': 'center',
+          'align-content': 'center',
+          'margin-left': '16px',
+          'margin-right': '4px'}"
+          >
+      <saf-icon
+        [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+        appearance="light"
+      ></saf-icon>
+      </span>
+    </ng-template>
+  </wj-flex-grid-column>
+  <wj-flex-grid-column
+    [width]="145"
+    binding="checkbox"
+    header="Checkbox"
+  >
+    <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+      <span>{{ col.header }}</span>
+      <span
+        [ngStyle]="{
+          'display': 'inline-block',
+          'height': isCompactDensity ? '24px' : '32px',
+          'width': isCompactDensity ? '24px' : '32px',
+          'text-align': 'center',
+          'align-content': 'center',
+          'margin-left': '16px',
+          'margin-right': '4px'}"
+          >
+      <saf-icon
+        [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+        appearance="light"
+      ></saf-icon>
+      </span>
+    </ng-template>
+  </wj-flex-grid-column>
+  <wj-flex-grid-column
+    [width]="121"
+    header="Status"
+    binding="status"
+  >
+    <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+      <span>{{ col.header }}</span>
+      <span
+        [ngStyle]="{
+          'display': 'inline-block',
+          'height': isCompactDensity ? '24px' : '32px',
+          'width': isCompactDensity ? '24px' : '32px',
+          'text-align': 'center',
+          'align-content': 'center',
+          'margin-left': '16px',
+          'margin-right': '4px'}"
+          >
+      <saf-icon
+        [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+        appearance="light"
+      ></saf-icon>
+      </span>
+    </ng-template>
+  </wj-flex-grid-column>
+  <wj-flex-grid-column
+    width="*"
+    header="Link"
+    [cellTemplate]="linkCellTemplate"
+    [allowSorting]="false"
+  >
+    <ng-template wjFlexGridCellTemplate cellType="ColumnHeader" let-col="col">
+      <span>{{ col.header }}</span>
+      <span
+        [ngStyle]="{
+          'display': 'inline-block',
+          'height': isCompactDensity ? '24px' : '32px',
+          'width': isCompactDensity ? '24px' : '32px',
+          'text-align': 'center',
+          'align-content': 'center',
+          'margin-left': '16px',
+          'margin-right': '4px'}"
+          >
+      <saf-icon
+        [iconName]="col.currentSort === '+' ? 'arrow-up' : col.currentSort === '-' ? 'arrow-down' : 'arrow-up-arrow-down'"
+        appearance="light"
+      ></saf-icon>
+      </span>
+    </ng-template>
+  </wj-flex-grid-column>
+  <wj-flex-grid-filter [filterColumns]="['country']"></wj-flex-grid-filter>
+</wj-flex-grid>
+</div>

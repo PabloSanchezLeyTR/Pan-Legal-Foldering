@@ -26,11 +26,12 @@ export class SideNavComponent {
   menuItems: MenuItem[] = [
     new MenuItemClass(1, "house", "My Content", false, "my-research"),
     new MenuItemClass(2, "clock-rotate-left", "Research history", false, "research-history"),
-    new MenuItemClass(3, "folder", "My folders", true, ""),
-    new MenuItemClass(4, "tag", "My Tags", false, ""),
-    new MenuItemClass(5, "notes", "Annotations", false, ""),
-    new MenuItemClass(6, "people-group", "Shared with me", false, ""),
-    new MenuItemClass(7, "trash-can", "Recycle bin", false, ""),
+    new MenuItemClass(3, "folder", "Jaime Research", false, "app-jaime-research"),
+    new MenuItemClass(4, "folder", "My folders", true, ""),
+    new MenuItemClass(5, "tag", "My Tags", false, ""),
+    new MenuItemClass(6, "notes", "Annotations", false, ""),
+    new MenuItemClass(7, "people-group", "Shared with me", false, ""),
+    new MenuItemClass(8, "trash-can", "Recycle bin", false, ""),
   ];
 
   ngOnInit() {
