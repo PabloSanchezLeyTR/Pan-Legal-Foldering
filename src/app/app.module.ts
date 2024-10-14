@@ -10,13 +10,22 @@ import { ResearchHistoryComponent } from './pages/research-history/research-hist
 import { NgbAlertModule, NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { JsonPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { WijmoDemoComponent } from './pages/jaime-research/jaime-research.component';
+
+import { WjGridModule } from '@grapecity/wijmo.angular2.grid';
+
+import { WjGridGrouppanelModule } from '@grapecity/wijmo.angular2.grid.grouppanel';
+import { WjGridFilterModule } from '@grapecity/wijmo.angular2.grid.filter';
+import { WjGridSearchModule } from '@grapecity/wijmo.angular2.grid.search';
+import { WjInputModule } from '@grapecity/wijmo.angular2.input';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [
     AppComponent,
     MyResearchComponent,
-    ResearchHistoryComponent
+    ResearchHistoryComponent,
+    WijmoDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +35,13 @@ import { FormsModule } from '@angular/forms';
     NgbDatepickerModule,
     NgbAlertModule,
     FormsModule,
-    JsonPipe
+    JsonPipe,
+    WjGridFilterModule,
+    WjGridModule,
+    WjInputModule,
+    WjGridGrouppanelModule,
+    WjGridSearchModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
