@@ -18,6 +18,11 @@ import { WjGridGrouppanelModule } from '@grapecity/wijmo.angular2.grid.grouppane
 import { WjGridFilterModule } from '@grapecity/wijmo.angular2.grid.filter';
 import { WjGridSearchModule } from '@grapecity/wijmo.angular2.grid.search';
 import { WjInputModule } from '@grapecity/wijmo.angular2.input';
+import { HomeComponent } from './pages/westlaw-prototype/components/home/home.component';
+import { SidenavComponent } from './pages/westlaw-prototype/components/sidenav/sidenav.component';
+import { ButtonComponent } from './pages/westlaw-prototype/components/common/button/button.component';
+import { SelectComponent } from './pages/westlaw-prototype/components/common/select/select.component';
+import { FooterComponent } from './pages/westlaw-prototype/components/footer/footer.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -25,7 +30,12 @@ import { WjInputModule } from '@grapecity/wijmo.angular2.input';
     AppComponent,
     MyResearchComponent,
     ResearchHistoryComponent,
-    WijmoDemoComponent
+    WijmoDemoComponent,
+    HomeComponent,
+    SidenavComponent,
+    ButtonComponent,
+    SelectComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

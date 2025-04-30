@@ -1,0 +1,18 @@
+<!-- side-nav.component.html -->
+<div class="side-nav" [class.collapsed]="collapsed">
+    <div>
+        <div class="logo-container">
+            <img src="assets/images/tr-logo.png" alt="Logo" class="logo">
+        </div>
+        <div class="top-buttons">
+            <app-button *ngFor="let button of menuButtons" [icon]="button.icon" [label]="button.label"
+                [expanded]="!collapsed"></app-button>
+        </div>
+    </div>
+    <div class="bottom-buttons">
+        <app-button *ngFor="let button of bottomButtons" [icon]="button.icon" [label]="button.label"
+            [expanded]="!collapsed"></app-button>
+        <app-button [icon]="collapsed ? 'fa-chevron-right' : 'fa-chevron-left'" [label]="collapsed ? 'Expand' : 'Collapse'"
+            [expanded]="!collapsed" (click)="toggleNav()"></app-button>
+    </div>
+</div>
