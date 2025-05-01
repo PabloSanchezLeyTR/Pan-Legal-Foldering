@@ -23,6 +23,9 @@ import { SidenavComponent } from './pages/westlaw-prototype/components/sidenav/s
 import { ButtonComponent } from './pages/westlaw-prototype/components/common/button/button.component';
 import { SelectComponent } from './pages/westlaw-prototype/components/common/select/select.component';
 import { FooterComponent } from './pages/westlaw-prototype/components/footer/footer.component';
+import { NewResearchComponent } from './pages/westlaw-prototype/components/research/new-research/new-research.component';
+import { SearchBarComponent } from './pages/westlaw-prototype/components/common/search-bar/search-bar.component';
+import { ToggleComponent } from './pages/westlaw-prototype/components/common/toggle/toggle.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -35,7 +38,10 @@ import { FooterComponent } from './pages/westlaw-prototype/components/footer/foo
     SidenavComponent,
     ButtonComponent,
     SelectComponent,
-    FooterComponent
+    FooterComponent,
+    NewResearchComponent,
+    SearchBarComponent,
+    ToggleComponent
   ],
   imports: [
     BrowserModule,

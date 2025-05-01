@@ -12,18 +12,18 @@ export class SidenavComponent {
   collapsed = false;
   
   menuButtons = [
-    { icon: 'fa-circle-plus', label: 'New chat' },
-    { icon: 'fa-message-dots', label: 'Current Chat' },
-    { icon: 'fa-clock-rotate-left', label: 'History' },
-    { icon: 'contact_mail', label: 'Browse' },
-    { icon: 'contact_mail', label: 'Folders' },
-    { icon: 'contact_mail', label: 'More tools' }
+    { icon: 'circle-plus', label: 'New chat' },
+    { icon: 'message-dots', label: 'Current Chat' },
+    { icon: 'clock-rotate-left', label: 'History' },
+    { icon: 'books', label: 'Browse' },
+    { icon: 'folders', label: 'Folders' },
+    { icon: 'grid-2', label: 'More tools' }
   ];
 
   bottomButtons = [
-    { icon: 'fa-stopwatch', label: 'Client: 345343' },
-    { icon: 'fa-circle-question', label: 'Help' },
-    { icon: 'fa-circle-user', label: 'Account' }
+    { icon: 'stopwatch', label: 'Client: 345343' },
+    { icon: 'circle-question', label: 'Help' },
+    { icon: 'circle-user', label: 'Account' }
   ];
 
   toggleNav() {

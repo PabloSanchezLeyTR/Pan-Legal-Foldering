@@ -1,0 +1,19 @@
+<div class="search-bar">
+    <div class="input-container">
+        <div contenteditable="true"  data-placeholder="Ask a question or enter the topic you’d like to research..." (input)="inputChanged($event)">
+
+        </div>
+    </div>
+    <div class="button-groups">
+        <div class="left-buttons">
+            <app-toggle [options]="toggleOptions"></app-toggle>
+            <app-button [label]="'New york'" [icon]="'location-dot'" [color]="'blue'" [includeDropdown]="true" ></app-button>
+        </div>
+        <div class="right-buttons">
+            <app-button [expanded]="false" [icon]="'paperclip'" [color]="'blue'"></app-button>
+            <app-button [expanded]="false" [icon]="'book-sparkles'" [color]="'blue'"></app-button>
+            <app-button [expanded]="false" [icon]="'at'" [color]="'blue'"></app-button>
+            <app-button [expanded]="false" [icon]="'arrow-up'" [color]="'blue'" [disabled]="!inputContent || inputContent.length == 0"></app-button>
+        </div>
+    </div>
+</div>
