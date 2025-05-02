@@ -14,6 +14,7 @@ export class SearchBarComponent {
   @ViewChild('responseTimeMenu') responseTimeMenu!: ElementRef<HTMLDivElement>;
 
   openAttachmentDialog: boolean = false;
+  openTaskLibraryDialog: boolean = false;
   @ViewChild('dialog', { static: false }) attachmentDialog: any;
 
   @ViewChildren('dialog') dialogRefs?: QueryList<ElementRef>;
@@ -101,6 +102,15 @@ export class SearchBarComponent {
         this.attachmentDialog.nativeElement.focus();
       });
     }
+  }
+
+  clickTaskLibrary() {
+    this.openTaskLibraryDialog = !this.openTaskLibraryDialog;
+    // if (this.openTaskLibraryDialog) {
+    //   setTimeout(() => {
+    //     this.taskLibraryDialog.nativeElement.focus();
+    //   });
+    // }
   }
 
   redirectToResearch() {
