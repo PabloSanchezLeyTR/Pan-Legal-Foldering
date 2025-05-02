@@ -1,22 +1,48 @@
 <div class="search-bar">
     <div class="input-container">
-        <div contenteditable="true"  data-placeholder="Ask a question or enter the topic you’d like to research..." (input)="inputChanged($event)">
+        <div contenteditable="true" data-placeholder="Ask a question or enter the topic you’d like to research..."
+            (input)="inputChanged($event)">
 
         </div>
     </div>
     <div class="button-groups">
         <div class="left-buttons">
             <app-toggle [options]="toggleOptions" (selectedOptionChanged)="toggleOptionSelected($event)"></app-toggle>
-            <app-button [label]="'New york'" [icon]="'location-dot'" [color]="'blue'" [includeDropdown]="true"></app-button>
+            <app-button [label]="'New york'" [icon]="'location-dot'" [color]="'blue'"
+                [includeDropdown]="true"></app-button>
         </div>
         <div class="right-buttons">
-            <app-button [expanded]="false" [icon]="'paperclip'" [color]="'blue'"></app-button>
+            <app-button [expanded]="false" [icon]="'paperclip'" [color]="'blue'" (click)="clickHandler()"></app-button>
             <app-button [expanded]="false" [icon]="'book-sparkles'" [color]="'blue'"></app-button>
             <app-button [expanded]="false" [icon]="'at'" [color]="'blue'"></app-button>
-            <app-button [expanded]="false" [icon]="'arrow-up'" [color]="'blue'" [disabled]="!inputContent || inputContent.length == 0"></app-button>
+            <app-button [expanded]="false" [icon]="'arrow-up'" [color]="'blue'"
+                [disabled]="!inputContent || inputContent.length == 0"></app-button>
         </div>
     </div>
     <div class="response-time-menu" *ngIf="showResponseTimeMenu" #responseTimeMenu>
         <app-response-time-menu></app-response-time-menu>
     </div>
+
+    <saf-dialog class="" #attachmentDialog class="attachment-dialog" id="button-dialog-overlay" modal="false" is-alert="false" is-header="true" is-footer="true"
+        no-focus-trap="false" dialog-title="Attach files" [hidden]="!openAttachmentDialog" (hide)="closeDialog()"
+        triggerId="button-dialog-trigger">
+        <div class="dialog-info">
+            <saf-icon class="shield-icon" [appearance]="'solid'" icon-name="shield-check" size="16px"></saf-icon>
+            <span>
+                The security and privacy of your data is important to us. We employ multiple layers of security to keep it safe.
+            </span>
+            <saf-icon class="info-icon" icon-name="circle-info" size="16px"></saf-icon>
+        </div>
+        <div class="dialog-content">
+            <div class="drop-area">
+                <span class="drop-area-text">Select or drag files into this space.</span>
+                <app-button [label]="'Select'" [addBorder]="true"></app-button>
+            </div>
+        </div>
+        
+        <div slot="footer" style="display: flex; gap: 12px; justify-content: flex-end; width: 100%">
+            <app-button [label]="'Cancel'" [addBorder]="true" (click)="closeDialog()"></app-button>
+            <app-button [label]="'Attach files'" [backgroundColor]="'blue'" [color]="'white'"></app-button>
+        </div>
+    </saf-dialog>
 </div>

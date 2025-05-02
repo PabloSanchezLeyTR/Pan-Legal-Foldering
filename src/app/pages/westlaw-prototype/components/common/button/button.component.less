@@ -8,6 +8,7 @@
   border: none;
   height: 32px;
   padding: 0.5rem 0.75rem;
+  border-radius: 5px;
 }
 
 .base-button:not(.expanded) {
@@ -15,6 +16,10 @@
   max-width: 34px;
   padding: 0 0.5rem;
   margin-left: 0.4rem;
+}
+
+.border {
+  border: 2px solid var(--saf-color-border-strong) !important;
 }
 
 .base-button:disabled {
@@ -44,12 +49,24 @@
   vertical-align: middle;
 }
 
+.button-text.no-icon {
+  padding-left: 0px;
+}
+
 .base-button i {
   font-size: 16px;
 }
 
 .blue {
   color: #032e5b;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.background-blue {
+  background-color: #032E5B;
 }
 
 .dropdown-icon {

@@ -10,7 +10,9 @@ export class ButtonComponent {
   @Input() icon!: string;
   @Input() label!: string;
   @Input() expanded: boolean = true;
-  @Input() color!: string | undefined;
+  @Input() color: string = "";
+  @Input() backgroundColor: string = "";
+  @Input() addBorder: boolean = false;
   @Input() includeDropdown: boolean | undefined = false;
   @Input() active: boolean | undefined = false;
   @Input() disabled: boolean | undefined = false;

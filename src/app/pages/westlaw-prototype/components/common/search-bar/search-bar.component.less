@@ -17,7 +17,7 @@
   padding: 4.5px 10px;
 }
 
-div[contenteditable=true]:empty::before {
+div[contenteditable="true"]:empty::before {
   content: attr(data-placeholder);
   opacity: 0.6; /* Adjust as needed */
   pointer-events: none; /* Ensures the placeholder doesn't interfere with clicks */
@@ -76,4 +76,58 @@ div[contenteditable=true]:empty::before {
   position: absolute;
   top: 95%;
   left: 20%;
+}
+
+.attachment-dialog::part(control) {
+  width: 816px;
+  height: 572px;
+}
+
+.dialog-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+
+  span {
+    font-family: Source Sans 3;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 135%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin-top: 5px;
+  }
+}
+
+.shield-icon {
+  color: #387c2b;
+}
+
+.info-icon {
+  color: #005da2;
+  margin-left: 10px;
+}
+
+.drop-area {
+  margin-top: 20px;
+  width: 768px;
+  height: 124px;
+  border: 1px dashed var(--saf-color-border-stronger) !important;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.drop-area-text {
+  font-family: Source Sans 3;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 135%;
+  letter-spacing: 0px;
+  text-align: center;
 }

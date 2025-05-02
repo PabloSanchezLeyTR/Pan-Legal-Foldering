@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { ToggleOption } from '../../../models/toggle-options';
 
 @Component({
@@ -10,10 +10,28 @@ export class SearchBarComponent {
 
   @ViewChild('responseTimeMenu') responseTimeMenu!: ElementRef<HTMLDivElement>;
 
+  openAttachmentDialog: boolean = false;
+  @ViewChild('dialog', { static: false }) attachmentDialog: any;
+
+  @ViewChildren('dialog') dialogRefs?: QueryList<ElementRef>;
+
+  boundCloseDialog: () => void;
+
 
   constructor(private renderer: Renderer2) {
     this.renderer.listen('document', 'click', (event: Event) => {
       this.onDocumentClick(event);
+    });
+
+    this.boundCloseDialog = this.closeDialog.bind(this);
+  }
+
+  ngAfterViewInit() {
+    this.dialogRefs?.changes.subscribe((dialogRefs: QueryList<ElementRef>) => {
+      const dialogRef = dialogRefs.first;
+      if (dialogRef) {
+        dialogRef.nativeElement.addEventListener('hide', this.boundCloseDialog);
+      }
     });
   }
 
@@ -52,6 +70,21 @@ export class SearchBarComponent {
       if (this.showResponseTimeMenu) {
         this.showResponseTimeMenu = false;
       }
+    }
+  }
+
+  closeDialog() {
+    this.dialogRefs?.first.nativeElement.removeEventListener('hide', this.boundCloseDialog);
+    this.attachmentDialog.nativeElement.hide();
+    this.openAttachmentDialog = false;
+  }
+
+  clickHandler() {
+    this.openAttachmentDialog = !this.openAttachmentDialog;
+    if (this.openAttachmentDialog) {
+      setTimeout(() => {
+        this.attachmentDialog.nativeElement.focus();
+      });
     }
   }
 
