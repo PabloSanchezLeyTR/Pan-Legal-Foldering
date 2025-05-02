@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ToggleOption } from '../../../models/toggle-options';
 
 @Component({
@@ -12,10 +12,14 @@ export class ToggleComponent {
   selectedOption!: ToggleOption | undefined;
   @Output() selectedOptionChanged: EventEmitter<ToggleOption> = new EventEmitter<ToggleOption>();
 
+  constructor(private cdr: ChangeDetectorRef) {
+  }
+
   ngAfterViewInit() {
     if (this.options && this.options.length > 0) {
       this.selectedOption = this.options[0];
     }
+    this.cdr.detectChanges();
   }
 
   selectOption(option: ToggleOption) {

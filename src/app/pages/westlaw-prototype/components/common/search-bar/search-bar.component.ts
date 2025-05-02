@@ -75,13 +75,13 @@ export class SearchBarComponent {
   toggleOptionSelected(option: ToggleOption) {
     this.selectedOption = option;
     if (option.label === 'Deep Research') {
-      setTimeout(() => {this.showResponseTimeMenu = true});
+      setTimeout(() => { this.showResponseTimeMenu = true });
     }
   }
 
 
   onDocumentClick(event: any) {
-    if (!this.responseTimeMenu.nativeElement.contains(event.target)) {
+    if (!this.responseTimeMenu?.nativeElement.contains(event.target)) {
       if (this.showResponseTimeMenu) {
         this.showResponseTimeMenu = false;
       }
@@ -104,10 +104,12 @@ export class SearchBarComponent {
   }
 
   redirectToResearch() {
-    if(this.selectedOption?.label === 'Deep Research') {
-      this.router.navigate(['/westlaw-prototype/deep-research/research-confirmation']);
-    } else if(this.selectedOption?.label === 'Keyword Search') {
-      this.router.navigate(['/westlaw-prototype/keyword-search']);
+    if (this.inputContent && this.inputContent.length > 0) {
+      if (this.selectedOption?.label === 'Deep Research') {
+        this.router.navigate(['/westlaw-prototype/deep-research/research-confirmation']);
+      } else if (this.selectedOption?.label === 'Keyword Search') {
+        this.router.navigate(['/westlaw-prototype/keyword-search']);
+      }
     }
   }
 

@@ -15,8 +15,8 @@
             <app-button [expanded]="false" [icon]="'paperclip'" [color]="'blue'" (click)="clickHandler()"></app-button>
             <app-button [expanded]="false" [icon]="'book-sparkles'" [color]="'blue'"></app-button>
             <app-button [expanded]="false" [icon]="'at'" [color]="'blue'"></app-button>
-            <app-button [expanded]="false" [icon]="'arrow-up'" [color]="'blue'"
-                [disabled]="!inputContent || inputContent.length == 0"></app-button>
+            <app-button [expanded]="false" [icon]="'arrow-up'" [backgroundColor]="'blue'" [color]="'white'"
+                [disabled]="!inputContent || inputContent.length == 0" (click)="redirectToResearch()"></app-button>
         </div>
     </div>
     <div class="search-suggestions" *ngIf="showSearchSuggestions">
