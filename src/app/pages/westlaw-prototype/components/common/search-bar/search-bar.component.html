@@ -19,6 +19,18 @@
                 [disabled]="!inputContent || inputContent.length == 0"></app-button>
         </div>
     </div>
+    <div class="search-suggestions" *ngIf="showSearchSuggestions">
+        <div class="suggestion-item" *ngFor="let suggestion of searchSuggestions">
+            <div class="suggestion-content">
+                <span class="suggestion-title">{{ suggestion.title }}</span>
+                <span class="suggestion-description">{{ suggestion.description }}</span>
+            </div>
+            <div class="suggestion-icon">
+                <saf-icon icon-name="arrow-up-right" size="16px"></saf-icon>
+            </div>
+        </div>
+    </div>
+
     <div class="response-time-menu" *ngIf="showResponseTimeMenu" #responseTimeMenu>
         <app-response-time-menu></app-response-time-menu>
     </div>

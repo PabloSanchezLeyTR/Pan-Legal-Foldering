@@ -1,5 +1,7 @@
 import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { ToggleOption } from '../../../models/toggle-options';
+import { SearchSuggestion } from '../../../models/search-suggestion';
+import { SEARCH_SUGGESTIONS } from '../../../data/search-suggestions';
 
 @Component({
   selector: 'app-search-bar',
@@ -17,6 +19,9 @@ export class SearchBarComponent {
 
   boundCloseDialog: () => void;
 
+  searchSuggestions: SearchSuggestion[] = SEARCH_SUGGESTIONS;
+
+  showSearchSuggestions: boolean = false;
 
   constructor(private renderer: Renderer2) {
     this.renderer.listen('document', 'click', (event: Event) => {
@@ -56,6 +61,12 @@ export class SearchBarComponent {
   inputChanged(event: Event) {
     const input = event.target as HTMLDivElement;
     this.inputContent = input.innerText;
+
+    if (this.inputContent.length >= 3 && this.inputContent.length <= 10) {
+      this.showSearchSuggestions = true;
+    } else {
+      this.showSearchSuggestions = false;
+    }
   }
 
   toggleOptionSelected(option: ToggleOption) {
