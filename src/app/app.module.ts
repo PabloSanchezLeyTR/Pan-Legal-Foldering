@@ -30,6 +30,7 @@ import { ResponseTimeMenuComponent } from './pages/westlaw-prototype/components/
 import { KeywordSearchResultsComponent } from './pages/westlaw-prototype/components/research/keyword-search-results/keyword-search-results.component';
 import { DeepResearchConfirmationComponent } from './pages/westlaw-prototype/components/research/deep-research-confirmation/deep-research-confirmation.component';
 import { DeepResearchResultComponent } from './pages/westlaw-prototype/components/research/deep-research-result/deep-research-result.component';
+import { LoadingStateBarsComponent } from './pages/westlaw-prototype/components/research/deep-research-result/loading-state-bars/loading-state-bars.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -49,7 +50,8 @@ import { DeepResearchResultComponent } from './pages/westlaw-prototype/component
     ResponseTimeMenuComponent,
     KeywordSearchResultsComponent,
     DeepResearchConfirmationComponent,
-    DeepResearchResultComponent
+    DeepResearchResultComponent,
+    LoadingStateBarsComponent
   ],
   imports: [
     BrowserModule,
