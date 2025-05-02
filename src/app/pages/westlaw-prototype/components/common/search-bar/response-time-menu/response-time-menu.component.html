@@ -1,0 +1,29 @@
+<!-- response-time-menu.component.html -->
+<div class="response-time-menu">
+    <h2 class="title">Response Time</h2>
+    <h4 class="subtitle">Select your preferred response time</h4>
+    <div class="slider-container">
+        <div class="slider">
+            <input type="range" min="1" max="6" step="1" [(ngModel)]="selectedTime" (input)="updateTime()" #rangeInput />
+        </div>
+        <div class="slider-lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="slider-labels">
+            <span>~3min</span>
+            <span>~5min</span>
+            <span>~10min</span>
+            <span>~15min</span>
+        </div>
+    </div>
+    <div class="time-explanation">
+        <div class="explanation-title">
+            Detailed Research (~{{ responseTime }}min)
+        </div>
+        <div class="explanation-subtitle">
+            Systematic and thorough analysis
+        </div>
+    </div>
+</div>

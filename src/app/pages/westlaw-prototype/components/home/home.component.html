@@ -1,0 +1,19 @@
+
+
+<!-- app.component.html -->
+<div class="main-page" [class.collapsed]="sidebarCollapsed">
+    <aside>
+        <app-sidenav (collapseChanged)="toggleSidebar($event)"></app-sidenav>
+    </aside>
+    <main>
+        <header>
+            <h2 class="app-title">Westlaw</h2>
+        </header>
+        <router-outlet></router-outlet>
+    </main>
+    <footer>
+        <app-footer></app-footer>
+    </footer>
+</div>
+    
+    

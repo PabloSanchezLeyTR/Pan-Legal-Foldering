@@ -18,6 +18,19 @@ import { WjGridGrouppanelModule } from '@grapecity/wijmo.angular2.grid.grouppane
 import { WjGridFilterModule } from '@grapecity/wijmo.angular2.grid.filter';
 import { WjGridSearchModule } from '@grapecity/wijmo.angular2.grid.search';
 import { WjInputModule } from '@grapecity/wijmo.angular2.input';
+import { HomeComponent } from './pages/westlaw-prototype/components/home/home.component';
+import { SidenavComponent } from './pages/westlaw-prototype/components/sidenav/sidenav.component';
+import { ButtonComponent } from './pages/westlaw-prototype/components/common/button/button.component';
+import { SelectComponent } from './pages/westlaw-prototype/components/common/select/select.component';
+import { FooterComponent } from './pages/westlaw-prototype/components/footer/footer.component';
+import { NewResearchComponent } from './pages/westlaw-prototype/components/research/new-research/new-research.component';
+import { SearchBarComponent } from './pages/westlaw-prototype/components/common/search-bar/search-bar.component';
+import { ToggleComponent } from './pages/westlaw-prototype/components/common/toggle/toggle.component';
+import { ResponseTimeMenuComponent } from './pages/westlaw-prototype/components/common/search-bar/response-time-menu/response-time-menu.component';
+import { KeywordSearchResultsComponent } from './pages/westlaw-prototype/components/research/keyword-search-results/keyword-search-results.component';
+import { DeepResearchConfirmationComponent } from './pages/westlaw-prototype/components/research/deep-research-confirmation/deep-research-confirmation.component';
+import { DeepResearchResultComponent } from './pages/westlaw-prototype/components/research/deep-research-result/deep-research-result.component';
+import { LoadingStateBarsComponent } from './pages/westlaw-prototype/components/research/deep-research-result/loading-state-bars/loading-state-bars.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -25,7 +38,20 @@ import { WjInputModule } from '@grapecity/wijmo.angular2.input';
     AppComponent,
     MyResearchComponent,
     ResearchHistoryComponent,
-    WijmoDemoComponent
+    WijmoDemoComponent,
+    HomeComponent,
+    SidenavComponent,
+    ButtonComponent,
+    SelectComponent,
+    FooterComponent,
+    NewResearchComponent,
+    SearchBarComponent,
+    ToggleComponent,
+    ResponseTimeMenuComponent,
+    KeywordSearchResultsComponent,
+    DeepResearchConfirmationComponent,
+    DeepResearchResultComponent,
+    LoadingStateBarsComponent
   ],
   imports: [
     BrowserModule,

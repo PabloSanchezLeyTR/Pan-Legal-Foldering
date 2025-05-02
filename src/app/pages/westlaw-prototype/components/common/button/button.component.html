@@ -1,0 +1,7 @@
+<button class="base-button" [disabled]="disabled" [ngClass]="'background-' + backgroundColor" [class.expanded]="expanded" [class.border]="addBorder">
+    <div class="button-content" [ngClass]="color" [class.active]="active">
+        <saf-icon [iconName]="icon" size="16px"></saf-icon>
+        <span class="button-text" *ngIf="expanded" [class.no-icon]="!icon || icon.length == 0">{{label}}</span>
+        <saf-icon class="dropdown-icon" *ngIf="includeDropdown" icon-name="chevron-down" size="16px"></saf-icon>
+    </div>
+</button>

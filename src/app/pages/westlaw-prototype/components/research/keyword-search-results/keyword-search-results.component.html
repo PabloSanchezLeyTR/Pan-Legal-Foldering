@@ -1,0 +1,26 @@
+<!-- keyword-search-result.component.html -->
+<div class="centered-page">
+    <div class="keyword-search-result">
+        <div class="utility-bar">
+            <div class="content-type-selector">
+                <app-select [options]="contentTypes" [label]="'Content type:'"
+                    [(ngModel)]="selectedContentType"></app-select>
+            </div>
+            <div class="filters">
+                <div class="filter-title">Filter options:</div>
+                <input type="date" placeholder="Select Date" />
+                <input type="text" placeholder="Search Within" />
+            </div>
+        </div>
+        <div class="results-list">
+            <div class="result-item" *ngFor="let result of results">
+                <a [href]="result.link" class="result-title">{{ result.title }}</a>
+                <div class="result-subtitle">{{ result.subtitle }}</div>
+                <p class="result-summary">{{ result.summary }}</p>
+                <ul class="result-snippets">
+                    <li *ngFor="let snippet of result.snippets">{{ snippet }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

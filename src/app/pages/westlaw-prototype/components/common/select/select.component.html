@@ -1,0 +1,8 @@
+<!-- select.component.html -->
+<div class="select-container">
+    <span class="select-label">{{ label }}</span>
+    <select [(ngModel)]="selectedValue">
+      <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+    </select>
+</div>
+  
