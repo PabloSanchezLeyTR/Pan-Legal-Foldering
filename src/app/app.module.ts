@@ -27,6 +27,8 @@ import { NewResearchComponent } from './pages/westlaw-prototype/components/resea
 import { SearchBarComponent } from './pages/westlaw-prototype/components/common/search-bar/search-bar.component';
 import { ToggleComponent } from './pages/westlaw-prototype/components/common/toggle/toggle.component';
 import { ResponseTimeMenuComponent } from './pages/westlaw-prototype/components/common/search-bar/response-time-menu/response-time-menu.component';
+import { KeywordSearchResultsComponent } from './pages/westlaw-prototype/components/research/keyword-search-results/keyword-search-results.component';
+import { DeepResearchConfirmationComponent } from './pages/westlaw-prototype/components/research/deep-research-confirmation/deep-research-confirmation.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -43,7 +45,9 @@ import { ResponseTimeMenuComponent } from './pages/westlaw-prototype/components/
     NewResearchComponent,
     SearchBarComponent,
     ToggleComponent,
-    ResponseTimeMenuComponent
+    ResponseTimeMenuComponent,
+    KeywordSearchResultsComponent,
+    DeepResearchConfirmationComponent
   ],
   imports: [
     BrowserModule,

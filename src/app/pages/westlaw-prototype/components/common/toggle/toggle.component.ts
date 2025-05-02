@@ -12,6 +12,12 @@ export class ToggleComponent {
   selectedOption!: ToggleOption | undefined;
   @Output() selectedOptionChanged: EventEmitter<ToggleOption> = new EventEmitter<ToggleOption>();
 
+  ngAfterViewInit() {
+    if (this.options && this.options.length > 0) {
+      this.selectedOption = this.options[0];
+    }
+  }
+
   selectOption(option: ToggleOption) {
     this.selectedOption = option;
     this.selectedOptionChanged.emit(this.selectedOption);

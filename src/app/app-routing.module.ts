@@ -5,6 +5,8 @@ import { MyResearchComponent } from './pages/my-research/my-research.component';
 import { WijmoDemoComponent } from './pages/jaime-research/jaime-research.component';
 import { HomeComponent } from './pages/westlaw-prototype/components/home/home.component';
 import { NewResearchComponent } from './pages/westlaw-prototype/components/research/new-research/new-research.component';
+import { DeepResearchConfirmationComponent } from './pages/westlaw-prototype/components/research/deep-research-confirmation/deep-research-confirmation.component';
+import { KeywordSearchResultsComponent } from './pages/westlaw-prototype/components/research/keyword-search-results/keyword-search-results.component';
 
 const routes: Routes = [
   { path: 'app-jaime-research', component: WijmoDemoComponent},
@@ -14,6 +16,14 @@ const routes: Routes = [
     {
       path: 'new-research',
       component: NewResearchComponent
+    },
+    {
+      path: 'deep-research/research-confirmation',
+      component: DeepResearchConfirmationComponent
+    },
+    {
+      path: 'keyword-search',
+      component: KeywordSearchResultsComponent
     }
   ]},
   {path: '404', component: WijmoDemoComponent},

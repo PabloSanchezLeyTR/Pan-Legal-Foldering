@@ -2,6 +2,7 @@ import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } 
 import { ToggleOption } from '../../../models/toggle-options';
 import { SearchSuggestion } from '../../../models/search-suggestion';
 import { SEARCH_SUGGESTIONS } from '../../../data/search-suggestions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -23,7 +24,7 @@ export class SearchBarComponent {
 
   showSearchSuggestions: boolean = false;
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2, private router: Router) {
     this.renderer.listen('document', 'click', (event: Event) => {
       this.onDocumentClick(event);
     });
@@ -56,6 +57,8 @@ export class SearchBarComponent {
     }
   ];
 
+  selectedOption: ToggleOption = this.toggleOptions[0];
+
   showResponseTimeMenu: boolean = false;
 
   inputChanged(event: Event) {
@@ -70,6 +73,7 @@ export class SearchBarComponent {
   }
 
   toggleOptionSelected(option: ToggleOption) {
+    this.selectedOption = option;
     if (option.label === 'Deep Research') {
       setTimeout(() => {this.showResponseTimeMenu = true});
     }
@@ -96,6 +100,14 @@ export class SearchBarComponent {
       setTimeout(() => {
         this.attachmentDialog.nativeElement.focus();
       });
+    }
+  }
+
+  redirectToResearch() {
+    if(this.selectedOption?.label === 'Deep Research') {
+      this.router.navigate(['/westlaw-prototype/deep-research/research-confirmation']);
+    } else if(this.selectedOption?.label === 'Keyword Search') {
+      this.router.navigate(['/westlaw-prototype/keyword-search']);
     }
   }
 
