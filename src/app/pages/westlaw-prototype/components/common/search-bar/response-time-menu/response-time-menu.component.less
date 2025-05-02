@@ -1,0 +1,137 @@
+.response-time-menu {
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  width: 391px;
+  height: 189px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px 4px #1F1F1F1A;
+}
+
+.title {
+  font-family: Source Sans 3;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  margin: 0;
+}
+
+.subtitle {
+  font-family: Source Sans 3;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 135%;
+  letter-spacing: 0px;
+  margin: 0;
+}
+
+.slider-container {
+  position: relative;
+  height: 100px;
+  overflow-x: hidden;
+}
+
+.slider {
+  width: 100%;
+  text-align: center;
+}
+
+.slider input[type="range"] {
+  width: 125%;
+  margin-left: -12%;
+  appearance: none;
+  background-color: #ddd;
+  -webkit-appearance: none;
+}
+
+.slider input[type="range"]::-webkit-slider-runnable-track {
+  height: 10px;
+  background: linear-gradient(to right, #065db6, #065db6), #ddd;
+  background-size: var(--background-size, 0%) 100%;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+}
+
+.slider input[type="range"]::-webkit-slider-thumb {
+  width: 24px;
+  height: 24px;
+  background-color: #065db6;
+  border-radius: 50%;
+  cursor: pointer;
+  appearance: none;
+  margin-top: -7px;
+}
+
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #065db6;
+}
+input[type="range"]::-moz-range-track {
+  background-color: #ddd;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: #065db6;
+}
+input[type="range"]::-ms-fill-upper {
+  background-color: #ddd;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 0 30px;
+
+  span {
+    font-family: Source Sans 3;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+.slider-lines {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.slider-lines .line {
+  width: 2px;
+  height: 20px;
+  background: #ddd;
+}
+
+.explanation-title {
+  font-family: Source Sans 3;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  vertical-align: middle;
+}
+
+.explanation-subtitle {
+  font-family: Source Sans 3;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 135%;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #666666;
+}

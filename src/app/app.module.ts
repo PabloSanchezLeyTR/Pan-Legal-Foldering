@@ -26,6 +26,7 @@ import { FooterComponent } from './pages/westlaw-prototype/components/footer/foo
 import { NewResearchComponent } from './pages/westlaw-prototype/components/research/new-research/new-research.component';
 import { SearchBarComponent } from './pages/westlaw-prototype/components/common/search-bar/search-bar.component';
 import { ToggleComponent } from './pages/westlaw-prototype/components/common/toggle/toggle.component';
+import { ResponseTimeMenuComponent } from './pages/westlaw-prototype/components/common/search-bar/response-time-menu/response-time-menu.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -41,7 +42,8 @@ import { ToggleComponent } from './pages/westlaw-prototype/components/common/tog
     FooterComponent,
     NewResearchComponent,
     SearchBarComponent,
-    ToggleComponent
+    ToggleComponent,
+    ResponseTimeMenuComponent
   ],
   imports: [
     BrowserModule,

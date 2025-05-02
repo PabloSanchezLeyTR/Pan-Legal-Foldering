@@ -10,7 +10,7 @@ export class ToggleComponent {
 
   @Input() options!: ToggleOption[];
   selectedOption!: ToggleOption | undefined;
-  @Output() selectedOptionChanged: EventEmitter<ToggleOption> = new EventEmitter();
+  @Output() selectedOptionChanged: EventEmitter<ToggleOption> = new EventEmitter<ToggleOption>();
 
   selectOption(option: ToggleOption) {
     this.selectedOption = option;
