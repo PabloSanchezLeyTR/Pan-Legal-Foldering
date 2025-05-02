@@ -175,3 +175,82 @@ div[contenteditable="true"]:empty::before {
   height: 32px;
   width: 32px;
 }
+
+// TODO: move styles to Task Library Dialog component when available
+
+.task-library-dialog::part(control) {
+  width: 1000px;
+  height: 750px;
+}
+
+.filters-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  height: 600px;
+
+  .filter-sidebar {
+    width: 25%;
+    border-right: 1px solid #d2d2d2;
+
+    .filter-section {
+
+      > *,
+      saf-checkbox::part(root) {
+        padding: 8px 0;
+      }
+
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 16px;
+    }
+  }
+
+  .results-panel {
+    width: 75%;
+    margin-left: 16px;
+
+    .results-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+    }
+
+    .results-cards {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 10px;
+
+      .result-card {
+        width: 48%;
+        background-color: #F5F6F7;
+        border: 1px solid var(--saf-color-gray-400);
+        min-height: 200px;
+        border-radius: 8px;
+        padding: 16px;
+
+        .card-title {
+          saf-icon {
+            margin-left: 8px;
+          }
+        }
+
+        .class-paragraph {
+          min-height: 113px;
+        }
+
+        .workflow-footer {
+          display: flex;
+
+          .steps-counter {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}
