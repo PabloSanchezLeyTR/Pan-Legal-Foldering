@@ -39,6 +39,11 @@ const routes: Routes = [
     {
       path: 'keyword-search',
       component: KeywordSearchResultsComponent
+    },
+    {
+      path: '',
+      redirectTo: 'new-research',
+      pathMatch: 'full'
     }
   ]},
   {path: '404', component: WijmoDemoComponent},
