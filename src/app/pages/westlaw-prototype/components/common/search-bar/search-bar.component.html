@@ -13,7 +13,7 @@
         </div>
         <div class="right-buttons">
             <app-button [expanded]="false" [icon]="'paperclip'" [color]="'blue'" (click)="clickHandler()"></app-button>
-            <app-button [expanded]="false" [icon]="'book-sparkles'" [color]="'blue'"></app-button>
+            <app-button [expanded]="false" [icon]="'book-sparkles'" [color]="'blue'" (click)="clickTaskLibrary()"></app-button>
             <app-button [expanded]="false" [icon]="'at'" [color]="'blue'"></app-button>
             <app-button [expanded]="false" [icon]="'arrow-up'" [backgroundColor]="'blue'" [color]="'white'"
                 [disabled]="!inputContent || inputContent.length == 0" (click)="redirectToResearch()"></app-button>
@@ -51,10 +51,138 @@
                 <app-button [label]="'Select'" [addBorder]="true"></app-button>
             </div>
         </div>
-        
+
         <div slot="footer" style="display: flex; gap: 12px; justify-content: flex-end; width: 100%">
             <app-button [label]="'Cancel'" [addBorder]="true" (click)="closeDialog()"></app-button>
             <app-button [label]="'Attach files'" [backgroundColor]="'blue'" [color]="'white'"></app-button>
         </div>
     </saf-dialog>
+
+    <!-- Task Library Dialog -->
+    <saf-dialog class="" #taskLibraryDialog class="task-library-dialog" id="button-dialog-overlay" modal="false" is-alert="false" is-header="true" is-footer="true"
+    no-focus-trap="false" dialog-title="Task Library" [hidden]="!openTaskLibraryDialog" (hide)="closeDialog()"
+    triggerId="button-dialog-trigger">
+
+    <div class="dialog content">
+
+      <div class="search-section">
+        <saf-search-field density="inherit" a11y-aria-description="search workflows and prompts" placeholder="Search Workflows and prompts">
+        </saf-search-field>
+      </div>
+
+      <div class="filters-wrapper">
+
+        <div class="filter-sidebar">
+          <div class="filter-section">
+            <saf-text appearance="heading-md" density="inherit">Type</saf-text>
+            <saf-checkbox>Workflows</saf-checkbox>
+            <saf-checkbox>Prompts</saf-checkbox>
+          </div>
+
+          <div class="filter-section">
+            <saf-text appearance="heading-md" density="inherit">Category</saf-text>
+            <saf-checkbox>Research</saf-checkbox>
+            <saf-checkbox>Review</saf-checkbox>
+            <saf-checkbox>Draft</saf-checkbox>
+          </div>
+
+          <div class="filter-section">
+            <saf-text appearance="heading-md" density="inherit">Tag</saf-text>
+            <saf-checkbox>Litigation</saf-checkbox>
+            <saf-checkbox>Transnational</saf-checkbox>
+          </div>
+
+          <div class="filter-section">
+            <saf-text appearance="heading-md" density="inherit">Access</saf-text>
+            <saf-checkbox>Favorites</saf-checkbox>
+            <saf-checkbox>Private</saf-checkbox>
+            <saf-checkbox>Created by CoCounsel</saf-checkbox>
+            <saf-checkbox>Shared with app</saf-checkbox>
+          </div>
+
+          <div class="bottom-toolbar">
+            <saf-anchor href="#"><saf-icon appearance="light" icon-name="cog"></saf-icon>
+              Manage Library</saf-anchor>
+          </div>
+        </div>
+
+        <div class="results-panel">
+          <div class="results-title">
+            <saf-text appearance="heading-md" density="inherit" class="card-title">Showing 42 results</saf-text>
+            <app-button [label]="'Sort by recent'" [icon]="'arrow-up-arrow-down'" [addBorder]="true" [backgroundColor]="'white'" [color]="'blue'"></app-button>
+          </div>
+          <div class="results-cards">
+            <div class="result-card">
+              <saf-text appearance="heading-md" density="inherit" class="card-title">Legal Document Analysis</saf-text>
+              <p class="class-paragraph">Identify potential issues with a document’s cited authority and quotations.</p>
+              <div class="workflow-footer">
+                <saf-text density="inherit">Workflow</saf-text>
+                <saf-text density="inherit" class="steps-counter">•  4 steps</saf-text>
+              </div>
+            </div>
+
+            <div class="result-card">
+              <saf-text appearance="heading-md" density="inherit" class="card-title">Jurisdictional Survey <saf-icon appearance="light" icon-name="user-group"></saf-icon></saf-text>
+              <p class="class-paragraph">Research and summarize relevant laws and regulations across multiple jurisdictions.</p>
+              <div class="workflow-footer">
+                <saf-text density="inherit">Workflow</saf-text>
+                <saf-text density="inherit" class="steps-counter">•  4 steps</saf-text>
+              </div>
+            </div>
+
+            <div class="result-card">
+              <saf-text appearance="heading-md" density="inherit" class="card-title">Find Claims</saf-text>
+              <p class="class-paragraph">Identify and analyze potential legal claims based on provided facts and documents.</p>
+
+              <div class="workflow-footer">
+                <saf-text density="inherit">Workflow </saf-text>
+                <saf-text density="inherit" class="steps-counter">•  4 steps</saf-text>
+              </div>
+
+            </div>
+
+            <div class="result-card">
+              <saf-text appearance="heading-md" density="inherit" class="card-title">Draft Demand Letter</saf-text>
+              <p class="class-paragraph">Prepare a claim with supporting facts and desired resolution.</p>
+              <div class="workflow-footer">
+                <saf-text density="inherit">Workflow </saf-text>
+                <saf-text density="inherit" class="steps-counter">•  4 steps</saf-text>
+              </div>
+            </div>
+
+            <div class="result-card">
+              <saf-text appearance="heading-md" density="inherit" class="card-title">Draft Complaint</saf-text>
+              <p class="class-paragraph">Create complaint sections based on parties involved, jurisdiction, case type, and reference documents on facts.</p>
+              <div class="workflow-footer">
+                <saf-text density="inherit">Workflow </saf-text>
+                <saf-text density="inherit" class="steps-counter">•  4 steps</saf-text>
+              </div>
+            </div>
+
+            <div class="result-card">
+              <saf-text appearance="heading-md" density="inherit" class="card-title">Timeline</saf-text>
+              <p class="class-paragraph">Create a detailed timeline of events from case documents and evidence.</p>
+              <div class="workflow-footer">
+                <saf-text density="inherit">Workflow </saf-text>
+                <saf-text density="inherit" class="steps-counter">•  4 steps</saf-text>
+              </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+</saf-dialog>
 </div>

@@ -31,6 +31,7 @@ import { KeywordSearchResultsComponent } from './pages/westlaw-prototype/compone
 import { DeepResearchConfirmationComponent } from './pages/westlaw-prototype/components/research/deep-research-confirmation/deep-research-confirmation.component';
 import { DeepResearchResultComponent } from './pages/westlaw-prototype/components/research/deep-research-result/deep-research-result.component';
 import { CaseDetailsComponent } from './pages/westlaw-prototype/components/research/case-details/case-details.component';
+import { LoadingStateBarsComponent } from './pages/westlaw-prototype/components/research/deep-research-result/loading-state-bars/loading-state-bars.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -51,7 +52,8 @@ import { CaseDetailsComponent } from './pages/westlaw-prototype/components/resea
     KeywordSearchResultsComponent,
     DeepResearchConfirmationComponent,
     DeepResearchResultComponent,
-    CaseDetailsComponent
+    CaseDetailsComponent,
+    LoadingStateBarsComponent
   ],
   imports: [
     BrowserModule,
