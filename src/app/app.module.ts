@@ -53,7 +53,7 @@ import { LoadingStateBarsComponent } from './pages/westlaw-prototype/components/
     DeepResearchConfirmationComponent,
     DeepResearchResultComponent,
     CaseDetailsComponent,
-    LoadingStateBarsComponent
+    LoadingStateBarsComponent,
   ],
   imports: [
     BrowserModule,

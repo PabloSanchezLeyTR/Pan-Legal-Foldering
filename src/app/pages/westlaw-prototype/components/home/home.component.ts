@@ -14,6 +14,7 @@ export class HomeComponent {
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.url.subscribe((urls: UrlSegment[]) => {
       console.log('Current URL segments:', urls);
+      
       if (urls.some(url => url.path === 'case-details')) {
         this.showTitle = false;
       }
