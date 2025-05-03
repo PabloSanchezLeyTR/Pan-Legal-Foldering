@@ -44,6 +44,11 @@ const routes: Routes = [
     {
       path: 'case-details',
       component: CaseDetailsComponent
+    },
+    {
+      path: '',
+      redirectTo: 'new-research',
+      pathMatch: 'full'
     }
   ]},
   {path: '404', component: WijmoDemoComponent},
