@@ -7,7 +7,7 @@
     </aside>
     <main>
         <header>
-            <h2 class="app-title">Westlaw</h2>
+            <h2 *ngIf="showTitle" class="app-title">Westlaw</h2>
         </header>
         <router-outlet></router-outlet>
     </main>

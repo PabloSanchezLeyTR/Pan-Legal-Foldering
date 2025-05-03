@@ -8,6 +8,7 @@ import { NewResearchComponent } from './pages/westlaw-prototype/components/resea
 import { DeepResearchConfirmationComponent } from './pages/westlaw-prototype/components/research/deep-research-confirmation/deep-research-confirmation.component';
 import { KeywordSearchResultsComponent } from './pages/westlaw-prototype/components/research/keyword-search-results/keyword-search-results.component';
 import { DeepResearchResultComponent } from './pages/westlaw-prototype/components/research/deep-research-result/deep-research-result.component';
+import { CaseDetailsComponent } from './pages/westlaw-prototype/components/research/case-details/case-details.component';
 
 const routes: Routes = [
   { path: 'app-jaime-research', component: WijmoDemoComponent},
@@ -39,6 +40,10 @@ const routes: Routes = [
     {
       path: 'keyword-search',
       component: KeywordSearchResultsComponent
+    },
+    {
+      path: 'case-details',
+      component: CaseDetailsComponent
     }
   ]},
   {path: '404', component: WijmoDemoComponent},

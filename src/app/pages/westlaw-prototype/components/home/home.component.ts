@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  sidebarCollapsed = false;
+  sidebarCollapsed: boolean = false;
+  showTitle: boolean = true; 
+
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.url.subscribe((urls: UrlSegment[]) => {
+      console.log('Current URL segments:', urls);
+      if (urls.some(url => url.path === 'case-details')) {
+        this.showTitle = false;
+      }
+    })
+  }
 
   toggleSidebar(collapse: boolean) {
     this.sidebarCollapsed = collapse;
