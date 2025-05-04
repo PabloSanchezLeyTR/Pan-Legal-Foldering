@@ -12,6 +12,7 @@ export class HomeComponent {
 
   sidebarCollapsed: boolean = false;
   showTitle: boolean = true;
+  showSearchBarFooter: boolean = true;
 
   constructor(public location: Location, private router: Router) {
     this.router.events
@@ -20,6 +21,7 @@ export class HomeComponent {
       ).subscribe(() => {
         const urls = this.location.path().split('/').filter(Boolean);
         this.showTitle = !urls.includes('case-details');
+        this.showSearchBarFooter = urls.includes('deep-research');
       });
 
   }

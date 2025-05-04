@@ -12,7 +12,10 @@
         <router-outlet></router-outlet>
     </main>
     <footer>
-        <app-footer></app-footer>
+        <app-footer *ngIf="!showSearchBarFooter"></app-footer>
+        <div class="search-bar-container" *ngIf="showSearchBarFooter">
+            <app-search-bar [compactMode]="true"></app-search-bar>
+        </div>
     </footer>
 </div>
     

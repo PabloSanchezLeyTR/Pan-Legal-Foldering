@@ -256,3 +256,30 @@ div[contenteditable="true"]:empty::before {
     }
   }
 }
+
+.input-container-compact {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  max-height: 200px;
+  padding: 4.5px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-container-compact .compact-input {
+  flex-grow: 1;
+  min-height: 24px;
+  max-height: 48px;
+  border: none;
+  outline: none;
+  padding: 0px 10px;
+  background-color: #ffffff;
+  overflow: auto;
+}
+
+.right-buttons-compact {
+  display: flex;
+  align-items: center;
+  width: 164px;
+}
