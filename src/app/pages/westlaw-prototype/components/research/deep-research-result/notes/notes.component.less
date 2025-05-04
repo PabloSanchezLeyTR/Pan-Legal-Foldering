@@ -1,0 +1,142 @@
+.notes-content {
+  width: 100%;
+  max-width: 700px;
+  padding: 0px 12px;
+}
+
+.section-heading {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.title {
+  color: #000;
+  /* type/body/default/sm/strong/standard */
+  font-family: "Source Sans 3";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 135%; /* 18.9px */
+  margin: 0;
+}
+
+.body-text {
+  color: #000;
+  font-family: "Source Sans 3";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+
+.info-block {
+  display: flex;
+  padding-left: 12px;
+  margin: 16px 0 16px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+
+  border-left: 1px solid var(--color-border-subtle, #E5E5E5);
+}
+
+.search-listing {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    background-color: #F2F2F2;
+    border-radius: 12px;
+    margin: 8px 0;
+    padding: 3px 6px;
+    width: fit-content;
+
+  }
+
+  .search-icon {
+    margin-right: 8px;
+    margin-left: 8px;
+  }
+
+  .search-text {
+    color: var(--color-text-subtle, #666);
+    //font-family: "IBM Plex Mono";
+    //font-size: 9px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%; /* 12.15px */
+  }
+}
+
+.resources-section {
+  .info-block {
+    margin: 16px 0 16px 8px;
+    margin-left: 16px;
+    padding-left: 0
+  }
+
+  .resources-listing {
+    padding-left: 0;
+  }
+}
+
+.resources-listing {
+
+  ol {
+    padding-left: 0px;
+    list-style: none;
+  }
+
+  .source-item {
+    margin: 8px 0;
+    padding-left: 8px;
+    padding-bottom: 8px;
+  }
+
+ .source-title {
+  color: var(--color-data-viz-sky-700, #032E5B);
+  font-family: "Source Sans 3";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 135%; /* 18.9px */
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+ }
+
+ .source-metadata {
+  display: block;
+
+  color: var(--color-text-strong, #404040);
+  font-family: "Source Sans 3";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 12px */
+ }
+
+ .source-content {
+  display: block;
+  color: var(--color-text-strong, #404040);
+
+  color: var(--color-text-strong, #404040);
+  font-family: "Source Sans 3";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%; /* 16.2px */
+ }
+}
+
