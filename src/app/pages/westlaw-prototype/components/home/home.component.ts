@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, UrlSegment } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +11,17 @@ import { ActivatedRoute, UrlSegment } from '@angular/router';
 export class HomeComponent {
 
   sidebarCollapsed: boolean = false;
-  showTitle: boolean = true; 
+  showTitle: boolean = true;
 
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.url.subscribe((urls: UrlSegment[]) => {
-      console.log('Current URL segments:', urls);
-      
-      if (urls.some(url => url.path === 'case-details')) {
-        this.showTitle = false;
-      }
-    })
+  constructor(public location: Location, private router: Router) {
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      ).subscribe(() => {
+        const urls = this.location.path().split('/').filter(Boolean);
+        this.showTitle = !urls.includes('case-details');
+      });
+
   }
 
   toggleSidebar(collapse: boolean) {

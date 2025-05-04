@@ -8,6 +8,8 @@ import { Component, Input } from '@angular/core';
 export class ButtonComponent {
 
   @Input() icon!: string;
+  @Input() iconColor: string = "";
+  @Input() iconAppearance: string = "light";
   @Input() label!: string;
   @Input() expanded: boolean = true;
   @Input() color: string = "";
