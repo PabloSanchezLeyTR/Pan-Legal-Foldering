@@ -7,13 +7,30 @@ import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } 
 })
 export class DeepResearchResultComponent {
   @ViewChild('responseTimeMenu') responseTimeMenu!: ElementRef<HTMLDivElement>;
+  @ViewChild('progressBarIndicator') progressBarIndicator!: ElementRef<HTMLDivElement>;
+
+  updateProgressBar() {
+    if (this.progressBarIndicator) {
+      const progressPercentage = (this.taskCurrent / this.taskTotal) * 100;
+      this.progressBarIndicator.nativeElement.style.width = `${progressPercentage}%`;
+    }
+  }
 
   loading: boolean = true;
   sources: number = 0;
   fullReport: boolean = false;
   preliminaryAnswer: boolean = false;
   currentStep: number = 2;
+  taskCurrent: number = 1;
+  taskTotal: number = 8;
 
+  ngOnInit() {
+    this.setCurrentStep(this.currentStep);
+  }
+
+  ngAfterViewInit(): void {
+
+  }
 
   toggleLoading() {
     this.loading = !this.loading;
@@ -38,27 +55,37 @@ export class DeepResearchResultComponent {
   }
 
   setCurrentStep(step: number) {
-     /* steps
-    step 1 confirm research plan
-    step 2 loading, no sources
-    step 3 loading, sources ready (showing)
-    step 4 loading, preliminary answer, no full report
-    step 5 loading, full report
-  */
-
     this.resetStepData();
 
     this.currentStep = step;
+    if(step === 2) {
+      this.taskCurrent = 1;
+    }
+
     if(step === 3) {
       this.getSources();
+      this.taskCurrent = 3;
     }
     if(step === 4) {
       this.getSources();
       this.getPremilinaryAnswer();
+      this.taskCurrent = 5;
     }
     if(step === 5) {
       this.getSources();
       this.getFullReport();
+      this.taskCurrent = 8;
     }
+
+    this.updateProgressBar()
+  }
+
+  //create a fuction that advances the current step by 1 every 10 seconds
+  advanceStep() {
+    setTimeout(() => {
+      if(this.currentStep < 5) {
+        this.setCurrentStep(this.currentStep + 1);
+      }
+    }, 2000);
   }
 }
