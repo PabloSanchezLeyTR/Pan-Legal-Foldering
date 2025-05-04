@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Input, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { ToggleOption } from '../../../models/toggle-options';
 import { SearchSuggestion } from '../../../models/search-suggestion';
 import { SEARCH_SUGGESTIONS } from '../../../data/search-suggestions';
@@ -18,6 +18,8 @@ export class SearchBarComponent {
   @ViewChild('dialog', { static: false }) attachmentDialog: any;
 
   @ViewChildren('dialog') dialogRefs?: QueryList<ElementRef>;
+
+  @Input() compactMode: boolean = false;
 
   boundCloseDialog: () => void;
 
@@ -65,6 +67,8 @@ export class SearchBarComponent {
   inputChanged(event: Event) {
     const input = event.target as HTMLDivElement;
     this.inputContent = input.innerText;
+    console.log(!this.inputContent)
+    console.log(this.inputContent.length);
 
     if (this.inputContent.length >= 3 && this.inputContent.length <= 10) {
       this.showSearchSuggestions = true;

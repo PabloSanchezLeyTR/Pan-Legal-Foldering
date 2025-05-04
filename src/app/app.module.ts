@@ -30,6 +30,7 @@ import { ResponseTimeMenuComponent } from './pages/westlaw-prototype/components/
 import { KeywordSearchResultsComponent } from './pages/westlaw-prototype/components/research/keyword-search-results/keyword-search-results.component';
 import { DeepResearchConfirmationComponent } from './pages/westlaw-prototype/components/research/deep-research-confirmation/deep-research-confirmation.component';
 import { DeepResearchResultComponent } from './pages/westlaw-prototype/components/research/deep-research-result/deep-research-result.component';
+import { CaseDetailsComponent } from './pages/westlaw-prototype/components/research/case-details/case-details.component';
 import { LoadingStateBarsComponent } from './pages/westlaw-prototype/components/research/deep-research-result/loading-state-bars/loading-state-bars.component';
 import { ClarifyingQuestionsComponent } from './pages/westlaw-prototype/components/research/deep-research-result/clarifiying-questions/clarifiying-questions.component';
 import { SourcesComponent } from './pages/westlaw-prototype/components/research/deep-research-result/sources/sources.component';
@@ -53,6 +54,7 @@ import { NotesComponent } from './pages/westlaw-prototype/components/research/de
     KeywordSearchResultsComponent,
     DeepResearchConfirmationComponent,
     DeepResearchResultComponent,
+    CaseDetailsComponent,
     LoadingStateBarsComponent,
     ClarifyingQuestionsComponent,
     SourcesComponent,
