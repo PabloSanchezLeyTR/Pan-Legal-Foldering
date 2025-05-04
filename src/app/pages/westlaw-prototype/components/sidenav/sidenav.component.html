@@ -15,7 +15,7 @@
         </div>
         <div class="top-buttons">
             <app-button *ngFor="let button of menuButtons" [icon]="button.icon" [label]="button.label"
-                [expanded]="!collapsed"></app-button>
+                [expanded]="!collapsed" (click)="button.action ? button.action() : ''"></app-button>
         </div>
     </div>
     <div class="bottom-buttons">
