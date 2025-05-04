@@ -1,39 +1,3 @@
-.title {
-  color: var(--color-text-heavy, #212223);
-/* type/heading/default/xl/strong/compact */
-font-family: Clario;
-font-size: 24px;
-font-style: normal;
-font-weight: 500;
-line-height: 110%; /* 26.4px */
-}
-
-h3 {
-  color: var(--color-text-heavy, #212223);
-  /* type/heading/default/md/strong/standard */
-  font-family: Clario;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%; /* 19.2px */
-}
-
-.main-card {
-  display: flex;
-  width: 800px;
-  max-width: 800px;
-  padding: 24px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  margin: 0 auto;
-  border-radius: 8px;
-  border: 1px solid var(--color-border-subtle, #E5E5E5);
-  background: var(--color-background-default, #FFF);
-}
-
-
-//REPORT
 .result-card-container {
   display: flex;
   height: 92px;
@@ -150,51 +114,5 @@ h3 {
 
  .information {
   color: var(--color-data-viz-sky-600, #054688);
+
  }
-
-//controller in header
-.deep-research-controller {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-
-  .status {
-    overflow: hidden;
-    color: var(--color-text-heavy, #212223);
-    text-overflow: ellipsis;
-    font-family: "Source Sans 3";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 135%; /* 16.2px */
-  }
-
-  .progress-bar {
-    margin-top: 4px;
-    border-radius: 4px;
-    background: var(--color-status-neutral-subtle, #EDEDED);
-    min-height: 4px;
-
-    .indicator {
-      display: flex;
-      width: 3px;
-      height: 4px;
-      flex-direction: column;
-      align-items: center;
-
-      border-radius: 4px;
-      background: var(--color-status-information-strong, #0062C4);
-
-      transition: width 0.3s ease-in-out;
-    }
-  }
-
-  .buttons {
-    display: flex;
-    gap: 12px;
-    margin-left: auto;
-    margin-right: 0;
-    align-items: center;
-    cursor: pointer;
-  }
-}
