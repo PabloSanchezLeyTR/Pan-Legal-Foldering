@@ -26,7 +26,7 @@ export class DeepResearchResultComponent {
   sources: number = 0;
   fullReport: boolean = false;
   preliminaryAnswer: boolean = false;
-  currentStep: number = 1;
+  currentStep: number = 2;
   totalSteps: number = 5;
   taskCurrent: number = 1;
   taskTotal: number = 8;
@@ -37,7 +37,17 @@ export class DeepResearchResultComponent {
   }
 
   ngAfterViewInit(): void {
+    const externalElement = document.querySelector('header');
+    if (externalElement) {
+      this.renderer.addClass(externalElement, 'dom-flow');
+    }
+  }
 
+  ngOnDestroy(): void {
+    const externalElement = document.querySelector('header');
+    if (externalElement) {
+      this.renderer.removeClass(externalElement, 'dom-flow');
+    }
   }
 
   toggleLoading() {
@@ -71,7 +81,7 @@ export class DeepResearchResultComponent {
 
   //go back to the previous step
   prevStep() {
-    if(this.currentStep > 1) {
+    if(this.currentStep > 2) {
       this.setCurrentStep(this.currentStep - 1);
     }
   }
@@ -80,7 +90,7 @@ export class DeepResearchResultComponent {
     this.resetStepData();
 
     this.currentStep = step;
-    if(step === 1) {
+    if(step === 2) {
       this.taskCurrent = 1;
     }
 
