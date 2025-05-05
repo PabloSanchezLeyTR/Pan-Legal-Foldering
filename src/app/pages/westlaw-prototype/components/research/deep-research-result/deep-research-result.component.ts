@@ -8,6 +8,12 @@ import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } 
 export class DeepResearchResultComponent {
   @ViewChild('responseTimeMenu') responseTimeMenu!: ElementRef<HTMLDivElement>;
   @ViewChild('progressBarIndicator') progressBarIndicator!: ElementRef<HTMLDivElement>;
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
+
+  scrollToTop() {
+    this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0);
+  }
+
 
   updateProgressBar() {
     if (this.progressBarIndicator) {
@@ -20,11 +26,13 @@ export class DeepResearchResultComponent {
   sources: number = 0;
   fullReport: boolean = false;
   preliminaryAnswer: boolean = false;
-  currentStep: number = 2;
+  currentStep: number = 1;
+  totalSteps: number = 5;
   taskCurrent: number = 1;
   taskTotal: number = 8;
 
   ngOnInit() {
+    this.scrollToTop();
     this.setCurrentStep(this.currentStep);
   }
 
@@ -54,11 +62,25 @@ export class DeepResearchResultComponent {
     this.fullReport = true;
   }
 
+  //advance the current step by 1
+  nextStep() {
+    if(this.currentStep < 5) {
+      this.setCurrentStep(this.currentStep + 1);
+    }
+  }
+
+  //go back to the previous step
+  prevStep() {
+    if(this.currentStep > 1) {
+      this.setCurrentStep(this.currentStep - 1);
+    }
+  }
+
   setCurrentStep(step: number) {
     this.resetStepData();
 
     this.currentStep = step;
-    if(step === 2) {
+    if(step === 1) {
       this.taskCurrent = 1;
     }
 

@@ -1,3 +1,64 @@
+.chat-ui {
+  //max-height: 90%;
+}
+
+.overflow-header {
+  margin-top: -50px;
+}
+
+.meta-data {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  .logo {
+    margin-right: 8px;
+  }
+  .text {
+    overflow: hidden;
+    color: var(--color-border-stronger, #666);
+    text-overflow: ellipsis;
+
+    /* type/label-text/body/default/sm/regular/standard */
+    font-family: "Source Sans 3";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%; /* 18.9px */
+  }
+}
+
+.card {
+  display: flex;
+  width: 800px;
+  max-width: 800px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 12px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-subtle, #E5E5E5);
+  background: var(--color-background-default, #FFF);
+}
+
+//content styles
+.header-controller {
+  display: flex;
+  justify-content: space-between;
+}
+
+.demo-mode-controllers {
+  button {
+    all: unset;
+    cursor: pointer;
+    padding: 8px;
+    &:hover {
+      background: var(--color-background-strong, #F2F2F2);
+    }
+  }
+}
+
 .title {
   color: var(--color-text-heavy, #212223);
 /* type/heading/default/xl/strong/compact */
@@ -17,21 +78,6 @@ h3 {
   font-weight: 500;
   line-height: 120%; /* 19.2px */
 }
-
-.main-card {
-  display: flex;
-  width: 800px;
-  max-width: 800px;
-  padding: 24px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  margin: 0 auto;
-  border-radius: 8px;
-  border: 1px solid var(--color-border-subtle, #E5E5E5);
-  background: var(--color-background-default, #FFF);
-}
-
 
 //REPORT
 .result-card-container {
