@@ -8,6 +8,7 @@ import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } 
 export class DeepResearchResultComponent {
   @ViewChild('responseTimeMenu') responseTimeMenu!: ElementRef<HTMLDivElement>;
   @ViewChild('progressBarIndicator') progressBarIndicator!: ElementRef<HTMLDivElement>;
+  @ViewChild('dialog', { static: false }) fullPlanDialog: any;
   constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   scrollToTop() {
@@ -22,6 +23,7 @@ export class DeepResearchResultComponent {
     }
   }
 
+  openFullPlanDialog: boolean = false;
   loading: boolean = true;
   sources: number = 0;
   fullReport: boolean = false;
@@ -48,6 +50,21 @@ export class DeepResearchResultComponent {
     if (externalElement) {
       this.renderer.removeClass(externalElement, 'dom-flow');
     }
+  }
+
+  closeDialog() {
+    //this.fullPlanDialog.nativeElement.hide();
+    this.openFullPlanDialog = false;
+  }
+
+  toggleFullPlanDialog() {
+    this.openFullPlanDialog = !this.openFullPlanDialog;
+
+    // if (this.openFullPlanDialog) {
+    //   setTimeout(() => {
+    //     this.fullPlanDialog.nativeElement.focus();
+    //   });
+    // }
   }
 
   toggleLoading() {

@@ -21,7 +21,7 @@
 
           <span class="text">Westlaw - Deep Research - 2:44 PM</span>
         </div>
-        <div class="demo-mode-controllers">
+        <!-- <div class="demo-mode-controllers">
           <saf-button
             density="extra-compact"
             appearance="secondary"
@@ -44,17 +44,17 @@
             <saf-icon size="16" icon-name="chevron-right" appearance="solid" presentation> </saf-icon>
           </saf-button>
           step: <strong>{{currentStep}}</strong>
-        </div>
+        </div> -->
         <div class="header-right">
           <div class="deep-research-controller">
-            <div class="status">
+            <div class="status" (click)="nextStep()">
               <div class="text-label">({{taskCurrent}} of {{taskTotal}}) - NY Department of Labor and Empl...</div>
               <div class="progress-bar">
                 <div class="indicator" #progressBarIndicator id="progressBarIndicator"></div>
               </div>
             </div>
             <div class="buttons">
-              <saf-icon slot="end" icon-name="list-check" appearance="light" presentation></saf-icon>
+              <saf-icon (click)="toggleFullPlanDialog()" slot="end" icon-name="list-check" appearance="light" presentation></saf-icon>
               <saf-icon slot="end" icon-name="circle-stop" appearance="light" presentation></saf-icon>
               <saf-icon slot="end" icon-name="bell" appearance="light" presentation></saf-icon>
             </div>
@@ -67,9 +67,6 @@
 
           <div class="report-">
             <h1 class="title">Permissibility of terminating an employee for cause due to social media comment</h1>
-
-
-
 
             <div class="result-card-container">
               <div class="result-card cropped">
@@ -97,8 +94,11 @@
               <div class="show-more" [class.loading]="!sources"><span>+9 more</span></div>
             </div>
 
+
+
+
             <div class="prelimiary-answer-container">
-              <h3 class="chunk-title">Preliminary Answer</h3>
+              <h3 class="chunk-title" *ngIf="!fullReport">Preliminary Answer</h3>
 
               <app-loading-state-bars *ngIf="!preliminaryAnswer && !fullReport"></app-loading-state-bars>
 
@@ -176,3 +176,98 @@
     </div>
   </div>
 </div>
+
+
+<saf-dialog class="" #fullPlanDialog class="fullplan-dialog" id="button-dialog-overlay" modal="false"
+is-alert="false" is-header="true" is-footer="true" no-focus-trap="false" dialog-title="View Plan"
+[hidden]="!openFullPlanDialog" (hide)="closeDialog()" triggerId="button-dialog-trigger">
+<div class="dialog-content">
+  <div class="task-wrapper">
+    <div class="task-item">
+      <div class="task-left">
+        <saf-icon slot="end" color="#387C2B" icon-name="circle-check" appearance="solid" presentation>
+        </saf-icon>
+      </div>
+      <div class="task-right">
+        <strong>Task 1:</strong> Research New York State employment laws regarding at-will employment and permissible reasons for termination for cause.
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-left">
+        <saf-icon slot="end" color="#0062C4" icon-name="spinner-third" appearance="light" presentation>
+        </saf-icon>
+      </div>
+      <div class="task-right">
+        <strong>Task 2:</strong> Investigate legal precedents and court cases in New York concerning employee termination due to social media activity.
+      </div>
+    </div>
+
+    <div class="task-item">
+      <div class="task-left">
+        <saf-icon slot="end" icon-name="circle-minus" appearance="light" presentation>
+        </saf-icon>
+      </div>
+      <div class="task-right">
+        <strong>Task 3:</strong>  Find information on whether New York law protects employees' social media posts under freedom of speech or other statutes in the context of employment.
+      </div>
+    </div>
+
+    <div class="task-item">
+      <div class="task-left">
+        <saf-icon slot="end" icon-name="circle-minus" appearance="light" presentation>
+        </saf-icon>
+      </div>
+      <div class="task-right">
+        <strong>Task 4:</strong>  Explore if an employer's social media policy and its communication to employees affects the legality of termination for social media comments in New York.
+      </div>
+    </div>
+
+    <div class="task-item">
+      <div class="task-left">
+        <saf-icon slot="end" icon-name="circle-minus" appearance="light" presentation>
+        </saf-icon>
+      </div>
+      <div class="task-right">
+        <strong>Task 5:</strong> Determine if the content of the social media comment (e.g., discriminatory, confidential, damaging to the employer's reputation) influences the permissibility of termination for cause in New York.
+      </div>
+    </div>
+
+    <div class="task-item">
+      <div class="task-left">
+        <saf-icon slot="end" icon-name="circle-minus" appearance="light" presentation>
+        </saf-icon>
+      </div>
+      <div class="task-right">
+        <strong>Task 6:</strong>   Search for resources from the New York State Department of Labor or legal experts on employee rights and employer responsibilities regarding social media.
+      </div>
+    </div>
+
+    <div class="task-item">
+      <div class="task-left">
+        <saf-icon slot="end" icon-name="circle-minus" appearance="light" presentation>
+        </saf-icon>
+      </div>
+      <div class="task-right">
+        <strong>Task 7:</strong>  Identify any specific laws or regulations in New York that address employee conduct on social media and its implications for employment.
+      </div>
+    </div>
+
+    <div class="task-item">
+      <div class="task-left">
+        <saf-icon slot="end" icon-name="circle-minus" appearance="light" presentation>
+        </saf-icon>
+      </div>
+      <div class="task-right">
+        <strong>Task 8:</strong> Compare New York's laws on this topic with those of other states to understand any unique aspects of New York's legal framework.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div slot="footer" style="display: flex; gap: 12px; justify-content: flex-end; width: 100%">
+  <app-button [label]="'Edit Plan'" [addBorder]="true"></app-button>
+  <app-button [label]="'Close'" [backgroundColor]="'blue'" [color]="'white'" (click)="closeDialog()"></app-button>
+</div>
+</saf-dialog>
+
+
