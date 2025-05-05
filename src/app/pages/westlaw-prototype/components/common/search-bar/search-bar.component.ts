@@ -16,6 +16,7 @@ export class SearchBarComponent {
   openAttachmentDialog: boolean = false;
   openTaskLibraryDialog: boolean = false;
   @ViewChild('dialog', { static: false }) attachmentDialog: any;
+  @ViewChild('searchInput', { static: false }) searchInput: ElementRef<HTMLDivElement> | undefined;
 
   @ViewChildren('dialog') dialogRefs?: QueryList<ElementRef>;
 
@@ -26,6 +27,26 @@ export class SearchBarComponent {
   searchSuggestions: SearchSuggestion[] = SEARCH_SUGGESTIONS;
 
   showSearchSuggestions: boolean = false;
+
+
+  showMentions = false;
+  mentions = [
+    {
+      title: 'Barnes v. Gorman',
+      description: '536 U.S. 181 • 122 S. Ct. 2097 • 6/17/2002 • U.S.'
+    },
+    {
+      title: 'In re Gorman',
+      description: '933 F.2d 982 • May 1991 • C.A.Fed.'
+    },
+    {
+      title: 'Gorman v. Wolpoff & Abramson, LLP',
+      description: '536 U.S. 181 • 122 S. Ct. 2097 • Jun 2002 • U.S.'
+    }
+  ];
+  mentionTop = 0;
+  mentionLeft = 0;
+
 
   constructor(private renderer: Renderer2, private router: Router) {
     this.renderer.listen('document', 'click', (event: Event) => {
@@ -67,8 +88,10 @@ export class SearchBarComponent {
   inputChanged(event: Event) {
     const input = event.target as HTMLDivElement;
     this.inputContent = input.innerText;
-    console.log(!this.inputContent)
-    console.log(this.inputContent.length);
+
+    if (this.inputContent.indexOf('@') == -1) {
+      this.showMentions = false
+    }
 
     if (this.inputContent.length >= 3 && this.inputContent.length <= 10) {
       this.showSearchSuggestions = true;
@@ -126,5 +149,58 @@ export class SearchBarComponent {
       }
     }
   }
+
+  openTagDialog() {
+    const editor = this.searchInput?.nativeElement;
+    if (!editor) return;
+
+    let lastTag = editor.lastElementChild;
+    if (lastTag && lastTag.tagName == "BR") lastTag.remove();
+
+    editor.innerText += '@';
+    // Position the mention container at the end of the content
+    this.showMentions = true;
+    const range = document.createRange();
+    const selection = window.getSelection();
+    range.setStart(editor.childNodes[0], editor.innerText.length - 1);
+    range.setEnd(editor.childNodes[0], editor.innerText.length);
+    const rect = range.getBoundingClientRect();
+    const editorRect = editor.getBoundingClientRect();
+    this.mentionTop = rect.top - editorRect.top + editor.scrollTop + 28;
+    this.mentionLeft = rect.left - editorRect.left + editor.scrollLeft + 5;
+  }
+
+
+  selectMention(mention: string) {
+    const editor = this.searchInput?.nativeElement;
+    if (!editor) return;
+
+    const text = editor.innerText;
+    const mentionIndex = text.lastIndexOf('@');
+    if (mentionIndex !== -1) {
+      editor.innerHTML = text.substring(0, mentionIndex) + '<span style="color: #054688; text-decoration: underline" contenteditable="false">' + "@" + mention + '</span>' + ' ';
+    }
+
+    this.showMentions = false;
+
+    let lastTag = editor.lastElementChild;
+    if (lastTag && lastTag.tagName == "BR") lastTag.remove();
+
+    // Set focus back to the editor
+    editor.focus();
+
+    // Move cursor to the end of the content 
+    const range = document.createRange();
+    const selection = window.getSelection();
+
+    const lastChild = editor.lastChild;
+    if (lastChild) {
+      range.setStart(lastChild, lastChild.textContent!.length);
+      range.collapse(true);
+      selection!.removeAllRanges();
+      selection!.addRange(range);
+    }
+  }
+
 
 }
