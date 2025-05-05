@@ -71,6 +71,8 @@
             </div>
           </div>
         </div>
+
+
         <saf-tabs>
 
 
@@ -151,9 +153,70 @@
                 <div class="chunk" *ngIf="fullReport">
                   <h3>Quick Summary</h3>
 
-                  <p>    When considering the termination of an employee for a social media comment, it is crucial to first assess the nature of the comment and the context in which it was made. Additionally, understanding the employment status is important; if the employee is at-will
-                    <saf-icon class="information" slot="end" class="chevron-end" color="#054688" icon-name="circle-question" appearance="solid" presentation>
-                  </saf-icon>,
+                  <ng-template #pop1Content>
+                    <div class="popover-wrapper">
+                      <div class="question-wrapper">
+                        <div class="question">
+                          Did anything in the employee’s contract impact their at-will status?
+                        </div>
+                        <div class="info">
+                          <saf-icon class="information" slot="end" icon-name="circle-info" appearance="light" presentation></saf-icon>
+                        </div>
+                      </div>
+                      <div class="answer-wrapper">
+                        <saf-button density="extra-compact" appearance="secondary">
+                          Yes
+                        </saf-button>
+                        <saf-button density="extra-compact" appearance="secondary">
+                          No
+                        </saf-button>
+                      </div>
+                      <div class="actions-wrapper">
+                        <saf-button density="extra-compact" appearance="secondary" disabled>
+                          Cancel
+                        </saf-button>
+                        <saf-button density="extra-compact" appearance="secondary" disabled>
+                          Apply answer
+                        </saf-button>
+                      </div>
+                    </div>
+                  </ng-template>
+
+                  <ng-template #pop2Content>
+                    <div class="popover-wrapper">
+                      <div class="question-wrapper">
+                        <div class="question">
+                          Was the employee a public employee?
+                        </div>
+                        <div class="info">
+                          <saf-icon class="information" slot="end" icon-name="circle-info" appearance="light" presentation></saf-icon>
+                        </div>
+                      </div>
+                      <div class="answer-wrapper">
+                        <saf-button density="extra-compact" appearance="secondary">
+                          Yes
+                        </saf-button>
+                        <saf-button density="extra-compact" appearance="secondary">
+                          No
+                        </saf-button>
+                      </div>
+                      <div class="actions-wrapper">
+                        <saf-button density="extra-compact" appearance="secondary" disabled>
+                          Cancel
+                        </saf-button>
+                        <saf-button density="extra-compact" appearance="secondary" disabled>
+                          Apply answer
+                        </saf-button>
+                      </div>
+                    </div>
+                  </ng-template>
+
+
+                  <p>When considering the termination of an employee for a social media comment, it is crucial to first assess the nature of the comment and the context in which it was made. Additionally, understanding the employment status is important; if the employee is at-will
+                    <button type="button" class="icon-popup" [ngbPopover]="pop1Content">
+                      <saf-icon class="information" slot="end" class="chevron-end" color="#054688" icon-name="circle-question" appearance="solid" presentation>
+                      </saf-icon>
+                    </button>,
                     the employer generally has more flexibility to terminate employment for any lawful reason, including social media activity, provided it does not violate public policy or statutory rights. Employers must evaluate whether the comment violates company policies or codes of conduct, such as those related to harassment, discrimination, confidentiality, or bringing the organization into disrepute. It's important to differentiate between comments made in a personal capacity and those that could be construed as representative of the company. Additionally, the impact of the comment on the workplace environment or company reputation should be carefully considered.
 
                     <span class="footnotes">
@@ -175,8 +238,10 @@
                   <h3>First Amendment</h3>
 
                   <p>Public Employees in New York have additional protections under the First Amendment that call for a larger analysis
-                    <saf-icon class="information" slot="end" class="chevron-end" color="#054688" icon-name="circle-question" appearance="solid" presentation>
-                    </saf-icon> .
+                    <button type="button" class="icon-popup" [ngbPopover]="pop2Content">
+                      <saf-icon class="information" slot="end" class="chevron-end" color="#054688" icon-name="circle-question" appearance="solid" presentation>
+                      </saf-icon>
+                    </button> .
                     In <a href="#">Pickering v. Board of Education, 391 U.S. 563, 88 S. Ct. 1731 (1968)</a>, the U.S. Supreme Court established that public employees have a right to speak on matters of public concern without fear of retaliation. However, this right must be balanced against the government's interest as an employer.
                     The case of <a href="#">Connick v. Myers, 461 U.S. 138, 103 S. Ct. 1684 (1983)</a> further refined this standard, emphasizing that speech must relate to matters of public concern to receive First Amendment protection. </p>
 

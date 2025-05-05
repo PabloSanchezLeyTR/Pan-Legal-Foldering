@@ -7,6 +7,49 @@
   height: unset;
 }
 
+.icon-popup {
+  background-color: none;
+  border: none;
+  all: unset;
+  display: inline;;
+}
+
+:host ::ng-deep .popover {
+  --bs-popover-max-width: 390px;
+}
+
+.popover-wrapper {
+
+  .question-wrapper {
+    display: flex;
+
+    .question {
+      color: var(--color-text-heavy, #1F1F1F);
+      font-family: "Source Sans 3";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 135%; /* 21.6px */
+    }
+    .info {
+      padding-left: 8px;
+      cursor: pointer;
+    }
+  }
+
+  .answer-wrapper, .actions-wrapper {
+    display: flex;
+    gap: 8px;
+    margin: 8px;
+  }
+
+  .actions-wrapper {
+    justify-content: flex-end;
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+}
+
 .meta-data {
   display: flex;
   align-items: center;
