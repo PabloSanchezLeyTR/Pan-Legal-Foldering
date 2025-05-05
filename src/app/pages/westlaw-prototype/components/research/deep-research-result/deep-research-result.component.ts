@@ -25,13 +25,16 @@ export class DeepResearchResultComponent {
 
   openFullPlanDialog: boolean = false;
   loading: boolean = true;
-  sources: number = 0;
+  //sources: number = 0;
   fullReport: boolean = false;
   preliminaryAnswer: boolean = false;
   currentStep: number = 2;
   totalSteps: number = 5;
   taskCurrent: number = 1;
   taskTotal: number = 8;
+  nQuestions: number = 0;
+  nSources: number = 0;
+  nNotes: number = 0;
 
   ngOnInit() {
     this.scrollToTop();
@@ -73,14 +76,14 @@ export class DeepResearchResultComponent {
 
   resetStepData() {
     this.loading = true;
-    this.sources = 0;
+    this.nSources = 0;
     this.fullReport = false;
     this.preliminaryAnswer = false;
   }
 
-  getSources() {
-    this.sources = 12;
-  }
+  // getSources() {
+  //   this.nSources = 12;
+  // }
 
   getPremilinaryAnswer() {
     this.preliminaryAnswer = true;
@@ -112,18 +115,21 @@ export class DeepResearchResultComponent {
     }
 
     if(step === 3) {
-      this.getSources();
+      this.nSources = 8;
       this.taskCurrent = 3;
     }
     if(step === 4) {
-      this.getSources();
+      this.nSources = 8;
       this.getPremilinaryAnswer();
       this.taskCurrent = 5;
+      this.nQuestions = 2;
     }
     if(step === 5) {
-      this.getSources();
+      this.nSources = 8;
       this.getFullReport();
       this.taskCurrent = 8;
+      this.nQuestions = 5;
+      this.nNotes = 4;
     }
 
     this.updateProgressBar()

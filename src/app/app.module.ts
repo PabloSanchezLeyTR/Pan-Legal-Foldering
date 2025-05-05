@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MyResearchComponent } from './pages/my-research/my-research.component';
 import { ResearchHistoryComponent } from './pages/research-history/research-history.component';
-import { NgbAlertModule, NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbAlertModule, NgbDatepickerModule, NgbModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap'
 import { JsonPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WijmoDemoComponent } from './pages/jaime-research/jaime-research.component';
@@ -67,6 +67,7 @@ import { NotesComponent } from './pages/westlaw-prototype/components/research/de
     NgbModule,
     NgbDatepickerModule,
     NgbAlertModule,
+    NgbPopoverModule,
     FormsModule,
     JsonPipe,
     WjGridFilterModule,
