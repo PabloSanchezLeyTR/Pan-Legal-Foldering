@@ -8,6 +8,13 @@ import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } 
 export class DeepResearchResultComponent {
   @ViewChild('responseTimeMenu') responseTimeMenu!: ElementRef<HTMLDivElement>;
   @ViewChild('progressBarIndicator') progressBarIndicator!: ElementRef<HTMLDivElement>;
+  @ViewChild('dialog', { static: false }) fullPlanDialog: any;
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
+
+  scrollToTop() {
+    this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0);
+  }
+
 
   updateProgressBar() {
     if (this.progressBarIndicator) {
@@ -16,20 +23,48 @@ export class DeepResearchResultComponent {
     }
   }
 
+  openFullPlanDialog: boolean = false;
   loading: boolean = true;
   sources: number = 0;
   fullReport: boolean = false;
   preliminaryAnswer: boolean = false;
   currentStep: number = 2;
+  totalSteps: number = 5;
   taskCurrent: number = 1;
   taskTotal: number = 8;
 
   ngOnInit() {
+    this.scrollToTop();
     this.setCurrentStep(this.currentStep);
   }
 
   ngAfterViewInit(): void {
+    const externalElement = document.querySelector('header');
+    if (externalElement) {
+      this.renderer.addClass(externalElement, 'dom-flow');
+    }
+  }
 
+  ngOnDestroy(): void {
+    const externalElement = document.querySelector('header');
+    if (externalElement) {
+      this.renderer.removeClass(externalElement, 'dom-flow');
+    }
+  }
+
+  closeDialog() {
+    //this.fullPlanDialog.nativeElement.hide();
+    this.openFullPlanDialog = false;
+  }
+
+  toggleFullPlanDialog() {
+    this.openFullPlanDialog = !this.openFullPlanDialog;
+
+    // if (this.openFullPlanDialog) {
+    //   setTimeout(() => {
+    //     this.fullPlanDialog.nativeElement.focus();
+    //   });
+    // }
   }
 
   toggleLoading() {
@@ -52,6 +87,20 @@ export class DeepResearchResultComponent {
   }
   getFullReport() {
     this.fullReport = true;
+  }
+
+  //advance the current step by 1
+  nextStep() {
+    if(this.currentStep < 5) {
+      this.setCurrentStep(this.currentStep + 1);
+    }
+  }
+
+  //go back to the previous step
+  prevStep() {
+    if(this.currentStep > 2) {
+      this.setCurrentStep(this.currentStep - 1);
+    }
   }
 
   setCurrentStep(step: number) {
