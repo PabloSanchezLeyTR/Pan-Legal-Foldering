@@ -15,6 +15,7 @@
   min-height: 53px;
   max-height: 200px;
   padding: 4.5px 10px;
+  position: relative;
 }
 
 div[contenteditable="true"]:empty::before {
@@ -24,7 +25,7 @@ div[contenteditable="true"]:empty::before {
   display: block; /* For Firefox */
 }
 
-.input-container div {
+.input-container .text-editor {
   width: 100%;
   min-height: 44px;
   max-height: 156px;
@@ -196,7 +197,6 @@ div[contenteditable="true"]:empty::before {
     border-right: 1px solid #d2d2d2;
 
     .filter-section {
-
       > *,
       saf-checkbox::part(root) {
         padding: 8px 0;
@@ -233,7 +233,7 @@ div[contenteditable="true"]:empty::before {
 
       .result-card {
         width: 48%;
-        background-color: #F5F6F7;
+        background-color: #f5f6f7;
         border: 1px solid var(--saf-color-gray-400);
         min-height: 200px;
         border-radius: 8px;
@@ -286,4 +286,40 @@ div[contenteditable="true"]:empty::before {
   display: flex;
   align-items: center;
   width: 164px;
+}
+
+.mention-container {
+  position: absolute;
+  background: white;
+  border: 1px solid #666666;
+  padding: 10px;
+  width: 300px;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px 4px #1f1f1f1a;
+  z-index: 1000;
+}
+
+.mention-item {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0px;
+}
+
+.mention-title {
+  font-family: Source Sans 3;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 135%;
+  letter-spacing: 0px;
+  color: #032f5b;
+}
+
+.mention-description {
+  font-family: Source Sans 3;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+  letter-spacing: 0px;
+  color: #666666;
 }

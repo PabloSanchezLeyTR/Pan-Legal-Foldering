@@ -1,9 +1,17 @@
 <div class="search-bar" *ngIf="!compactMode">
   <div class="input-container">
-    <div contenteditable="true" data-placeholder="Ask a question or enter the topic you’d like to research..."
-      (input)="inputChanged($event)">
+    <div contenteditable="true" class="text-editor" data-placeholder="Ask a question or enter the topic you’d like to research..."
+      (input)="inputChanged($event)" #searchInput>
 
     </div>
+
+    <div class="mention-container" *ngIf="showMentions" [style.top.px]="mentionTop" [style.left.px]="mentionLeft">
+      <div class="mention-item" *ngFor="let mention of mentions" (click)="selectMention(mention.title)">
+        <span class="mention-title"> {{ mention.title }}</span>
+        <span class="mention-description">{{ mention.description }}</span>
+      </div>
+    </div>
+
   </div>
   <div class="button-groups">
     <div class="left-buttons">
@@ -14,7 +22,7 @@
       <app-button [expanded]="false" [icon]="'paperclip'" [color]="'blue'" (click)="clickHandler()"></app-button>
       <app-button [expanded]="false" [icon]="'book-sparkles'" [color]="'blue'"
         (click)="clickTaskLibrary()"></app-button>
-      <app-button [expanded]="false" [icon]="'at'" [color]="'blue'"></app-button>
+      <app-button [expanded]="false" [icon]="'at'" [color]="'blue'" (click)="openTagDialog()"></app-button>
       <app-button [expanded]="false" [icon]="'arrow-up'" [backgroundColor]="'blue'" [color]="'white'"
         [disabled]="!inputContent || inputContent.length <= 1" (click)="redirectToResearch()"></app-button>
     </div>
@@ -193,9 +201,9 @@
   </saf-dialog>
 </div>
 <div class="search-bar" *ngIf="compactMode">
-  <div class="input-container-compact" >
-    <div class="compact-input" contenteditable="true" data-placeholder="Ask a question or enter the topic you’d like to research..."
-      (input)="inputChanged($event)">
+  <div class="input-container-compact">
+    <div class="compact-input" contenteditable="true"
+      data-placeholder="Ask a question or enter the topic you’d like to research..." (input)="inputChanged($event)">
 
     </div>
     <div class="right-buttons-compact">
