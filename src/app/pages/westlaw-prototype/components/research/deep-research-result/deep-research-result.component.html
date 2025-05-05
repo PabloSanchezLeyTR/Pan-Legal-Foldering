@@ -76,9 +76,9 @@
 
           <saf-tab aria-label="Research Report">Research Report</saf-tab>
 
-          <saf-tab aria-label="Clarifying Questions">Clarifying Questions (1)</saf-tab>
+          <saf-tab aria-label="Clarifying Questions">Clarifying Questions ({{nQuestions}})</saf-tab>
 
-          <saf-tab aria-label="Sources">Sources (12)</saf-tab>
+          <saf-tab aria-label="Sources">Sources ({{nSources}})</saf-tab>
 
           <saf-tab aria-label="Research Notes">Research Notes</saf-tab>
 
@@ -87,14 +87,14 @@
               <div class="report-content-tab-wrapper">
                 <div class="result-card-container">
                   <div class="result-card cropped">
-                     <div  class="content"  *ngIf="sources">
+                     <div  class="content"  *ngIf="nSources">
                         <h3 class="title">Espinoza v. CGJC Holdings LLC</h3>
                         <span class="metadata">(1) S.D.N.Y. July 2024</span>
                         <span class="content">Even assuming posting to Instagram is a “recreational activity” under the NYLL, “the complaint alleges that the plaintiff was discharged, not for the activity of [posting to Instagram], but for the content of the [ ] post.” Court granted defendants’ motion to dismiss claim for wrongful termination under § 201-d(2)(c). </span>
                      </div>
                   </div>
                   <div class="result-card cropped">
-                    <div class="content" *ngIf="sources">
+                    <div class="content" *ngIf="nSources">
                       <h3 class="title">Davi v. Roberts</h3>
                       <span class="metadata">(1) S.D.N.Y. 2021</span>
                       <span class="content">The court ruled that Davi's social media comments were protected under the First Amendment, finding no sufficient evidence that his comments disrupted agency operations, and concluded the discipline was retaliatory. </span>
@@ -102,13 +102,13 @@
 
                   </div>
                   <div class="result-card cropped">
-                    <div class="content"  *ngIf="sources">
+                    <div class="content"  *ngIf="nSources">
                       <h3 class="title ">MasTec Advanced Technologie...</h3>
                       <span class="metadata">(3) N.L.R.B-BD 2011</span>
                       <span class="content">Employee's communications with the public may lose the protection of the Act if they are sufficiently disloyal or defamatory. </span>
                     </div>
                   </div>
-                  <div class="show-more" [class.loading]="!sources"><span>+9 more</span></div>
+                  <div class="show-more" [class.loading]="!nSources"><span>+9 more</span></div>
                 </div>
 
                 <div class="prelimiary-answer-container">
@@ -186,15 +186,15 @@
           </saf-tab-panel>
 
           <saf-tab-panel data-rel="Clarifying Questions">
-            <app-clarifiying-questions></app-clarifiying-questions>
+            <app-clarifiying-questions *ngIf="nQuestions > 0"></app-clarifiying-questions>
           </saf-tab-panel>
 
           <saf-tab-panel data-rel="Sources">
-            <app-sources></app-sources>
+            <app-sources *ngIf="nSources > 0"></app-sources>
           </saf-tab-panel>
 
           <saf-tab-panel data-rel="Research Notes">
-            <app-notes></app-notes>
+            <app-notes *ngIf="nNotes > 0"></app-notes>
           </saf-tab-panel>
 
           </saf-tabs>
