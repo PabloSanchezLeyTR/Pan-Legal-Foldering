@@ -36,3 +36,20 @@ a {
   color: var(--color-anchor-hover, #054688);
 }
 
+
+//Westlaw Prototype shared styles
+//saffron v2 color scheme
+saf-button::part(control) {
+  background-color: #032E5B;
+  &:hover {
+    background-color: #edf6ff;
+    color: #054688;
+    &::before {
+      border-color: #054688
+    }
+  }
+  &:active {
+    background-color: #054688;
+    color: #ffffff;
+  }
+}
