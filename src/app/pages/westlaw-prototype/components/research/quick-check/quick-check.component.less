@@ -87,10 +87,19 @@ saf-button.button-tertiary::part(control) {
   .left-filters {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
 
     saf-select {
-      width: 190px;
+      width: 160px;
+    }
+
+    saf-select::part(label-container) {
+      color: #666666;
+      margin-bottom: 3px;
+    }
+
+    saf-select::part(control) {
+      height: 30px;
     }
   }
 }
