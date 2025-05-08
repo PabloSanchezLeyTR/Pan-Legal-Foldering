@@ -2,9 +2,8 @@
   <div class="input-container">
     <div contenteditable="true" class="text-editor" data-placeholder="Ask a question or enter the topic you’d like to research..."
       (input)="inputChanged($event)" #searchInput>
-
+      <app-button [label]="'Opponents-Work.docx'" [addBorder]="true" [icon]="'file-word'" iconColor="blue-light" iconAppearance="solid" [secondIcon]="'close'"></app-button>
     </div>
-
     <div class="mention-container" *ngIf="showMentions" [style.top.px]="mentionTop" [style.left.px]="mentionLeft">
       <div class="mention-item" *ngFor="let mention of mentions" (click)="selectMention(mention.title)">
         <span class="mention-title"> {{ mention.title }}</span>
@@ -27,6 +26,21 @@
         [disabled]="!inputContent || inputContent.length <= 1" (click)="redirectToResearch()"></app-button>
     </div>
   </div>
+
+  <div class="suggested-actions">
+    <p>Suggested actions</p>
+    <div class="link-items">
+      <div class="link-item" *ngFor="let link of links" >
+        <div class="link-content">
+          <label>{{ link.title }}</label>
+          <p>{{ link.description }}</p>
+        </div>
+        <saf-anchor [href]="link.link" class="link-anchor">
+          <saf-icon icon-name="arrow-up-right" color="blue" size="16px"></saf-icon>
+        </saf-anchor>   
+      </div>
+  </div>
+
   <div class="search-suggestions" *ngIf="showSearchSuggestions">
     <div class="suggestion-item" *ngFor="let suggestion of searchSuggestions">
       <div class="suggestion-content">
@@ -34,7 +48,7 @@
         <span class="suggestion-description">{{ suggestion.description }}</span>
       </div>
       <div class="suggestion-icon">
-        <saf-icon icon-name="arrow-up-right" size="16px"></saf-icon>
+        <saf-icon icon-name="arrow-up-right" [color]="'blue'" size="16px"></saf-icon>
       </div>
     </div>
   </div>
@@ -55,14 +69,30 @@
     </div>
     <div class="dialog-content">
       <div class="drop-area">
-        <span class="drop-area-text">Select or drag files into this space.</span>
-        <app-button [label]="'Select'" [addBorder]="true"></app-button>
+        <p class="drop-area-text">Choose “Select files” or drag files into this space.</p>
+        <app-button [label]="'Select files'" [addBorder]="true" (click)="uploadFile()"></app-button>
+
+          <p>
+            <span>Supported file types: TXT, HTM, HTML, RTF (20 MB per file)</span><br>
+            <span>Supported file types: PDF, DOC, DOCX, EML, MSG, WPD, ZIP (500 MB per file)</span>
+          </p>
+      </div>
+      <div class="loading" *ngIf="isFileLoading">
+        <div class="loading-info">
+          <p>Opponents-Work.docx</p>
+          <div class="loading-progress">
+            <span>Uploading...</span>
+            <saf-icon class="circle-xmark" icon-name="circle-xmark" size="16px"></saf-icon>
+          </div>
+        </div>
+        <saf-progress indeterminate="true" completelabel="" min="0" max="100" value="40" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" status-color="loading">
+        </saf-progress>
       </div>
     </div>
 
     <div slot="footer" style="display: flex; gap: 12px; justify-content: flex-end; width: 100%">
       <app-button [label]="'Cancel'" [addBorder]="true" (click)="closeDialog()"></app-button>
-      <app-button [label]="'Attach files'" [backgroundColor]="'blue'" [color]="'white'"></app-button>
+      <app-button [label]="'Done'" [backgroundColor]="'blue'" [color]="isFileLoading ? 'white':'black'"  (click)="closeDialogDone()" [disabled]="!isFileLoading"></app-button>
     </div>
   </saf-dialog>
 

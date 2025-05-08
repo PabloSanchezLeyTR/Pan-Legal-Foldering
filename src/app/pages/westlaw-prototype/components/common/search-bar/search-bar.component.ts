@@ -21,6 +21,8 @@ export class SearchBarComponent {
   @ViewChildren('dialog') dialogRefs?: QueryList<ElementRef>;
 
   @Input() compactMode: boolean = false;
+  isFileLoading: boolean = false;
+  isFileUploadedDone: boolean = false;
 
   boundCloseDialog: () => void;
 
@@ -44,6 +46,22 @@ export class SearchBarComponent {
       description: '536 U.S. 181 • 122 S. Ct. 2097 • Jun 2002 • U.S.'
     }
   ];
+
+  links = [
+    {
+      title: 'Quick Check',
+      description: 'Check your own work, analyze your opponent’s work to identify potential weaknesses.',
+      link: '/quick-check'
+    },
+    {
+      title: 'Legal Document Analysis',
+      description: 'Identify potential issues with a document’s cited authority and quotations.'
+    },
+    {
+      title: 'Review Documents',
+      description: 'Ask questions about a batch of documents and receive answers complete with citations.'
+    }
+  ]
   mentionTop = 0;
   mentionLeft = 0;
 
@@ -120,6 +138,14 @@ export class SearchBarComponent {
     this.dialogRefs?.first.nativeElement.removeEventListener('hide', this.boundCloseDialog);
     this.attachmentDialog.nativeElement.hide();
     this.openAttachmentDialog = false;
+  }
+
+  uploadFile(): void {
+      this.isFileLoading = true;
+  }
+
+  closeDialogDone() {
+      this.isFileUploadedDone = true;
   }
 
   clickHandler() {
