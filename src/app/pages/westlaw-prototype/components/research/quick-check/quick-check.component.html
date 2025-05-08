@@ -3,7 +3,14 @@
   <div class="file-chat">
 
     <span>Analyse using Quick Check</span>
-    <app-button [label]="'Opponents-Work.docx'" [backgroundColor]="'white'"  [color]="'black'" [icon]="'file'"></app-button>
+    <app-button
+    [label]="'Opponents-Work.docx'"
+    [addBorder]="true"
+    [icon]="'file-word'"
+    iconColor="blue-light"
+    iconAppearance="solid"
+    [backgroundColor]="'white'"
+    ></app-button>
   </div>
 
   <div class="header-controller">
@@ -30,16 +37,16 @@
     <saf-tabs>
 
 
-      <saf-tab aria-label="Tab one"><saf-icon slot="start" icon-name="filter" appearance="light" presentation>
+      <saf-tab aria-label="Tab one"><saf-icon slot="start" icon-name="flag" appearance="light" presentation>
       </saf-icon>Warnings for Cited Authority</saf-tab>
 
-      <saf-tab aria-label="Tab two"><saf-icon slot="start" icon-name="filter" appearance="light" presentation>
+      <saf-tab aria-label="Tab two"><saf-icon slot="start" icon-name="quotes" appearance="light" presentation>
       </saf-icon>Quotation analysis</saf-tab>
 
-      <saf-tab aria-label="Tab three"><saf-icon slot="start" icon-name="filter" appearance="light" presentation>
+      <saf-tab aria-label="Tab three"><saf-icon slot="start" icon-name="list" appearance="light" presentation>
       </saf-icon>Table of authorities</saf-tab>
 
-      <saf-tab aria-label="Tab four"><saf-icon slot="start" icon-name="filter" appearance="light" presentation>
+      <saf-tab aria-label="Tab four"><saf-icon slot="start" icon-name="circle-check" appearance="light" presentation>
       </saf-icon>Recommendations</saf-tab>
 
 
@@ -49,45 +56,49 @@
           <div class="left-filters">
 
             <saf-select density="inherit" label="Content type:" invalid="false" aria-invalid="false" select-aria-label="">
-              <saf-option value="">
+              <saf-listbox-option value="">
                   Cases
-              </saf-option>
+              </saf-listbox-option>
 
-              <saf-option value="1">
+              <saf-listbox-option value="1">
                   Case 1
-              </saf-option>
+              </saf-listbox-option>
 
-              <saf-option value="2">
+              <saf-listbox-option value="2">
                   Case 2
-              </saf-option>
+              </saf-listbox-option>
 
-              <saf-option value="3">
+              <saf-listbox-option value="3">
                   Case 3
-              </saf-option>
+              </saf-listbox-option>
             </saf-select>
 
             <saf-select density="inherit" label="Keycite treatment:" invalid="false" aria-invalid="false" select-aria-label="">
-              <saf-option value="">
+              <saf-listbox-option value="">
                   All
-              </saf-option>
+              </saf-listbox-option>
 
-              <saf-option value="1">
+              <saf-listbox-option value="1">
                   Case 1
-              </saf-option>
+              </saf-listbox-option>
 
-              <saf-option value="2">
+              <saf-listbox-option value="2">
                   Case 2
-              </saf-option>
+              </saf-listbox-option>
 
-              <saf-option value="3">
+              <saf-listbox-option value="3">
                   Case 3
-              </saf-option>
+              </saf-listbox-option>
             </saf-select>
           </div>
 
           <div class="right-filters">
-            <saf-button appearance="tertiary" class="button-tertiary"> <saf-icon slot="start" icon-name="filter" appearance="light" presentation>
-            </saf-icon>All Filters</saf-button>
+            <app-button
+            [label]="'All filters'"
+            [icon]="'filter'"
+            iconColor="black"
+            iconAppearance="light"
+            [backgroundColor]="'white'"></app-button>
           </div>
         </div>
 
@@ -96,7 +107,7 @@
         <div class="case-container">
           <saf-checkbox></saf-checkbox>
 
-          <saf-icon icon-name="message" appearance="solid" presentation>
+          <saf-icon icon-name="flag" color="#D2D2D2" appearance="solid" presentation>
           </saf-icon>
 
           <div class="case-square"></div>
@@ -127,7 +138,7 @@
         <div class="case-container">
           <saf-checkbox></saf-checkbox>
 
-          <saf-icon icon-name="message" appearance="solid" presentation>
+          <saf-icon icon-name="flag" color="#D2D2D2" appearance="solid" presentation>
           </saf-icon>
 
           <div class="case-square"></div>
