@@ -23,6 +23,9 @@ export class SearchBarComponent {
   openAttachmentDialog: boolean = false;
   openTaskLibraryDialog: boolean = false;
   openJurisdictionDialog: boolean = false;
+  isFileLoading: boolean = false;
+  isFileUploadedDone: boolean = false;
+
   @ViewChild('dialog', { static: false }) attachmentDialog: any;
   @ViewChild('searchInput', { static: false }) searchInput:
     | ElementRef<HTMLDivElement>
@@ -53,6 +56,21 @@ export class SearchBarComponent {
       description: '536 U.S. 181 • 122 S. Ct. 2097 • Jun 2002 • U.S.',
     },
   ];
+  links = [
+    {
+      title: 'Quick Check',
+      description: 'Check your own work, analyze your opponent’s work to identify potential weaknesses.',
+      link: '/westlaw-prototype/deep-research/quick-check'
+    },
+    {
+      title: 'Legal Document Analysis',
+      description: 'Identify potential issues with a document’s cited authority and quotations.'
+    },
+    {
+      title: 'Review Documents',
+      description: 'Ask questions about a batch of documents and receive answers complete with citations.'
+    }
+  ]
   mentionTop = 0;
   mentionLeft = 0;
 
@@ -133,6 +151,14 @@ export class SearchBarComponent {
 
   closeJurisdictionDialog() {
     this.openJurisdictionDialog = false;
+  }
+  
+  uploadFile(): void {
+      this.isFileLoading = true;
+  }
+
+  closeDialogDone() {
+      this.isFileUploadedDone = true;
   }
 
   closeDialog() {
