@@ -113,24 +113,23 @@ div[contenteditable="true"]:empty::before {
 
 .drop-area {
   margin-top: 20px;
-  width: 768px;
-  height: 124px;
   border: 1px dashed var(--saf-color-border-stronger) !important;
-  border-radius: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  border-radius: 8px;
+  padding-inline: 16px;
+  padding-top: 16px;
 }
 
 .drop-area-text {
-  font-family: Source Sans 3;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 135%;
   letter-spacing: 0px;
   text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 135%;
 }
 
 .search-suggestions {
@@ -384,4 +383,69 @@ div[contenteditable="true"]:empty::before {
   margin-top: 16px;
   margin-bottom: 16px;
   gap: 4px;
+}
+
+.loading {
+  border-radius: 8px;
+  align-items: center;
+  margin-top: 10px;
+  border: 1px solid #E5E5E5;
+
+  .loading-info {
+    padding-block: 16px;
+    padding-right: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+    p{
+      margin: 0;
+    }
+  }
+
+  .loading-progress {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    span {
+      font-family: Source Sans 3;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 135%;
+      letter-spacing: 0px;
+      color: #666666;
+    }
+  }
+
+  saf-progress::part(progress-value) {
+    display: none;
+  }
+}
+
+.suggested-actions {
+  background: #F5F7F6;
+  padding: 16px;
+  border-end-start-radius : 16px;
+  border-end-end-radius : 16px;
+
+  .link-items {
+    padding-inline: 16px;  
+
+    .link-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0px;
+
+      label {
+        font-family: Source Sans 3;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 135%;
+        letter-spacing: 0px;
+        color: #032F5B;
+      }
+    }
+  }
 }
