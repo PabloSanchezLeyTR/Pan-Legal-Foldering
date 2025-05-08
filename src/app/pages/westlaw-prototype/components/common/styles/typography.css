@@ -1,0 +1,96 @@
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: normal;
+	font-weight: 200;
+	src: url('./fonts/Clario/Clario-Air.woff2') format('woff2'),
+		url('./fonts/Clario/Clario-Air.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: italic;
+	font-weight: 200;
+	src: url('./fonts/Clario/Clario-AirItalic.woff2') format('woff2'),
+		url('./fonts/Clario/Clario-AirItalic.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: normal;
+	font-weight: 300;
+	src:  url('./fonts/Clario/Clario-Light.woff2') format('woff2'),
+	url('./fonts/Clario/Clario-Light.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: normal;
+	font-weight: 300;
+	src:  url('./fonts/Clario/Clario-LightItalic.woff2') format('woff2'),
+	url('./fonts/Clario/Clario-LightItalic.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: normal;
+	font-weight: 400;
+	src:  url('./fonts/Clario/Clario-Regular.woff2') format('woff2'),
+	url('./fonts/Clario/Clario-Regular.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: italic;
+	font-weight: 400;
+	src:  url('./fonts/Clario/Clario-RegularItalic.woff') format('woff2'),
+	url('./fonts/Clario/Clario-RegularItalic.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: normal;
+	font-weight: 500;
+	src:  url('./fonts/Clario/Clario-Medium.woff2') format('woff2'),
+	url('./fonts/Clario/Clario-Medium.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: italic;
+	font-weight: 500;
+	src:  url('./fonts/Clario/Clario-MediumItalic.woff2') format('woff2'),
+	url('./fonts/Clario/Clario-MediumItalic.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: normal;
+	font-weight: 700;
+	src:  url('./fonts/Clario/Clario-Bold.woff2') format('woff2'),
+	url('./fonts/Clario/Clario-Bold.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: italic;
+	font-weight: 700;
+	src:  url('./fonts/Clario/Clario-BoldItalic.woff2') format('woff2'),
+	url('./fonts/Clario/Clario-BoldItalic.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: normal;
+	font-weight: 900;
+	src:  url('./fonts/Clario/Clario-Black.woff2') format('woff2'),
+	url('./fonts/Clario/Clario-Black.woff') format('font-woff');
+}
+@font-face {
+	font-display: swap;
+	font-family: Clario;
+	font-style: italic;
+	font-weight: 900;
+	src:  url('./fonts/Clario/Clario-BlackItalic.woff2') format('woff2'),
+	url('./fonts/Clario/Clario-BlackItalic.woff') format('font-woff');
+}
