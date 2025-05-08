@@ -4,9 +4,13 @@
         <div class="header-section-1">
             <app-button class="back-button" icon="arrow-left" [expanded]="false" (click)="goBack()"></app-button>
             <div class="title-section">
-                <span class="case-title">Gorman v. Covidien, LLC</span>
+              <saf-icon class="flag-icon" [appearance]="'solid'" icon-name="flag" color="#E9B045"
+              size="16px"></saf-icon>
+                <div class="title-information">
+                  <span class="case-title">Gorman v. Covidien, LLC</span>
                 <span class="case-subtitle">United States District Court, S.D. New York. • November 19, 2015 • 146
                     F.Supp.3d 509 • 32 A.D. Cases 902</span>
+                </div>
             </div>
         </div>
         <div class="action-buttons">
@@ -28,7 +32,7 @@
             <saf-tabs>
                 <saf-tab class="tab" aria-label="document">Document</saf-tab>
                 <saf-tab aria-label="fillings">Fillings (2)</saf-tab>
-                <saf-tab aria-label="treatment" [disabled]="true">Negative Treatment (0)</saf-tab>
+                <saf-tab aria-label="treatment">Negative Treatment (1)</saf-tab>
                 <saf-tab aria-label="history">History (2)</saf-tab>
                 <saf-tab aria-label="citing">Citing References (254)</saf-tab>
                 <saf-tab aria-label="table">Table of Authorities</saf-tab>
@@ -80,7 +84,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Case Content -->
         <div class="case-content">
             <aside class="table-of-contents">
@@ -97,6 +101,12 @@
                 </div>
             </aside>
             <main class="document">
+                <div class="keysite-note">
+                  <saf-icon class="flag-icon" [appearance]="'solid'" icon-name="flag" color="#E9B045"
+                  size="16px"></saf-icon>
+                  <span>Declined to Extend by <a href="#">In re Lopez-Munoz</a>, 1st Cir., August 9, 2017</span>
+
+                </div>
                 <div class="document-title">
                     <span class="document-title-text-1">146 F.Supp.3d 509</span>
                     <span class="document-title-text-1">United States District Court, S.D. New York.</span>
@@ -114,13 +124,13 @@
                     <span style="font-weight: 600;">Holdings:</span> The District Court, <a href="#">Katherine Polk Failla</a>, J., held that:
                 </p>
                 <ol class="document-text">
-                    <li>placement of employee on performance improvement plan (PIP) was not adverse 
+                    <li>placement of employee on performance improvement plan (PIP) was not adverse
                         action;
                     </li>
                     <li>
                         employer's actions did not amount to constructive discharge;
                     </li>
-                    <li>supervisors' alleged actions were not sufficiently severe or pervasive to rise to level 
+                    <li>supervisors' alleged actions were not sufficiently severe or pervasive to rise to level
                         of hostile work environment;
                     </li>
                     <li>
