@@ -159,14 +159,15 @@ export class SearchBarComponent {
 
   closeDialogDone() {
     this.isFileUploadedDone = true;
+    this.openAttachmentDialog = false;
   }
 
   closeDialog() {
-    this.dialogRefs?.first.nativeElement.removeEventListener(
-      'hide',
-      this.boundCloseDialog
-    );
-    this.attachmentDialog.nativeElement.hide();
+    // this.dialogRefs?.first.nativeElement.removeEventListener(
+    //   'hide',
+    //   this.boundCloseDialog
+    // );
+    // this.attachmentDialog.nativeElement.hide();
     this.openAttachmentDialog = false;
   }
 

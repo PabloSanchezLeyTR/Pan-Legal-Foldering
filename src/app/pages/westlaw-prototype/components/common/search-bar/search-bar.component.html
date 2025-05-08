@@ -87,7 +87,7 @@
     </div>
   </div>
   
-  <div class="suggested-actions">
+  <div class="suggested-actions" *ngIf="isFileUploadedDone">
     <p>Suggested actions</p>
     <div class="link-items">
       <div class="link-item" *ngFor="let link of links" >
@@ -99,6 +99,7 @@
           <saf-icon icon-name="arrow-up-right" color="blue" size="16px"></saf-icon>
         </saf-anchor>   
       </div>
+    </div>
   </div>
 
   <div
@@ -152,6 +153,7 @@
         </p>
       </div>
     </div>
+    
     <div class="loading" *ngIf="isFileLoading">
       <div class="loading-info">
         <p>Opponents-Work.docx</p>
@@ -163,6 +165,7 @@
       <saf-progress indeterminate="true" completelabel="" min="0" max="100" value="40" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" status-color="loading">
       </saf-progress>
     </div>
+
     <div
       slot="footer"
       style="display: flex; gap: 12px; justify-content: flex-end; width: 100%"
