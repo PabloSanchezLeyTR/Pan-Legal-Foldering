@@ -25,6 +25,8 @@ export class SearchBarComponent {
   openJurisdictionDialog: boolean = false;
   isFileLoading: boolean = false;
   isFileUploadedDone: boolean = false;
+  fileUploadProgress: number = 0;
+  fileUploadStepText: string = 'Uploading...';
 
   @ViewChild('dialog', { static: false }) attachmentDialog: any;
   @ViewChild('searchInput', { static: false }) searchInput:
@@ -152,9 +154,15 @@ export class SearchBarComponent {
   closeJurisdictionDialog() {
     this.openJurisdictionDialog = false;
   }
-  
+
   uploadFile(): void {
       this.isFileLoading = true;
+      setTimeout(() => {
+        this.fileUploadProgress = 100;
+      }, 1000);
+      setTimeout(() => {
+        this.fileUploadStepText = 'File uploaded successfully!';
+      }, 1500);
   }
 
   closeDialogDone() {

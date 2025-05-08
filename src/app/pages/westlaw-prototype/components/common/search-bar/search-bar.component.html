@@ -23,13 +23,13 @@
         <span class="mention-description">{{ mention.description }}</span>
       </div>
     </div>
-    <app-button 
+    <app-button
       *ngIf="isFileUploadedDone"
-      [label]="'Opponents-Work.docx'" 
+      [label]="'Opponents-Work.docx'"
       [addBorder]="true"
-      [icon]="'file-word'" 
-      iconColor="blue-light" 
-      iconAppearance="solid" 
+      [icon]="'file-word'"
+      iconColor="blue-light"
+      iconAppearance="solid"
       [secondIcon]="'close'"></app-button>
   </div>
   <div class="button-groups">
@@ -87,7 +87,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="suggested-actions" *ngIf="isFileUploadedDone">
     <p>Suggested actions</p>
     <div class="link-items">
@@ -98,7 +98,7 @@
         </div>
         <saf-anchor [href]="link.link" class="link-anchor">
           <saf-icon icon-name="arrow-up-right" color="blue" size="16px"></saf-icon>
-        </saf-anchor>   
+        </saf-anchor>
       </div>
     </div>
   </div>
@@ -159,11 +159,11 @@
       <div class="loading-info">
         <p>Opponents-Work.docx</p>
         <div class="loading-progress">
-          <span>Uploading...</span>
+          <span>{{fileUploadStepText}}</span>
           <saf-icon class="circle-xmark" icon-name="circle-xmark" size="16px"></saf-icon>
         </div>
       </div>
-      <saf-progress indeterminate="true" completelabel="" min="0" max="100" value="40" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" status-color="loading">
+      <saf-progress indeterminate="true" completelabel="" min="0" max="100" [value]="fileUploadProgress" aria-valuemin="0" aria-valuemax="100" status-color="loading">
       </saf-progress>
     </div>
 
@@ -176,10 +176,10 @@
         [addBorder]="true"
         (click)="closeDialog()"
       ></app-button>
-      <app-button [label]="'Done'" 
-        [backgroundColor]="'blue'" 
-        [color]="isFileLoading ? 'white':'black'"  
-        (click)="closeDialogDone()" 
+      <app-button [label]="'Done'"
+        [backgroundColor]="'blue'"
+        [color]="isFileLoading ? 'white':'black'"
+        (click)="closeDialogDone()"
         [disabled]="!isFileLoading"></app-button>
 
     </div>
