@@ -186,6 +186,11 @@ div[contenteditable="true"]:empty::before {
   height: 663px;
 }
 
+.jurisdiction-dialog::part(control) {
+  width: 1248px;
+  height: 845px;
+}
+
 .filters-wrapper {
   display: flex;
   flex-direction: row;
@@ -322,4 +327,61 @@ div[contenteditable="true"]:empty::before {
   line-height: 120%;
   letter-spacing: 0px;
   color: #666666;
+}
+
+//Jurisdiction Dialog styles
+.jurisdiction-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.dialog-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-section {
+  display: flex;
+  gap: 32px;
+  flex: 1;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  max-width: 840px;
+}
+
+.checkbox-grid > div,
+.checkbox-grid-single > div,
+.checkbox-grid-small > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkbox-grid-single {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 336px;
+}
+
+.checkbox-grid-small {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 336px;
+}
+
+.checkbox-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  gap: 4px;
 }
