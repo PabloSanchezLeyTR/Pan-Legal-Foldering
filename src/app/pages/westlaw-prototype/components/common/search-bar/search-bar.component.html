@@ -23,12 +23,21 @@
         <span class="mention-description">{{ mention.description }}</span>
       </div>
     </div>
+    <app-button
+      *ngIf="isFileUploadedDone"
+      [label]="'Opponents-Work.docx'"
+      [addBorder]="true"
+      [icon]="'file-word'"
+      iconColor="blue-light"
+      iconAppearance="solid"
+      [secondIcon]="'close'"></app-button>
   </div>
   <div class="button-groups">
     <div class="left-buttons">
       <app-toggle
         [options]="toggleOptions"
         (selectedOptionChanged)="toggleOptionSelected($event)"
+        (click)="isFileUploadedDone = false; isFileLoading = false"
       ></app-toggle>
       <app-button
         [label]="'New york'"
@@ -74,7 +83,34 @@
         <span class="suggestion-description">{{ suggestion.description }}</span>
       </div>
       <div class="suggestion-icon">
-        <saf-icon icon-name="arrow-up-right" size="16px"></saf-icon>
+        <saf-icon icon-name="arrow-up-right" [color]="'blue'" size="16px"></saf-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="suggested-actions" *ngIf="isFileUploadedDone">
+    <p>Suggested actions</p>
+    <div class="link-items">
+      <div class="link-item" *ngFor="let link of links" [ngClass]="{'linkable': link.link}" >
+        <div *ngIf="link.link" class="link-wrapper" routerLink="/westlaw-prototype/deep-research/quick-check">
+          <div class="link-content">
+            <label>{{ link.title }}</label>
+            <p>{{ link.description }}</p>
+          </div>
+          <saf-anchor [href]="link.link" class="link-anchor">
+            <saf-icon icon-name="arrow-up-right" color="#032E5B" size="16px"></saf-icon>
+          </saf-anchor>
+        </div>
+        <div *ngIf="!link.link" class="link-wrapper">
+          <div class="link-content">
+            <label>{{ link.title }}</label>
+            <p>{{ link.description }}</p>
+          </div>
+          <saf-anchor [href]="link.link" class="link-anchor">
+            <saf-icon icon-name="arrow-up-right" color="#032E5B" size="16px"></saf-icon>
+          </saf-anchor>
+        </div>
+
       </div>
     </div>
   </div>
@@ -121,11 +157,26 @@
     </div>
     <div class="dialog-content">
       <div class="drop-area">
-        <span class="drop-area-text"
-          >Select or drag files into this space.</span
-        >
-        <app-button [label]="'Select'" [addBorder]="true"></app-button>
+        <p class="drop-area-text">Choose “Select files” or drag files into this space.</p>
+        <app-button [label]="'Select files'" [addBorder]="true" (click)="uploadFile()"></app-button>
+
+        <p>
+          <span>Supported file types: TXT, HTM, HTML, RTF (20 MB per file)</span><br>
+          <span>Supported file types: PDF, DOC, DOCX, EML, MSG, WPD, ZIP (500 MB per file)</span>
+        </p>
       </div>
+    </div>
+
+    <div class="loading" *ngIf="isFileLoading">
+      <div class="loading-info">
+        <p>Opponents-Work.docx</p>
+        <div class="loading-progress">
+          <span>{{fileUploadStepText}}</span>
+          <saf-icon class="circle-xmark" icon-name="circle-xmark" size="16px"></saf-icon>
+        </div>
+      </div>
+      <saf-progress indeterminate="true" completelabel="" min="0" max="100" [value]="fileUploadProgress" aria-valuemin="0" aria-valuemax="100" status-color="loading">
+      </saf-progress>
     </div>
 
     <div
@@ -137,11 +188,12 @@
         [addBorder]="true"
         (click)="closeDialog()"
       ></app-button>
-      <app-button
-        [label]="'Attach files'"
+      <app-button [label]="'Done'"
         [backgroundColor]="'blue'"
-        [color]="'white'"
-      ></app-button>
+        [color]="isFileLoading ? 'white':'black'"
+        (click)="closeDialogDone()"
+        [disabled]="!isFileLoading"></app-button>
+
     </div>
   </saf-dialog>
 

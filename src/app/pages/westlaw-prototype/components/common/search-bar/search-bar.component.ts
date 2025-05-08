@@ -23,6 +23,11 @@ export class SearchBarComponent {
   openAttachmentDialog: boolean = false;
   openTaskLibraryDialog: boolean = false;
   openJurisdictionDialog: boolean = false;
+  isFileLoading: boolean = false;
+  isFileUploadedDone: boolean = false;
+  fileUploadProgress: number = 0;
+  fileUploadStepText: string = 'Uploading...';
+
   @ViewChild('dialog', { static: false }) attachmentDialog: any;
   @ViewChild('searchInput', { static: false }) searchInput:
     | ElementRef<HTMLDivElement>
@@ -53,6 +58,21 @@ export class SearchBarComponent {
       description: '536 U.S. 181 • 122 S. Ct. 2097 • Jun 2002 • U.S.',
     },
   ];
+  links = [
+    {
+      title: 'Quick Check',
+      description: 'Check your own work, analyze your opponent’s work to identify potential weaknesses.',
+      link: '/westlaw-prototype/deep-research/quick-check'
+    },
+    {
+      title: 'Legal Document Analysis',
+      description: 'Identify potential issues with a document’s cited authority and quotations.'
+    },
+    {
+      title: 'Review Documents',
+      description: 'Ask questions about a batch of documents and receive answers complete with citations.'
+    }
+  ]
   mentionTop = 0;
   mentionLeft = 0;
 
@@ -135,22 +155,39 @@ export class SearchBarComponent {
     this.openJurisdictionDialog = false;
   }
 
+  uploadFile(): void {
+      this.isFileLoading = true;
+      setTimeout(() => {
+        this.fileUploadProgress = 100;
+      }, 500);
+      setTimeout(() => {
+        this.fileUploadStepText = 'File uploaded successfully!';
+      }, 1000);
+  }
+
+  closeDialogDone() {
+    this.isFileUploadedDone = true;
+    this.openAttachmentDialog = false;
+    this.fileUploadProgress = 0;
+    this.fileUploadStepText = 'Uploading...';
+  }
+
   closeDialog() {
-    this.dialogRefs?.first.nativeElement.removeEventListener(
-      'hide',
-      this.boundCloseDialog
-    );
-    this.attachmentDialog.nativeElement.hide();
+    // this.dialogRefs?.first.nativeElement.removeEventListener(
+    //   'hide',
+    //   this.boundCloseDialog
+    // );
+    // this.attachmentDialog.nativeElement.hide();
     this.openAttachmentDialog = false;
   }
 
   clickHandler() {
     this.openAttachmentDialog = !this.openAttachmentDialog;
-    if (this.openAttachmentDialog) {
-      setTimeout(() => {
-        this.attachmentDialog.nativeElement.focus();
-      });
-    }
+    // if (this.openAttachmentDialog) {
+    //   setTimeout(() => {
+    //     this.attachmentDialog.nativeElement.focus();
+    //   });
+    // }
   }
 
   clickTaskLibrary() {
