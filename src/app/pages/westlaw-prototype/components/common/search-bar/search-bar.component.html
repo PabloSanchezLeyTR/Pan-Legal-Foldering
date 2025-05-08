@@ -91,14 +91,26 @@
   <div class="suggested-actions" *ngIf="isFileUploadedDone">
     <p>Suggested actions</p>
     <div class="link-items">
-      <div class="link-item" *ngFor="let link of links" >
-        <div class="link-content">
-          <label>{{ link.title }}</label>
-          <p>{{ link.description }}</p>
+      <div class="link-item" *ngFor="let link of links" [ngClass]="{'linkable': link.link}" >
+        <div *ngIf="link.link" class="link-wrapper" routerLink="/westlaw-prototype/deep-research/quick-check">
+          <div class="link-content">
+            <label>{{ link.title }}</label>
+            <p>{{ link.description }}</p>
+          </div>
+          <saf-anchor [href]="link.link" class="link-anchor">
+            <saf-icon icon-name="arrow-up-right" color="#032E5B" size="16px"></saf-icon>
+          </saf-anchor>
         </div>
-        <saf-anchor [href]="link.link" class="link-anchor">
-          <saf-icon icon-name="arrow-up-right" color="blue" size="16px"></saf-icon>
-        </saf-anchor>
+        <div *ngIf="!link.link" class="link-wrapper">
+          <div class="link-content">
+            <label>{{ link.title }}</label>
+            <p>{{ link.description }}</p>
+          </div>
+          <saf-anchor [href]="link.link" class="link-anchor">
+            <saf-icon icon-name="arrow-up-right" color="#032E5B" size="16px"></saf-icon>
+          </saf-anchor>
+        </div>
+
       </div>
     </div>
   </div>

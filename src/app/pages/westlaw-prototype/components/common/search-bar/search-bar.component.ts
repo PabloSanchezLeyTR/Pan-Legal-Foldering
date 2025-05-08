@@ -159,15 +159,17 @@ export class SearchBarComponent {
       this.isFileLoading = true;
       setTimeout(() => {
         this.fileUploadProgress = 100;
-      }, 1000);
+      }, 500);
       setTimeout(() => {
         this.fileUploadStepText = 'File uploaded successfully!';
-      }, 1500);
+      }, 1000);
   }
 
   closeDialogDone() {
     this.isFileUploadedDone = true;
     this.openAttachmentDialog = false;
+    this.fileUploadProgress = 0;
+    this.fileUploadStepText = 'Uploading...';
   }
 
   closeDialog() {
