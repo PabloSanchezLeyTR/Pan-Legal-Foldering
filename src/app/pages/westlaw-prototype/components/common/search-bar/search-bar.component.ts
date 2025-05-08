@@ -158,7 +158,7 @@ export class SearchBarComponent {
   }
 
   closeDialogDone() {
-      this.isFileUploadedDone = true;
+    this.isFileUploadedDone = true;
   }
 
   closeDialog() {
@@ -172,11 +172,11 @@ export class SearchBarComponent {
 
   clickHandler() {
     this.openAttachmentDialog = !this.openAttachmentDialog;
-    if (this.openAttachmentDialog) {
-      setTimeout(() => {
-        this.attachmentDialog.nativeElement.focus();
-      });
-    }
+    // if (this.openAttachmentDialog) {
+    //   setTimeout(() => {
+    //     this.attachmentDialog.nativeElement.focus();
+    //   });
+    // }
   }
 
   clickTaskLibrary() {

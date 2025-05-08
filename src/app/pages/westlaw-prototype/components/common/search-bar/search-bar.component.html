@@ -24,9 +24,10 @@
       </div>
     </div>
     <app-button 
+      *ngIf="isFileUploadedDone"
       [label]="'Opponents-Work.docx'" 
-      [addBorder]="true" [
-      icon]="'file-word'" 
+      [addBorder]="true"
+      [icon]="'file-word'" 
       iconColor="blue-light" 
       iconAppearance="solid" 
       [secondIcon]="'close'"></app-button>
