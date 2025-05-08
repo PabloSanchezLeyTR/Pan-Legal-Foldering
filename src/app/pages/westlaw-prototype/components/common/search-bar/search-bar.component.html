@@ -84,7 +84,7 @@
     *ngIf="showResponseTimeMenu"
     #responseTimeMenu
   >
-    <app-response-time-menu></app-response-time-menu>
+    <app-response-time-menu (searchTypeChanged)="toggleSearchType($event)"></app-response-time-menu>
   </div>
 
   <saf-dialog

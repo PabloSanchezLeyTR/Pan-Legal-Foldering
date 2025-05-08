@@ -79,12 +79,13 @@ export class SearchBarComponent {
     {
       label: 'Keyword Search',
       textColor: 'blue',
+      includeDropdown: true,
     },
     {
       label: 'Deep Research',
       icon: 'telescope',
       textColor: 'blue',
-      includeDropdown: true,
+
     },
   ];
 
@@ -109,11 +110,17 @@ export class SearchBarComponent {
 
   toggleOptionSelected(option: ToggleOption) {
     this.selectedOption = option;
-    if (option.label === 'Deep Research') {
+    if (option.label === 'Keyword Search') {
       setTimeout(() => {
         this.showResponseTimeMenu = true;
       });
     }
+  }
+
+  toggleSearchType(searchType: number) {
+    setTimeout(() => {
+      this.showResponseTimeMenu =false;
+    });
   }
 
   onDocumentClick(event: any) {
