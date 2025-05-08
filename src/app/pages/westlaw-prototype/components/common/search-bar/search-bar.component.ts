@@ -124,6 +124,10 @@ export class SearchBarComponent {
     }
   }
 
+  closeJurisdictionDialog() {
+    this.openJurisdictionDialog = false;
+  }
+
   closeDialog() {
     this.dialogRefs?.first.nativeElement.removeEventListener(
       'hide',

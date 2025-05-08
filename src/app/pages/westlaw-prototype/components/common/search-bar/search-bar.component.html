@@ -362,7 +362,7 @@
     dialog-title="Jurisdiction"
     dialog-subtitle="1 jurisdiction selected. Select up to 3."
     [hidden]="!openJurisdictionDialog"
-    (hide)="closeDialog()"
+    (hide)="closeJurisdictionDialog()"
     triggerId="button-dialog-trigger"
   >
     <div class="jurisdiction-dialog">
@@ -524,12 +524,13 @@
       <app-button
         [label]="'Cancel'"
         [addBorder]="true"
-        (click)="closeDialog()"
+        (click)="closeJurisdictionDialog()"
       ></app-button>
       <app-button
         [label]="'Save'"
         [backgroundColor]="'blue'"
         [color]="'white'"
+        (click)="closeJurisdictionDialog()"
       ></app-button>
     </div>
   </saf-dialog>
