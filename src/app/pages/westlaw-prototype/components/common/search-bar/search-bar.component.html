@@ -37,6 +37,7 @@
       <app-toggle
         [options]="toggleOptions"
         (selectedOptionChanged)="toggleOptionSelected($event)"
+        (click)="isFileUploadedDone = false; isFileLoading = false"
       ></app-toggle>
       <app-button
         [label]="'New york'"
@@ -153,7 +154,7 @@
         </p>
       </div>
     </div>
-    
+
     <div class="loading" *ngIf="isFileLoading">
       <div class="loading-info">
         <p>Opponents-Work.docx</p>
