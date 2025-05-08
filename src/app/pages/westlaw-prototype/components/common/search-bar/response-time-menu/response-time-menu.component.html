@@ -1,29 +1,47 @@
 <!-- response-time-menu.component.html -->
 <div class="response-time-menu">
-    <h2 class="title">Response Time</h2>
-    <h4 class="subtitle">Select your preferred response time</h4>
-    <div class="slider-container">
-        <div class="slider">
-            <input type="range" min="1" max="6" step="1" [(ngModel)]="selectedTime" (input)="updateTime()" #rangeInput />
+    <div class="keyword-search-button-wrapper">
+      <div class="item" (click)="toggleKeywordSearchType()">
+        <div class="left">
+          <saf-icon slot="end" color="#054688" icon-name="magnifying-glass" appearance="light" presentation></saf-icon>
         </div>
-        <div class="slider-lines">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+        <div class="left">
+          <div class="item-name">Keyword Search</div>
+          <div class="description">Search by key terms or Boolean search strings</div>
         </div>
-        <div class="slider-labels">
-            <span>~3min</span>
-            <span>~5min</span>
-            <span>~10min</span>
-            <span>~15min</span>
+        <div class="right">
+          <saf-icon slot="end" color="#054688" icon-name="check" appearance="solid" presentation></saf-icon>
         </div>
+      </div>
     </div>
-    <div class="time-explanation">
-        <div class="explanation-title">
-            Detailed Research (~{{ responseTime }}min)
+    <div class="outside-links-wrapper">
+      <div class="item">
+        <div class="left">
+          <div class="item-name">Advanced Search</div>
+          <div class="description">Add alternative terms to your search</div>
         </div>
-        <div class="explanation-subtitle">
-            Systematic and thorough analysis
+        <div class="right">
+          <saf-icon slot="end" icon-name="arrow-up-right-from-square" appearance="light" presentation></saf-icon>
         </div>
+      </div>
+      <div class="item">
+        <div class="left">
+          <div class="item-name" href="#">Precision Research</div>
+          <div class="description">Find cases by classification and tags</div>
+        </div>
+        <div class="right">
+          <saf-icon slot="end" icon-name="arrow-up-right-from-square" appearance="light" presentation></saf-icon>
+        </div>
+      </div>
+      <div class="item">
+        <div class="left">
+          <div class="item-name" href="#">Parallel Search</div>
+          <div class="description">Find conceptually similar sentences to
+            your query across cases</div>
+        </div>
+        <div class="right">
+          <saf-icon slot="end" icon-name="arrow-up-right-from-square" appearance="light" presentation></saf-icon>
+        </div>
+      </div>
     </div>
 </div>
