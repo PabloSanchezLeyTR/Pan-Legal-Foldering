@@ -25,7 +25,7 @@ export class SearchBarComponent {
   openJurisdictionDialog: boolean = false;
   isFileLoading: boolean = false;
   isFileUploadedDone: boolean = false;
-  
+
   @ViewChild('dialog', { static: false }) attachmentDialog: any;
   @ViewChild('searchInput', { static: false }) searchInput:
     | ElementRef<HTMLDivElement>
@@ -60,7 +60,7 @@ export class SearchBarComponent {
     {
       title: 'Quick Check',
       description: 'Check your own work, analyze your opponent’s work to identify potential weaknesses.',
-      link: '/quick-check'
+      link: '/westlaw-prototype/deep-research/quick-check'
     },
     {
       title: 'Legal Document Analysis',
