@@ -4,4 +4,5 @@ export class ToggleOption {
     textColor?: string;
     icon?: string;
     includeDropdown?: boolean = false;
+    dropdownOnlyWhenActive?: boolean = false;
 }

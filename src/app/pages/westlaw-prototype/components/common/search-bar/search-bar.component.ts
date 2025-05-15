@@ -97,15 +97,18 @@ export class SearchBarComponent {
 
   toggleOptions: ToggleOption[] = [
     {
-      label: 'Keyword Search',
+      label: 'Search',
       textColor: 'blue',
+      icon: 'magnifying-glass',
       includeDropdown: true,
+      dropdownOnlyWhenActive: true,
     },
     {
       label: 'Deep Research',
       icon: 'telescope',
       textColor: 'blue',
-
+      includeDropdown: true,
+      dropdownOnlyWhenActive: true,
     },
   ];
 

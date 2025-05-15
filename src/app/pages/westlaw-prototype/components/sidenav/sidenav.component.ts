@@ -25,6 +25,7 @@ export class SidenavComponent {
 
   bottomButtons = [
     { icon: 'stopwatch', label: 'Client: 345343' },
+    { icon: 'square-sliders', label: 'Settings' },
     { icon: 'circle-question', label: 'Help' },
     { icon: 'circle-user', label: 'Account' }
   ];
