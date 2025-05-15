@@ -19,5 +19,6 @@ export class ButtonComponent {
   @Input() includeDropdown: boolean | undefined = false;
   @Input() active: boolean | undefined = false;
   @Input() disabled: boolean | undefined = false;
-
+  @Input() width!: string;
+  @Input() height!: string;
 }
