@@ -1,47 +1,45 @@
 <!-- response-time-menu.component.html -->
 <div class="response-time-menu">
-    <div class="keyword-search-button-wrapper">
-      <div class="item" (click)="toggleKeywordSearchType()">
-        <div class="left">
-          <saf-icon slot="end" color="#054688" icon-name="magnifying-glass" appearance="light" presentation></saf-icon>
-        </div>
-        <div class="left">
-          <div class="item-name">Keyword Search</div>
-          <div class="description">Search by key terms or Boolean search strings</div>
-        </div>
-        <div class="right">
-          <saf-icon slot="end" color="#054688" icon-name="check" appearance="solid" presentation></saf-icon>
-        </div>
+  <div class="header">
+    <span class="title">Select type of search</span>
+  </div>
+  <div class="button-wrapper" (click)="toggleKeywordSearchType()">
+    <div class="item">
+      <div class="left">
+        <saf-icon color="#212223" icon-name="i-cursor" presentation></saf-icon>
+      </div>
+      <div class="left">
+        <div class="item-name">Search</div>
+        <div class="description">Search results matching Boolean or natural language terms entered</div>
       </div>
     </div>
-    <div class="outside-links-wrapper">
-      <div class="item">
-        <div class="left">
-          <div class="item-name">Advanced Search</div>
-          <div class="description">Add alternative terms to your search</div>
-        </div>
-        <div class="right">
-          <saf-icon slot="end" icon-name="arrow-up-right-from-square" appearance="light" presentation></saf-icon>
-        </div>
+  </div>
+  <div class="button-wrapper" (click)="toggleKeywordSearchType()">
+    <div class="item">
+      <div class="left">
+        <saf-icon color="#212223" icon-name="sliders-simple" presentation></saf-icon>
       </div>
-      <div class="item">
-        <div class="left">
-          <div class="item-name" href="#">Precision Research</div>
-          <div class="description">Find cases by classification and tags</div>
-        </div>
-        <div class="right">
-          <saf-icon slot="end" icon-name="arrow-up-right-from-square" appearance="light" presentation></saf-icon>
-        </div>
+      <div class="left">
+        <div class="item-name">Precision Research</div>
+        <div class="description">Case results matching browsable attributes entered</div>
       </div>
-      <div class="item">
-        <div class="left">
-          <div class="item-name" href="#">Parallel Search</div>
-          <div class="description">Find conceptually similar sentences to
-            your query across cases</div>
-        </div>
-        <div class="right">
-          <saf-icon slot="end" icon-name="arrow-up-right-from-square" appearance="light" presentation></saf-icon>
-        </div>
+      <div class="right">
+        <saf-icon icon-name="arrow-up-right-from-square" appearance="light" presentation></saf-icon>
       </div>
     </div>
+  </div>
+  <div class="button-wrapper" (click)="toggleKeywordSearchType()">
+    <div class="item">
+      <div class="left">
+        <saf-icon color="#212223" icon-name="cog" presentation></saf-icon>
+      </div>
+      <div class="left">
+        <div class="item-name">Advanced Search</div>
+        <div class="description">Form offering a more guided search experience</div>
+      </div>
+      <div class="right">
+        <saf-icon icon-name="arrow-up-right-from-square" appearance="light" presentation></saf-icon>
+      </div>
+    </div>
+  </div>
 </div>
