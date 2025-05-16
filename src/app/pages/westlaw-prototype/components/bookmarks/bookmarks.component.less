@@ -1,38 +1,37 @@
-
 .main-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 118px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 118px;
 }
 
 
 .flexRowSpaceBetweenHeader {
-    display: flex;
-    justify-content: space-between;
-    width: 700px;
-    margin-bottom: 24px;
-} 
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin-bottom: 24px;
+}
 
 
 .title {
-font-family: Clario;
-font-weight: 500;
-font-size: 20px;
-line-height: 120%;
-letter-spacing: 0px;
-vertical-align: middle;
+  font-family: Clario;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: 0px;
+  vertical-align: middle;
 }
 
 .modifyIconText {
-font-family: Source Sans 3;
-font-weight: 400;
-font-size: 16px;
-line-height: 150%;
-letter-spacing: 0px;
-vertical-align: middle;
+  font-family: Source Sans 3;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  vertical-align: middle;
 }
 
 .btnsContainer {
@@ -68,11 +67,16 @@ vertical-align: middle;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 16.8px */
+  line-height: 120%;
+  /* 16.8px */
 }
 
 .safIcon {
   color: var(--color-data-viz-sky-700, #032E5B);
+}
+
+.safIconLight {
+  color: var(--color-border-strong, #D2D2D2);
 }
 
 .editFlex {
@@ -82,4 +86,156 @@ vertical-align: middle;
   justify-content: center;
   border: none;
   background: none;
+}
+
+.modal {
+  position: absolute;
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  left: auto;
+  box-sizing: border-box;
+}
+
+.modalHeader {
+  display: flex;
+  width: 500px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--color-border-subtle, #E5E5E5);
+}
+
+.modalTitle {
+  font-family: Clario;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: 0px;
+  vertical-align: middle;
+}
+
+.flexRowSpaceBetween {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.search-container {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input {
+  width: 100%;
+  height: 40px;
+  padding: 10px 40px 10px 12px;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+  border: 1px solid var(--color-border-stronger, #666);
+}
+
+.search-icon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0px 4px 4px 0px;
+  border: 1px solid var(--color-border-stronger, #666);
+  border-left: none;
+  background: var(--color-interactive-background-subtle, #FAFAFA);
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 452px;
+  height: 96px;
+  align-items: flex-start;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2.5px solid var(--color-data-viz-sky-700, #032E5B)
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 24px;
+  height: 100%;
+}
+
+.cardContent {
+  overflow: hidden;
+  color: var(--color-text-subtle, #666);
+  text-overflow: ellipsis;
+
+  /* type/body/default/sm/regular/standard */
+  font-family: "Source Sans 3";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  /* 18.9px */
+}
+
+.cardBody {
+  margin-top: 4px;
+}
+
+.cardLight {
+  display: flex;
+  flex-direction: row;
+  width: 452px;
+  height: 96px;
+  align-items: flex-start;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-strong, #D2D2D2);
+}
+
+.ligthCardTitle {
+  color: var(--color-border-strong, #D2D2D2);
+  font-family: Clario;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 16.8px */
+}
+
+.cardContentLight {
+  overflow: hidden;
+  overflow: hidden;
+  color: var(--color-border-strong, #D2D2D2);
+  text-overflow: ellipsis;
+
+  /* type/body/default/sm/regular/standard */
+  font-family: "Source Sans 3";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  /* 18.9px */
+
 }

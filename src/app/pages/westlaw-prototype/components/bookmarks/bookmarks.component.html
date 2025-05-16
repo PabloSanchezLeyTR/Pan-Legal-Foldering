@@ -3,8 +3,8 @@
         <div class="title">
             My Quick Links
         </div>
-        <button class="editFlex">
-            <saf-icon icon-name="edit" size="16px"></saf-icon>
+        <button class="editFlex" (click)="toggleBookmark()">
+            <saf-icon appearance="solid" icon-name="edit" size="16px"></saf-icon>
             <div class="modifyIconText">
                 Modify
             </div>
@@ -13,19 +13,19 @@
     <div class="btnsContainer">
         <div class="btnsRow">
             <button class="btnLink">
-                <saf-icon icon-name="clipboard" size="16px" class="safIcon"></saf-icon>
+                <saf-icon appearance="solid" icon-name="clipboard" size="16px" class="safIcon"></saf-icon>
                 <div class="btnText">
                     Claims Explorer
                 </div>
             </button>
             <button class="btnLink">
-                <saf-icon icon-name="copy" size="16px" class="safIcon"></saf-icon>
+                <saf-icon appearance="solid" icon-name="copy" size="16px" class="safIcon"></saf-icon>
                 <div class="btnText">
                     Compare Text
                 </div>
             </button>
             <button class="btnLink">
-                <saf-icon icon-name="square-list" size="16px" class="safIcon"></saf-icon>
+                <saf-icon appearance="solid" icon-name="square-list" size="16px" class="safIcon"></saf-icon>
                 <div class="btnText">
                     Keep List
                 </div>
@@ -33,23 +33,133 @@
         </div>
         <div class="btnsRow">
             <button class="btnLink">
-                <saf-icon icon-name="chart-waterfall" size="16px" class="safIcon"></saf-icon>
+                <saf-icon appearance="solid" icon-name="chart-waterfall" size="16px" class="safIcon"></saf-icon>
                 <div class="btnText">
                     Litigation Analytics
                 </div>
             </button>
             <button class="btnLink">
-                <saf-icon icon-name="flag" size="16px" class="safIcon"></saf-icon>
+                <saf-icon appearance="solid" icon-name="flag" size="16px" class="safIcon"></saf-icon>
                 <div class="btnText">
                     Next Gen KeyCite
                 </div>
             </button>
             <button class="btnLink">
-                <saf-icon icon-name="books" size="16px" class="safIcon"></saf-icon>
+                <saf-icon appearance="solid" icon-name="books" size="16px" class="safIcon"></saf-icon>
                 <div class="btnText">
                     Practical Law
                 </div>
             </button>
         </div>
     </div>
+</div>
+<div *ngIf="showBookmark" class="modal">
+    <div class="modalHeader">
+        <div class="flexRowSpaceBetween">
+            <div class="modalTitle">
+                Edit My Quick Links
+            </div>
+            <button style="border: none; background:none;" (click)="toggleBookmark()">
+                <saf-icon appearance="solid" icon-name="close" size="16px"></saf-icon>
+            </button>
+        </div>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search content" class="search-input" />
+            <span class="search-icon">
+                <saf-icon appearance="solid" icon-name="search" size="16px"></saf-icon>
+            </span>
+        </div>
+    </div>
+
+    <div class="modalContent">
+        <div class="cardLight">
+            <saf-icon appearance="solid" icon-name="list-ul" size="16px" class="safIconLight"></saf-icon>
+            <div class="cardBody">
+                <div class="ligthCardTitle">
+                    AI Jurisdictional Surveys
+                </div>
+                <div class="cardContentLight">
+                    Uses AI to quickly analyze, identify, and compare statutes and regulations on a specific legal
+                    topic.
+                </div>
+            </div>
+            <saf-icon icon-name="circle" size="16px" class="safIconLight"></saf-icon>
+        </div>
+        <div class="card">
+            <saf-icon appearance="solid" icon-name="clipboard-check" size="16px" class="safIcon"></saf-icon>
+            <div class="cardBody">
+                <div class="btnText">
+                    Claims Explorer
+                </div>
+                <div class="cardContent">
+                    Find potential claims for your fact pattern and highlight specific statutory, common law, and
+                    constitutional causes of action for further research.
+                </div>
+            </div>
+            <saf-icon appearance="solid" icon-name="circle-check" size="16px" class="safIcon"></saf-icon>
+        </div>
+        <div class="card">
+            <saf-icon appearance="solid" icon-name="copy" size="16px" class="safIcon"></saf-icon>
+            <div class="cardBody">
+                <div class="btnText">
+                    Compare Text
+                </div>
+                <div class="cardContent">
+                    Compare selected snippets of text to highlight their similarities and differences.
+                </div>
+            </div>
+            <saf-icon appearance="solid" icon-name="circle-check" size="16px" class="safIcon"></saf-icon>
+        </div>
+        <div class="card">
+            <saf-icon appearance="solid" icon-name="square-list" size="16px" class="safIcon"></saf-icon>
+            <div class="cardBody">
+                <div class="btnText">
+                    Keep List
+                </div>
+                <div class="cardContent">
+                    Bookmark relevant cases during your research to review later.
+                </div>
+            </div>
+            <saf-icon appearance="solid" icon-name="circle-check" size="16px" class="safIcon"></saf-icon>
+        </div>
+        <div class="card">
+            <saf-icon appearance="solid" icon-name="chart-waterfall" size="16px" class="safIcon"></saf-icon>
+            <div class="cardBody">
+                <div class="btnText">
+                    Litigation Analytics
+                </div>
+                <div class="cardContent">
+                    Use precedent Analytics to craft a more persuasive argument based on past authority cited by judges.
+                </div>
+            </div>
+            <saf-icon appearance="solid" icon-name="circle-check" size="16px" class="safIcon"></saf-icon>
+        </div>
+        <div class="card">
+            <saf-icon appearance="solid" icon-name="flag" size="16px" class="safIcon"></saf-icon>
+            <div class="cardBody">
+                <div class="btnText">
+                    Next Generation KeyCite
+                </div>
+                <div class="cardContent">
+                    Use the new Cited With feature to quickly find related relevant material, along with Overruled in
+                    Part to see which parts of overruled cases are invalid and which are still good law.
+                </div>
+            </div>
+            <saf-icon appearance="solid" icon-name="circle-check" size="16px" class="safIcon"></saf-icon>
+        </div>
+        <div class="cardLight">
+            <saf-icon appearance="solid" icon-name="search" size="16px" class="safIconLight"></saf-icon>
+            <div class="cardBody">
+                <div class="ligthCardTitle">
+                    Parallel Search
+                </div>
+                <div class="cardContentLight">
+                    Find relevant cases with conceptually similar sentences, even if they don't share exact keywords.
+                </div>
+            </div>
+            <saf-icon icon-name="circle" size="16px" class="safIconLight"></saf-icon>
+        </div>
+    </div>
+
 </div>
