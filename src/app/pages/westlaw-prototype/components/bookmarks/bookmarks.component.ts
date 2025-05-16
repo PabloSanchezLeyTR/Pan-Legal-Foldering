@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ["./bookmarks.component.less"]
 })
 export class BookmarksComponent {
+  showBookmark: boolean = true;
 
+  toggleBookmark() {
+    this.showBookmark = !this.showBookmark;
+  }
 }
