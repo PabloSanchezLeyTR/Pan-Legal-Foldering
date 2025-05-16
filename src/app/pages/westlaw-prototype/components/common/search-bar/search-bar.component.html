@@ -15,9 +15,10 @@
             [disabled]="!inputContent || inputContent.length <= 1" (click)="redirectToResearch()"></app-button>
         </div>
       </div>
-      <app-button *ngIf="isFileUploadedDone" [label]="'Opponents-Work.docx'" [addBorder]="true" [icon]="'file-word'"
-          iconColor="blue-light" iconAppearance="solid" [secondIcon]="'close'"></app-button>
     </div>
+    <!-- Commented due to new design -->
+    <!-- <app-button *ngIf="isFileUploadedDone" [label]="'Opponents-Work.docx'" [addBorder]="true" [icon]="'file-word'"
+          iconColor="blue-light" iconAppearance="solid" [secondIcon]="'close'"></app-button> -->
     <div class="button-groups">
       <div class="left-buttons">
         <app-toggle [options]="toggleOptions" (selectedOptionChanged)="toggleOptionSelected($event)"
@@ -32,7 +33,8 @@
           (click)="clickTaskLibrary()"></app-button>
       </div>
     </div>
-    <div class="search-suggestions" *ngIf="showSearchSuggestions">
+    <!-- Commented due to new design -->
+    <!-- <div class="search-suggestions" *ngIf="showSearchSuggestions">
       <div class="suggestion-item" *ngFor="let suggestion of searchSuggestions">
         <div class="suggestion-content">
           <span class="suggestion-title">{{ suggestion.title }}</span>
@@ -42,9 +44,10 @@
           <saf-icon icon-name="arrow-up-right" [color]="'blue'" size="16px"></saf-icon>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="suggested-actions" *ngIf="isFileUploadedDone">
+    <!-- Commented due to new design -->
+    <!-- <div class="suggested-actions" *ngIf="isFileUploadedDone">
       <p>Suggested actions</p>
       <div class="link-items">
         <div class="link-item" *ngFor="let link of links" [ngClass]="{'linkable': link.link}">
@@ -69,11 +72,15 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="response-time-menu" *ngIf="showResponseTimeMenu" #responseTimeMenu>
-      <app-response-time-menu (searchTypeChanged)="toggleSearchType($event)"></app-response-time-menu>
+      <app-response-time-menu (searchTypeChanged)="closeSearchMenu($event)"></app-response-time-menu>
     </div>
+
+    <div class="deep-research-menu" *ngIf="showDeepResearchMenu" #deepResearchMenu>
+      <app-deep-research-menu (searchTypeChanged)="closeDeepResearchMenu()"></app-deep-research-menu>
+    </div> 
 
     <!-- Attachment Dialog -->
     <saf-dialog class="" #attachmentDialog class="attachment-dialog" id="button-dialog-overlay" modal="false"

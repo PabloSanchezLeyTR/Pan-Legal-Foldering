@@ -22,7 +22,12 @@ header {
   grid-area: header;
   position: absolute;
   width: 100%;
+  transition: width 0.3s ease-out;
   max-width: calc(100vw - 170px);
+}
+
+header.extended {
+  max-width: calc(100vw - 48px);
 }
 
 .banner {

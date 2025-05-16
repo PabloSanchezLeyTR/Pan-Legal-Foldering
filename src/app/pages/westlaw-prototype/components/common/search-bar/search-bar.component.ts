@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 })
 export class SearchBarComponent {
   @ViewChild('responseTimeMenu') responseTimeMenu!: ElementRef<HTMLDivElement>;
+  @ViewChild('deepResearchMenu') deepResearchMenu!: ElementRef<HTMLDivElement>;
 
   openAttachmentDialog: boolean = false;
   openTaskLibraryDialog: boolean = false;
@@ -104,7 +105,7 @@ export class SearchBarComponent {
       dropdownOnlyWhenActive: true,
     },
     {
-      label: 'Deep Research',
+      label: 'Deep AI Research',
       icon: 'telescope',
       textColor: 'blue',
       includeDropdown: true,
@@ -115,6 +116,7 @@ export class SearchBarComponent {
   selectedOption: ToggleOption = this.toggleOptions[0];
 
   showResponseTimeMenu: boolean = false;
+  showDeepResearchMenu: boolean = false;
 
   inputChanged(event: Event) {
     const input = event.target as HTMLDivElement;
@@ -133,14 +135,24 @@ export class SearchBarComponent {
 
   toggleOptionSelected(option: ToggleOption) {
     this.selectedOption = option;
-    if (option.label === 'Keyword Search') {
+    if (option.label === 'Search') {
       setTimeout(() => {
+        if (this.showDeepResearchMenu) {
+          this.showDeepResearchMenu = false;
+        }
         this.showResponseTimeMenu = true;
       });
+    } else if (option.label === 'Deep AI Research') {
+      setTimeout(() => {
+        if (this.showResponseTimeMenu) {
+          this.showResponseTimeMenu = false;
+        }
+        this.showDeepResearchMenu = true;
+      })
     }
   }
 
-  toggleSearchType(searchType: number) {
+  closeSearchMenu(searchType: number) {
     setTimeout(() => {
       this.showResponseTimeMenu =false;
     });
@@ -152,6 +164,18 @@ export class SearchBarComponent {
         this.showResponseTimeMenu = false;
       }
     }
+
+    if (!this.deepResearchMenu?.nativeElement.contains(event.target)) {
+      if (this.showDeepResearchMenu) {
+        this.showDeepResearchMenu = false;
+      }
+    }
+  }
+
+  closeDeepResearchMenu() {
+    setTimeout(() => {
+      this.showDeepResearchMenu = false;
+    })
   }
 
   closeJurisdictionDialog() {

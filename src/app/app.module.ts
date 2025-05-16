@@ -37,6 +37,7 @@ import { SourcesComponent } from './pages/westlaw-prototype/components/research/
 import { NotesComponent } from './pages/westlaw-prototype/components/research/deep-research-result/notes/notes.component';
 import { QuickCheckComponent } from './pages/westlaw-prototype/components/research/quick-check/quick-check.component';
 import { BookmarksComponent } from './pages/westlaw-prototype/components/bookmarks/bookmarks.component';
+import { DeepResearchMenuComponent } from './pages/westlaw-prototype/components/common/search-bar/deep-research-menu/deep-research-menu.component';
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [
@@ -62,7 +63,7 @@ import { BookmarksComponent } from './pages/westlaw-prototype/components/bookmar
     SourcesComponent,
     NotesComponent,
     QuickCheckComponent, 
-    BookmarksComponent,
+    BookmarksComponent, DeepResearchMenuComponent,
   ],
   imports: [
     BrowserModule,

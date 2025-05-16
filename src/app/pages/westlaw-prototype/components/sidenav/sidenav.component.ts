@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class SidenavComponent {
 
   @Output() collapseChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
+  
+  showSettings: boolean = false;
 
   collapsed = false;
 
@@ -25,10 +27,13 @@ export class SidenavComponent {
 
   bottomButtons = [
     { icon: 'stopwatch', label: 'Client: 345343' },
-    { icon: 'square-sliders', label: 'Settings' },
+    { icon: 'square-sliders', label: 'Settings', action: () =>  this.toggleSettings() },
     { icon: 'circle-question', label: 'Help' },
     { icon: 'circle-user', label: 'Account' }
   ];
+
+  selectedFontSize: number = 2;
+  selectedMode: number = 1;
 
   toggleNav() {
     this.collapsed = !this.collapsed;
@@ -39,6 +44,8 @@ export class SidenavComponent {
     this.router.navigate([path]);
   }
 
-
+  toggleSettings() {
+    this.showSettings = !this.showSettings;
+  }
 
 }
