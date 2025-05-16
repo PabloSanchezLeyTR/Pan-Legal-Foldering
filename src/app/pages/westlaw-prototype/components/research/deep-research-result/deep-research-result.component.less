@@ -3,7 +3,7 @@
 }
 
 .overflow-header {
-  margin-top: -50px;
+  margin-top: 20px;
   height: unset;
 }
 
@@ -101,6 +101,15 @@
       background: var(--color-background-strong, #F2F2F2);
     }
   }
+}
+
+.report-content-tab-wrapper {
+  overflow-y: auto;
+  max-height: 680px;
+}
+
+.report-content-tab-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .title {

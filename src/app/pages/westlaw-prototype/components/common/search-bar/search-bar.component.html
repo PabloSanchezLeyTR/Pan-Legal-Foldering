@@ -33,6 +33,7 @@
           (click)="clickTaskLibrary()"></app-button>
       </div>
     </div>
+</div>
     <!-- Commented due to new design -->
     <!-- <div class="search-suggestions" *ngIf="showSearchSuggestions">
       <div class="suggestion-item" *ngFor="let suggestion of searchSuggestions">
@@ -401,7 +402,7 @@
       </div>
     </saf-dialog>
   
-  <div class="search-bar" *ngIf="compactMode">
+  <div class="search-bar-compact" *ngIf="compactMode">
     <div class="input-container-compact">
       <div class="compact-input" contenteditable="true"
         data-placeholder="Ask a question or enter the topic you’d like to research..." (input)="inputChanged($event)">

@@ -232,11 +232,11 @@ export class SearchBarComponent {
 
   redirectToResearch() {
     if (this.inputContent && this.inputContent.length > 0) {
-      if (this.selectedOption?.label === 'Deep Research') {
+      if (this.selectedOption?.label === 'Deep AI Research') {
         this.router.navigate([
           '/westlaw-prototype/deep-research/research-confirmation',
         ]);
-      } else if (this.selectedOption?.label === 'Keyword Search') {
+      } else if (this.selectedOption?.label === 'Search') {
         this.router.navigate(['/westlaw-prototype/keyword-search']);
       }
     }

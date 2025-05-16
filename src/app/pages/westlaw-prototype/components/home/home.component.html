@@ -6,7 +6,7 @@
         <app-sidenav (collapseChanged)="toggleSidebar($event)"></app-sidenav>
     </aside>
     <main>
-        <header [class.extended]="sidebarCollapsed">
+        <header [class.extended]="sidebarCollapsed" *ngIf="showBanner">
             <!-- Commented since new version didn'y have title -->
             <!-- <h2 *ngIf="showTitle" class="app-title">Westlaw</h2> -->
             <img class="banner" src="assets/images/banner-image.png" alt="Banner">

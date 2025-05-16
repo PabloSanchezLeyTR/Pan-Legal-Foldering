@@ -14,6 +14,7 @@ export class HomeComponent {
   showTitle: boolean = true;
   showSearchBarFooter: boolean = true;
   hideFooter: boolean = false;
+  showBanner: boolean = true;
 
   constructor(public location: Location, private router: Router) {
     this.router.events
@@ -23,6 +24,7 @@ export class HomeComponent {
         const urls = this.location.path().split('/').filter(Boolean);
         this.showTitle = !urls.includes('case-details');
         this.showSearchBarFooter = urls.includes('deep-research') || urls.includes('keyword-search');
+        this.showBanner = !(urls.includes('deep-research') || urls.includes('keyword-search'));
         this.hideFooter = urls.includes('case-details');
       });
 
