@@ -1,7 +1,7 @@
 <button class="base-button" [disabled]="disabled" [ngClass]="'background-' + backgroundColor" [class]="color" [class.expanded]="expanded" [class.border]="addBorder" [class.active]="active" [style.width]="width ? width : null" [style.height]="height ? height : null">
     <div class="button-content">
         <saf-icon [iconName]="icon" size="16px" [ngClass]="iconColor" [appearance]="iconAppearance"></saf-icon>
-        <span class="button-text" *ngIf="expanded" [class.no-icon]="!icon || icon.length == 0">{{label}}</span>
+        <span class="button-text" [ngClass]="font" *ngIf="expanded" [class.no-icon]="!icon || icon.length == 0">{{label}}</span>
         <saf-icon class="dropdown-icon" *ngIf="includeDropdown" icon-name="chevron-down" size="16px"></saf-icon>
         <saf-icon class="dropdown-icon" *ngIf="secondIcon" [iconName]="secondIcon" size="16px"></saf-icon>
     </div>
