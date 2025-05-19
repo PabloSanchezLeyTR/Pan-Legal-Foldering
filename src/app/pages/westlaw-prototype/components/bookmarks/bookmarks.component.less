@@ -23,6 +23,7 @@
   line-height: 120%;
   letter-spacing: 0px;
   vertical-align: middle;
+  color: #666;
 }
 
 .modifyIconText {
@@ -76,7 +77,7 @@
 }
 
 .safIconLight {
-  color: var(--color-border-strong, #D2D2D2);
+  color: var(--color-border-strong, #404040);
 }
 
 .editFlex {
@@ -101,6 +102,7 @@
   z-index: 1000;
   left: auto;
   box-sizing: border-box;
+  border-left: 1px solid var(--color-border-subtle, #E5E5E5);
 }
 
 .modalHeader {
@@ -171,7 +173,8 @@
   flex-shrink: 0;
   padding: 12px;
   border-radius: 8px;
-  border: 2.5px solid var(--color-data-viz-sky-700, #032E5B)
+  border: 1px solid var(--color-border-strong, #D2D2D2);
+  background-color: #F5F5F5;
 }
 
 .modalContent {
@@ -212,10 +215,11 @@
   padding: 12px;
   border-radius: 8px;
   border: 1px solid var(--color-border-strong, #D2D2D2);
+  opacity: 0.5;
 }
 
 .ligthCardTitle {
-  color: var(--color-border-strong, #D2D2D2);
+  color: var(--color-text-heavy, #212223);
   font-family: Clario;
   font-size: 14px;
   font-style: normal;
@@ -227,7 +231,7 @@
 .cardContentLight {
   overflow: hidden;
   overflow: hidden;
-  color: var(--color-border-strong, #D2D2D2);
+  color: var(--color-text-subtle, #666);
   text-overflow: ellipsis;
 
   /* type/body/default/sm/regular/standard */
@@ -237,5 +241,4 @@
   font-weight: 400;
   line-height: 135%;
   /* 18.9px */
-
 }
