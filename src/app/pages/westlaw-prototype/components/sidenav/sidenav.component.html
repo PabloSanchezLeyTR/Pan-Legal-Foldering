@@ -3,7 +3,7 @@
     <div>
         <div class="logo-section" routerLink="/westlaw-prototype/new-research">
             <div class="logo-container">
-              <img src="assets/images/tr-logo-white.png" alt="Logo" class="logo">
+                <img src="assets/images/tr-logo-white.png" alt="Logo" class="logo">
             </div>
             <div class="logo-text" *ngIf="!collapsed">
                 <p class="logo-title">Thomson Reuters</p>
@@ -14,37 +14,52 @@
             </div>
         </div>
         <div class="top-buttons">
-            <app-button *ngFor="let button of menuButtons" [icon]="button.icon" [color]="'white'" [iconColor]="'white'" [label]="button.label"
-                [expanded]="!collapsed" (click)="button.action ? button.action() : ''"></app-button>
+            <div *ngFor="let button of menuButtons">
+                <div class="active-indicator" *ngIf="activeMenu == button.label"></div>
+                <app-button [icon]="button.icon" [color]="'white'" [iconColor]="'white'" [label]="button.label"
+                    [iconAppearance]="(activeMenu == button.label) ? 'solid' : 'light'" [expanded]="!collapsed"
+                    (click)="button.action ? button.action() : ''"></app-button>
+            </div>
         </div>
     </div>
     <div class="bottom-buttons">
-        <app-button *ngFor="let button of bottomButtons" [color]="'white'" [iconColor]="'white'" [icon]="button.icon" [label]="button.label"
-            [expanded]="!collapsed" (click)="button.action ? button.action() : ''"></app-button>
-        <app-button [icon]="collapsed ? 'chevron-right' : 'chevron-left'" [color]="'white'" [iconColor]="'white'" [label]="collapsed ? 'Expand' : 'Collapse'"
-            [expanded]="!collapsed" (click)="toggleNav()"></app-button>
+        <div *ngFor="let button of bottomButtons">
+            <div class="active-indicator" *ngIf="activeMenu == button.label"></div>
+            <app-button [color]="'white'" [iconColor]="'white'" [icon]="button.icon" [label]="button.label"
+                [iconAppearance]="(activeMenu == button.label) ? 'solid' : 'light'" [expanded]="!collapsed"
+                (click)="button.action ? button.action() : ''"></app-button>
+        </div>
+        <div class="collapse-button-divider">
+        </div>
+        <app-button [icon]="collapsed ? 'arrow-right-from-line' : 'arrow-left-from-line'" [color]="'white'"
+            [iconColor]="'white'" [label]="collapsed ? 'Expand' : 'Collapse'" [expanded]="!collapsed"
+            (click)="toggleNav()"></app-button>
     </div>
     <div class="settings-modal" *ngIf="showSettings">
         <div class="header">
             <span class="title">Settings</span>
-            <saf-icon  icon-name="xmark" color="#404040" size="16px" appearance="solid" presentation (click)="toggleSettings()"></saf-icon>
+            <saf-icon icon-name="xmark" color="#404040" size="16px" appearance="solid" presentation
+                (click)="toggleSettings()"></saf-icon>
         </div>
         <div class="text-size-section">
             <div class="header">
                 <span class="section-title">Text</span>
-                <saf-icon  icon-name="chevron-up" color="#404040" size="16px" presentation></saf-icon>
+                <saf-icon icon-name="chevron-up" color="#404040" size="16px" presentation></saf-icon>
             </div>
             <div class="section-content">
                 <div class="selector">
                     <span class="input-label">Font size</span>
                     <div class="size-buttons">
-                        <button class="font-size-button-small" (click)="selectedFontSize = 1" [class.active]="selectedFontSize == 1">
+                        <button class="font-size-button-small" (click)="selectedFontSize = 1"
+                            [class.active]="selectedFontSize == 1">
                             <span>Aa</span>
                         </button>
-                        <button class="font-size-button-medium" (click)="selectedFontSize = 2" [class.active]="selectedFontSize == 2">
+                        <button class="font-size-button-medium" (click)="selectedFontSize = 2"
+                            [class.active]="selectedFontSize == 2">
                             <span>Aa</span>
                         </button>
-                        <button class="font-size-button-big" (click)="selectedFontSize = 3" [class.active]="selectedFontSize == 3">
+                        <button class="font-size-button-big" (click)="selectedFontSize = 3"
+                            [class.active]="selectedFontSize == 3">
                             <span>Aa</span>
                         </button>
                     </div>
@@ -57,7 +72,7 @@
         <div class="appearance-section">
             <div class="header">
                 <span class="section-title">Appeareance</span>
-                <saf-icon  icon-name="chevron-up" color="#404040" size="16px" presentation></saf-icon>
+                <saf-icon icon-name="chevron-up" color="#404040" size="16px" presentation></saf-icon>
             </div>
             <div class="section-content">
                 <div class="options-container">
@@ -74,4 +89,3 @@
         </div>
     </div>
 </div>
-

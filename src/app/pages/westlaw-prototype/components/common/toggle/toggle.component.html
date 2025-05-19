@@ -1,6 +1,11 @@
 <div class="toggle-menu">
     <div *ngFor="let option of options" class="toggle-options">
-        <app-button [label]="option.label" [width]="(option.label == 'Search') ? '170px' : '185px'" [height]="'36px'" [icon]="option.icon || ''" [color]="option.textColor || ''" [active]="option.label === selectedOption?.label" [includeDropdown]="option.includeDropdown ? (option.dropdownOnlyWhenActive ? (option.label === selectedOption?.label) : true) : false" (click)="selectOption(option)">
+        <app-button [label]="option.label" [width]="(option.label == 'Search') ? '170px' : '195px'" [height]="'36px'"
+            [icon]="option.icon || ''" [color]="option.textColor || ''"
+            [active]="option.label === selectedOption?.label"
+            [font]="'clario'"
+            [includeDropdown]="option.includeDropdown ? (option.dropdownOnlyWhenActive ? (option.label === selectedOption?.label) : true) : false"
+            (click)="selectOption(option)">
         </app-button>
     </div>
 </div>
