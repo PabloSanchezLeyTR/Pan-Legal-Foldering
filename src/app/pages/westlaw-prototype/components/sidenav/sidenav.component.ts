@@ -42,7 +42,7 @@ export class SidenavComponent {
             filter(event => event instanceof NavigationEnd)
           ).subscribe(() => {
             const urls = this.location.path().split('/').filter(Boolean);
-            this.activeMenu = (urls.includes('deep-research') || urls.includes('keyword-search')) ? 'Current chat' : 'New chat';
+            this.activeMenu = (urls.includes('deep-research') || urls.includes('keyword-search') || urls.includes('case-details')) ? 'Current chat' : 'New chat';
           });
   }
 
@@ -61,7 +61,7 @@ export class SidenavComponent {
       this.activeMenu = 'Settings';
     } else {
       const urls = this.location.path().split('/').filter(Boolean);
-      this.activeMenu = (urls.includes('deep-research') || urls.includes('keyword-search')) ? 'Current chat' : 'New chat';
+      this.activeMenu = (urls.includes('deep-research') || urls.includes('keyword-search') || urls.includes('case-details')) ? 'Current chat' : 'New chat';
     }
   }
 
