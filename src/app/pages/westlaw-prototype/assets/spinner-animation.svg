@@ -1,0 +1,11 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="spinner animation" clip-path="url(#clip0_13360_15698)">
+<circle id="Ellipse 2" cx="8" cy="8" r="7" stroke="#D2D2D2" stroke-width="2"/>
+<path id="Vector" d="M16 8C16 12.3 12.3 16 8 16C3.7 16 0 12.4 0 8C0 7.4 0.4 7 1 7C1.6 7 2 7.4 2 8C2 11.3 4.7 14 8 14C11.3 14 14 11.3 14 8C14 4.7 11.3 2 8 2C7.4 2 7 1.6 7 1C7 0.4 7.4 0 8 0C12.4 0 16 3.6 16 8Z" fill="#0062C4"/>
+</g>
+<defs>
+<clipPath id="clip0_13360_15698">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>
