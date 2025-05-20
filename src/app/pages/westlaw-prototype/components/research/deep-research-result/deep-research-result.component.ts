@@ -74,6 +74,7 @@ export class DeepResearchResultComponent {
   ngOnInit() {
     this.scrollToTop();
     this.setCurrentStep(this.currentStep);
+    this.nextStep();
   }
 
   ngAfterViewInit(): void {

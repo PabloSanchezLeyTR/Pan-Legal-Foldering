@@ -43,10 +43,10 @@
             </svg>
           </div>
           <div class="info">
-            <div class="report-title">Permissibility of terminating an employee for cause due to social media comment...</div>
+            <div class="report-title">Permissibility of terminating an employee for cause due to social media...</div>
             <div class="status">Researching...</div>
           </div>
-          <div class="buttons">
+          <div class="buttons" *ngIf="!fullReport">
               <saf-icon slot="end" icon-name="circle-stop" appearance="light" presentation></saf-icon>
               <saf-icon slot="end" icon-name="bell" appearance="light" presentation></saf-icon>
             </div>
@@ -136,7 +136,7 @@
                 </div> -->
 
                 <div class="prelimiary-answer-container">
-                  <h3 class="chunk-title" *ngIf="!fullReport">Preliminary Answer</h3>
+                  <h3 class="chunk-title" *ngIf="preliminaryAnswer">Preliminary Answer</h3>
 
                   <div *ngIf="preliminaryAnswer">
 
@@ -172,7 +172,7 @@
                     </div>
                 </div>
 
-                <h3 *ngIf="!fullReport">Full Report</h3>
+                <!-- <h3 *ngIf="!fullReport">Full Report</h3> -->
 
                 <div class="chunk" *ngIf="fullReport">
                   <h3>Summary</h3>
@@ -269,6 +269,26 @@
                     In <a href="#">Pickering v. Board of Education, 391 U.S. 563, 88 S. Ct. 1731 (1968)</a>, the U.S. Supreme Court established that public employees have a right to speak on matters of public concern without fear of retaliation. However, this right must be balanced against the government's interest as an employer.
                     The case of <a href="#">Connick v. Myers, 461 U.S. 138, 103 S. Ct. 1684 (1983)</a> further refined this standard, emphasizing that speech must relate to matters of public concern to receive First Amendment protection. </p>
 
+                  <h3 style="font-family: Source Sans 3; font-weight: 600; font-size: 20px; line-height: 135%; letter-spacing: 0px; vertical-align: middle; color: #404040;">National labor Relations Act (NLRA)</h3>
+                  <p>The NLRA safeguards employees' rights to engage in "concerted activities" for mutual aid or protection, which can include discussions about working conditions on social media, as seen in 
+                    <a href="#">Three D, LLC v. Nat'l Labor Relations Bd., 629 F. App'x 33 (2d Cir. 2015).</a>
+                  </p>
+
+                  <p>
+                    The NLRA further supports employee rights in cases such as
+                    <a href="#">Hispanics United of Buffalo, Inc., 355 NLRB No. 37 (December 14, 2012)</a>
+                    where the National Labor Relations Board (NLRB) ruled that discussing work conditions on social media is protected, and firing for such comments violated the NLRA. The context of the social media comment is crucial in determining the legality of termination circle-question. Comments that are discriminatory, reveal confidential information, or contravene company policies are more likely to be lawful grounds for termination, as indicated in
+                    <a href="#">Pappas v. Giuliani, 290 F.3d 143 (2d Cir. 2002).</a>
+                    Conversely, comments relating to working conditions, union activities, or other protected speech may be shielded from employer retaliation, as noted in
+                    <a href="#">Matter of Richardson v. Saratoga Springs, 246 A.D.2d 900, 667 N.Y.S.2d 995 (N.Y. App. Div. 1998).</a>
+                  </p>
+
+                  <h3>New York Labor Law</h3>
+                  <p>
+                    New York Labor Law Section 201-d prohibits discrimination against employees for legal "political activities" and "recreational activities" conducted outside work hours, potentially covering social media use. Nonetheless, this protection may not apply if the content itself is the issue, as illustrated in
+                    <a href="#">Sander v. Westchester Reform Temple, 2024 N.Y. Slip Op. 3064 (N.Y. App. Div. 2024), </a>
+                    where an employee was discharged for the content of a blog post. It may depend on whether the comment related to political or recreational activities, and whether it was made during work hours
+                  </p>
                   </div>
               </div>
               <!-- end report -->
