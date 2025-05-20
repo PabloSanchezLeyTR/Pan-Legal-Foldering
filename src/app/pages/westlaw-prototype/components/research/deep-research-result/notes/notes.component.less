@@ -13,21 +13,23 @@
 .title {
   color: #000;
   /* type/body/default/sm/strong/standard */
-  font-family: "Source Sans 3";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 135%; /* 18.9px */
+  font-family: Clario;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: 0px;
+  vertical-align: middle;
   margin: 0;
 }
 
 .body-text {
   color: #000;
-  font-family: "Source Sans 3";
-  font-size: 14px;
-  font-style: normal;
+  font-family: Source Sans 3;
   font-weight: 400;
-  line-height: 150%; /* 21px */
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  vertical-align: middle;
 }
 
 .info-block {
@@ -39,7 +41,7 @@
   gap: 8px;
   align-self: stretch;
 
-  border-left: 1px solid var(--color-border-subtle, #E5E5E5);
+  border-left: 1px solid var(--color-border-subtle, #e5e5e5);
 }
 
 .search-listing {
@@ -52,12 +54,13 @@
   li {
     display: flex;
     align-items: center;
-    background-color: #F2F2F2;
-    border-radius: 12px;
-    margin: 8px 0;
-    padding: 3px 6px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    border: 1px solid #D2D2D2;
+    margin: 8px 0 0px 0px;
+    padding: 3px 10px 3px 4px;
+    height: 24px;
     width: fit-content;
-
   }
 
   .search-icon {
@@ -66,13 +69,13 @@
   }
 
   .search-text {
-    color: var(--color-text-subtle, #666);
-    //font-family: "IBM Plex Mono";
-    //font-size: 9px;
-    font-size: 12px;
-    font-style: normal;
+    color: #404040;
+    // font-family: IBM Plex Mono;
     font-weight: 400;
-    line-height: 135%; /* 12.15px */
+    font-size: 11px;
+    line-height: 135%;
+    letter-spacing: 0px;
+    vertical-align: middle;
   }
 }
 
@@ -80,7 +83,7 @@
   .info-block {
     margin: 16px 0 16px 8px;
     margin-left: 16px;
-    padding-left: 0
+    padding-left: 0;
   }
 
   .resources-listing {
@@ -89,7 +92,6 @@
 }
 
 .resources-listing {
-
   ol {
     padding-left: 0px;
     list-style: none;
@@ -101,42 +103,39 @@
     padding-bottom: 8px;
   }
 
- .source-title {
-  color: var(--color-data-viz-sky-700, #032E5B);
-  font-family: "Source Sans 3";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 135%; /* 18.9px */
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-skip-ink: none;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position: from-font;
- }
+  .source-title {
+    color: var(--color-data-viz-sky-700, #032e5b);
+    font-family: Source Sans 3;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+  }
 
- .source-metadata {
-  display: block;
+  .source-metadata {
+    display: block;
 
-  color: var(--color-text-strong, #404040);
-  font-family: "Source Sans 3";
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%; /* 12px */
- }
+    color: var(--color-text-strong, #404040);
+    font-family: Source Sans 3;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 135%;
+    letter-spacing: 0px;
+  }
 
- .source-content {
-  display: block;
-  color: var(--color-text-strong, #404040);
-
-  color: var(--color-text-strong, #404040);
-  font-family: "Source Sans 3";
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 135%; /* 16.2px */
- }
+  .source-content {
+    display: block;
+    color: var(--color-text-strong, #404040);
+    font-family: Source Sans 3;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0px;
+  }
 }
-

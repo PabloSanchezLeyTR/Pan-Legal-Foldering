@@ -51,4 +51,27 @@ export class PlanTasksComponent {
       "taskDescription": "Compare New York's laws on this topic with those of other states to understand any unique aspects of New York's legal framework."
     }
   ]
+
+  updateTask(step: number) {
+    switch(step) {
+      case(4):
+        this.tasks[0].taskStatus = 'completed';
+        break;
+      case(5):
+        this.tasks[1].taskStatus = 'completed';
+        break;
+      case(6):
+        this.tasks[3].taskStatus = 'completed';
+        this.tasks[4].taskStatus = 'completed';
+        this.tasks[5].taskStatus = 'completed';
+        break;
+      case(7):
+        this.tasks[2].taskStatus = 'completed';
+        this.tasks[6].taskStatus = 'completed';
+        this.tasks[7].taskStatus = 'completed';
+        break;
+      default:
+        break;
+    }
+  }
 }
