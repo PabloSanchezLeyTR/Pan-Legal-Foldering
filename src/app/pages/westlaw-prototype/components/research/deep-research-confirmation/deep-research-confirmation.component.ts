@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-deep-research-confirmation',
@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class DeepResearchConfirmationComponent {
   form = new FormGroup({
-    longerTime: new FormControl<string | null>(null, Validators.required),
+    longerTime: new FormControl<string | null>(null),
   });
 
   get longerTime() {
