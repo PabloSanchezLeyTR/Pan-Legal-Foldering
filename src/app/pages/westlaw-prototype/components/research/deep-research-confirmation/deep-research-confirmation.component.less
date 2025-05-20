@@ -46,12 +46,12 @@ h2 {
   flex-shrink: 0;
   padding: 12px;
   border-radius: 8px;
-  border: 2.5px solid var(--saf-color-border-strong, #D2D2D2);
+  border: 1px solid var(--saf-color-border-strong, #D2D2D2);
 
 
 
   &.selected {
-    border: 2.5px solid var(--color-data-viz-sky-700, #032E5B);
+    border: 2px solid var(--color-data-viz-sky-700, #032E5B);
   }
 }
 
@@ -72,6 +72,10 @@ h2 {
 
 .safIconLight {
   color: var(--color-border-strong, #D2D2D2);
+}
+
+.safIconActive {
+  color: var(--saf-color-data-viz-sky-700, #032e5b);
 }
 
 .cardBody {
@@ -153,6 +157,7 @@ h2 {
   padding: 24px;
   flex-direction: column;
   align-items: flex-start;
+  border: 1px solid var(--saf-color-border-subtle);
 }
 
 .listing-wrapper {
@@ -222,7 +227,6 @@ h2 {
   display: flex;
   gap: 12px;
   margin-top: 20px;
-  margin-bottom: 16px;
 
   button {
     display: flex;
@@ -251,6 +255,8 @@ h2 {
       color: var(--color-data-viz-sky-700, #032E5B);
 
       border-radius: 4px;
+      border: 1px solid var(--saf-color-interactive-states-on-default, #212223);
+      background: none;
 
       /* type/label-text/default/md/strong/compact */
       font-family: Clario;
