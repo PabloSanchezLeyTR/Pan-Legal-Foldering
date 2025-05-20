@@ -7,8 +7,6 @@
       In New York, is it permissible to terminate an employee for cause due to a comment they made on social media? 
     </div>
 
-    temporary step viewer just for dev {{currentStep}}
-
     <div class="meta-data">
         <div class="logo">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -59,10 +57,14 @@
       </div>
 
       <h3 class="task-plan-title">Plan</h3>
-      <app-plan-tasks></app-plan-tasks>
+      <app-plan-tasks #planTasks></app-plan-tasks>
       </div>
 
-    </div>
+      
+  </div>
+  <div class="search-bar-container" [class.expanded]="expandedFooter">
+        <app-search-bar [compactMode]="true" (compactSearchBarFocused)="searchBarFocused()" (compactSearchBarBlur)="searchBarBlur()"></app-search-bar>
+      </div>
   <div class="right-panel">
 
     <div class="right-panel-header">
@@ -106,7 +108,8 @@
           <saf-tab-panel data-rel="Research Report" id="research-report-tab">
               <!-- start report -->
               <div class="report-content-tab-wrapper">
-                <div class="result-card-container">
+                <!-- Commented Due to design change -->
+                <!-- <div class="result-card-container">
                   <div class="result-card cropped">
                      <div  class="content"  *ngIf="nSources">
                         <h3 class="title">Espinoza v. CGJC Holdings LLC</h3>
@@ -130,17 +133,17 @@
                     </div>
                   </div>
                   <div class="show-more" [class.loading]="!nSources"><span>+9 more</span></div>
-                </div>
+                </div> -->
 
                 <div class="prelimiary-answer-container">
                   <h3 class="chunk-title" *ngIf="!fullReport">Preliminary Answer</h3>
 
                   <div *ngIf="preliminaryAnswer">
 
-                    <p>    When considering the termination of an employee for a social media comment, it is crucial to first assess the nature of the comment and the context in which it was made. Additionally, understanding the employment status is important; if the employee is at-will
+                    <p> The determination of whether a Performance Improvement Plan (PIP) constitutes an adverse employment action depends on the specific context in which it is implemented  
                       <saf-icon class="information" slot="end" class="chevron-end" color="#054688" icon-name="circle-question" appearance="solid" presentation>
                     </saf-icon>,
-                      the employer generally has more flexibility to terminate employment for any lawful reason, including social media activity, provided it does not violate public policy or statutory rights. Employers must evaluate whether the comment violates company policies or codes of conduct, such as those related to harassment, discrimination, confidentiality, or bringing the organization into disrepute. It's important to differentiate between comments made in a personal capacity and those that could be construed as representative of the company. Additionally, the impact of the comment on the workplace environment or company reputation should be carefully considered.
+                      Courts generally hold that a PIP does not qualify as an adverse employment action unless it results in a material change in employment conditions, such as demotion, reduced compensation, or termination.
 
                       <span class="footnotes">
                         <span class="item">1</span>
@@ -150,11 +153,19 @@
                       </span>
                     </p>
 
-                    <p>Legal considerations also play a significant role in determining the permissibility of such a termination. In many jurisdictions, employees may have protections related to free speech, privacy, or engaging in "concerted activities" under labor laws, especially if the comments pertain to working conditions.
+                    <p>The determination of whether a Performance Improvement Plan (PIP) constitutes an adverse employment action depends on the specific context in which it is implemented.
 
                       <span class="footnotes">
                         <span class="item">1</span>
                         <span class="item">3</span>
+                      </span>
+                    </p>
+
+                    <p>
+                      The determination of whether a Performance Improvement Plan (PIP) constitutes an adverse employment action depends on the specific context in which it is implemented. Courts generally hold that a PIP does not qualify as an adverse employment action unless it results in a material change in employment conditions, such as demotion, reduced compensation, or termination. 
+                      <span class="footnotes">
+                        <span class="item">1</span>
+                        <span class="item">2</span>
                       </span>
                     </p>
 
@@ -164,7 +175,7 @@
                 <h3 *ngIf="!fullReport">Full Report</h3>
 
                 <div class="chunk" *ngIf="fullReport">
-                  <h3>Quick Summary</h3>
+                  <h3>Summary</h3>
 
                   <ng-template #pop1Content>
                     <div class="popover-wrapper">

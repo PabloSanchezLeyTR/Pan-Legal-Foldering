@@ -1,4 +1,5 @@
 import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { PlanTasksComponent } from './plan-tasks/plan-tasks.component';
 
 @Component({
   selector: 'app-deep-research-result',
@@ -9,6 +10,7 @@ export class DeepResearchResultComponent {
   @ViewChild('responseTimeMenu') responseTimeMenu!: ElementRef<HTMLDivElement>;
   @ViewChild('progressBarIndicator') progressBarIndicator!: ElementRef<HTMLDivElement>;
   @ViewChild('dialog', { static: false }) fullPlanDialog: any;
+  @ViewChild('planTasks') planTasksComponent!: PlanTasksComponent;
   constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   scrollToTop() {
@@ -66,6 +68,8 @@ export class DeepResearchResultComponent {
   nQuestions: number = 0;
   nSources: number = 0;
   nNotes: number = 0;
+
+  expandedFooter: boolean = false;
 
   ngOnInit() {
     this.scrollToTop();
@@ -138,7 +142,10 @@ export class DeepResearchResultComponent {
   }
 
   setCurrentStep(step: number) {
-    this.resetStepData();
+    // this.resetStepData();
+
+    if(this.planTasksComponent)
+    this.planTasksComponent.updateTask(step);
 
     this.currentStep = step;
     if(step === 2) {
@@ -189,6 +196,7 @@ export class DeepResearchResultComponent {
       this.nQuestions = 5;
       this.nNotes = 4;
       this.researchReportTabLoading = false;
+      this.preliminaryAnswer = false;
     }
 
 
@@ -202,5 +210,13 @@ export class DeepResearchResultComponent {
         this.setCurrentStep(this.currentStep + 1);
       }
     }, 2000);
+  }
+
+  searchBarFocused() {
+    this.expandedFooter = true;
+  }
+
+  searchBarBlur() {
+    this.expandedFooter = false;
   }
 }
