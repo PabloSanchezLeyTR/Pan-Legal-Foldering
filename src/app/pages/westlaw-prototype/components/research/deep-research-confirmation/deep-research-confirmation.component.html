@@ -48,7 +48,7 @@
               <div class="step-description">Choose longer times for more accurate and thorough reports.</div>
 
               <div class="select-card-row">
-                <div class="select-time-card">
+                <div class="select-time-card" [class.selected]="longerTime === 'two'">
                     <div class="cardBody">
                         <div class="btnText">
                             ~2 min.
@@ -58,10 +58,12 @@
                         </div>
                     </div>
 
-                    <saf-radio value="check"></saf-radio>
+                  <div *ngIf="longerTime !== 'two'; else circleCheck">
+                    <span class="circle-uncheck" (click)="onTimeChange('two')"></span>
+                  </div>
               </div>
 
-              <div class="select-time-card selected">
+              <div class="select-time-card" [class.selected]="longerTime === 'five'">
                     <div class="cardBody">
                         <div class="btnText">
                             ~5 min.
@@ -71,10 +73,12 @@
                         </div>
                     </div>
 
-                    <saf-icon appearance="solid" icon-name="circle-check" size="18px" class="safIconActive"></saf-icon>
+                  <div *ngIf="longerTime !== 'five'; else circleCheck">
+                    <span class="circle-uncheck" (click)="onTimeChange('five')"></span>
+                  </div>
               </div>
 
-              <div class="select-time-card">
+              <div class="select-time-card" [class.selected]="longerTime === 'ten'">
                     <div class="cardBody">
                         <div class="btnText">
                             ~10 min.
@@ -83,12 +87,12 @@
                             More time will be spent on exceptions and creative perspectives.
                         </div>
                     </div>
+                    <div *ngIf="longerTime !== 'ten'; else circleCheck">
+                      <span class="circle-uncheck" (click)="onTimeChange('ten')"></span>
+                    </div>
+                </div>
 
-                    <saf-radio value="check"></saf-radio>
-
-              </div>
-
-              <div class="select-time-card">
+              <div class="select-time-card" [class.selected]="longerTime === 'thirty'">
                     <div class="cardBody">
                         <div class="btnText">
                             ~30 min.
@@ -98,7 +102,9 @@
                         </div>
                     </div>
 
-                    <saf-radio value="check"></saf-radio>
+                    <div *ngIf="longerTime !== 'thirty'; else circleCheck">
+                      <span class="circle-uncheck" (click)="onTimeChange('thirty')"></span>
+                    </div>
               </div>
 
               </div>
@@ -146,3 +152,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #circleCheck>
+  <saf-icon appearance="solid" icon-name="circle-check" class="circle-check" (click)="onTimeChange(null)"></saf-icon>
+</ng-template>
