@@ -15,6 +15,7 @@ export class HomeComponent {
   showSearchBarFooter: boolean = true;
   hideFooter: boolean = false;
   showBanner: boolean = true;
+  expandedFooter: boolean = false;
 
   constructor(public location: Location, private router: Router) {
     this.router.events
@@ -32,5 +33,13 @@ export class HomeComponent {
 
   toggleSidebar(collapse: boolean) {
     this.sidebarCollapsed = collapse;
+  }
+
+  searchBarFocused() {
+    this.expandedFooter = true;
+  }
+
+  searchBarBlur() {
+    this.expandedFooter = false;
   }
 }

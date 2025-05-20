@@ -23,8 +23,8 @@
     <div class="left-buttons">
       <app-toggle [options]="toggleOptions" (selectedOptionChanged)="toggleOptionSelected($event)"
         (click)="isFileUploadedDone = false; isFileLoading = false"></app-toggle>
-      <app-button [label]="'New York'" [font]="'clario'" [icon]="'location-dot'" [color]="'blue'" [includeDropdown]="false"
-        (click)="clickJurisdiction()"></app-button>
+      <app-button [label]="'New York'" [font]="'clario'" [icon]="'location-dot'" [color]="'blue'"
+        [includeDropdown]="false" (click)="clickJurisdiction()"></app-button>
     </div>
     <div class="right-buttons">
       <app-button [expanded]="false" [icon]="'paperclip'" [color]="'blue'" (click)="clickHandler()"></app-button>
@@ -98,7 +98,8 @@
   <div class="dialog-content">
     <div class="drop-area">
       <p class="drop-area-text">Choose “Select files” or drag files into this space.</p>
-      <app-button [label]="'Select files'" [addBorder]="true" (click)="uploadFile()" backgroundColor="attach" height="40px" width="113px"></app-button>
+      <app-button [label]="'Select files'" [addBorder]="true" (click)="uploadFile()" backgroundColor="attach"
+        height="40px" width="113px"></app-button>
 
       <p>
         <span>Supported file types: TXT, HTM, HTML, RTF (20 MB per file)</span><br>
@@ -396,24 +397,29 @@
   </div>
 
   <div slot="footer" style="display: flex; gap: 12px; justify-content: flex-end; width: 100%">
-    <app-button [label]="'Cancel'" [addBorder]="true" color="secondary" (click)="closeJurisdictionDialog()"></app-button>
+    <app-button [label]="'Cancel'" [addBorder]="true" color="secondary"
+      (click)="closeJurisdictionDialog()"></app-button>
     <app-button [label]="'Save'" [backgroundColor]="'blue'" [color]="'white'"
       (click)="closeJurisdictionDialog()"></app-button>
   </div>
 </saf-dialog>
 
-<div class="search-bar-compact" *ngIf="compactMode">
-  <div class="input-container-compact">
-    <div class="compact-input" contenteditable="true"
-      data-placeholder="Ask a question or enter the topic you’d like to research..." (input)="inputChanged($event)">
+<div class="compact-search-container" *ngIf="compactMode" #compactSearchBar>
+  <div class="search-bar-compact">
+    <div class="input-container-compact">
+      <div class="compact-input" [class.focused]="isCompactSearchBarFocused" contenteditable="true"
+        data-placeholder="Ask a question or enter the topic you’d like to research..." (focus)="focusCompactModeSearchBar()"  (input)="inputChanged($event)">
+      </div>
+      <div class="submit-button-compact">
+        <app-button [expanded]="false" [icon]="'arrow-up'" [backgroundColor]="'blue'" [color]="'white'"
+          [disabled]="!inputContent || inputContent.length <= 1"></app-button>
+      </div>
     </div>
-    <div class="right-buttons-compact">
-      <app-button [expanded]="false" [icon]="'paperclip'" [color]="'blue'" (click)="clickHandler()"></app-button>
-      <app-button [expanded]="false" [icon]="'book-sparkles'" [color]="'blue'"
-        (click)="clickTaskLibrary()"></app-button>
-      <app-button [expanded]="false" [icon]="'at'" [color]="'blue'"></app-button>
-      <app-button [expanded]="false" [icon]="'arrow-up'" [backgroundColor]="'blue'" [color]="'white'"
-        [disabled]="!inputContent || inputContent.length <= 1" (click)="redirectToResearch()"></app-button>
-    </div>
+  </div>
+
+  <div class="right-buttons-compact" *ngIf="isCompactSearchBarFocused">
+    <app-button [expanded]="false" [icon]="'paperclip'" [color]="'blue'" (click)="clickHandler()"></app-button>
+    <app-button [expanded]="false" [icon]="'book-sparkles'" [color]="'blue'" (click)="clickTaskLibrary()"></app-button>
+    <app-button [expanded]="false" [icon]="'at'" [color]="'blue'"></app-button>
   </div>
 </div>
