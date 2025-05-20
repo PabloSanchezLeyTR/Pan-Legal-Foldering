@@ -8,7 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class DeepResearchConfirmationComponent {
   form = new FormGroup({
-    longerTime: new FormControl<string | null>(null),
+    longerTime: new FormControl<string | null>('five'),
   });
 
   get longerTime() {
