@@ -26,6 +26,7 @@ export class DeepResearchResultComponent {
   openFullPlanDialog: boolean = false;
   loading: boolean = true;
   //sources: number = 0;
+  researchReportTabLoading: boolean = true;
   fullReport: boolean = false;
   preliminaryAnswer: boolean = false;
   currentStep: number = 2;

@@ -25,7 +25,7 @@ export class HomeComponent {
         this.showTitle = !urls.includes('case-details');
         this.showSearchBarFooter = urls.includes('deep-research') || urls.includes('keyword-search');
         this.showBanner = !(urls.includes('deep-research') || urls.includes('keyword-search'));
-        this.hideFooter = urls.includes('case-details');
+        this.hideFooter = urls.includes('case-details')  || urls.includes('research-results');
       });
 
   }
