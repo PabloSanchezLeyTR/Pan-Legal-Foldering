@@ -7,6 +7,8 @@
       In New York, is it permissible to terminate an employee for cause due to a comment they made on social media? 
     </div>
 
+    temporary step viewer just for dev {{currentStep}}
+
     <div class="meta-data">
         <div class="logo">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -29,7 +31,7 @@
          In New York, is it permissible to terminate an employee for cause due to a comment they made on social media?
         </div>
 
-      <div class="report-status-section">
+      <div class="report-status-section" (click)="nextStep()">
         <div class="wrapper">
           <div class="decoration">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -76,11 +78,17 @@
 
     <div class="tabs-wrapper">
 
-      <div class="tabs-kebab">
-        <saf-icon slot="end" icon-name="ellipsis-stroke-vertical" appearance="light" presentation></saf-icon>
+      <div class="tabs-kebab" *ngIf="currentStep >=3">
+        <saf-icon slot="end" icon-name="ellipsis-stroke-vertical" appearance="light" presentation [ngbPopover]="kebabMenu"></saf-icon>
       </div>
 
-      <saf-tabs>
+      <ng-template #kebabMenu>
+        <div class="popover-wrapper">
+          menu goes here
+        </div>
+      </ng-template>
+
+      <saf-tabs *ngIf="currentStep >=3">
 
 
           <saf-tab aria-label="Research Report"><saf-icon slot="start" icon-name="file-lines" appearance="light" presentation>
@@ -97,7 +105,7 @@
 
           <saf-tab-panel data-rel="Research Report" id="research-report-tab">
               <!-- start report -->
-              <div class="report-content-tab-wrapper" *ngIf="!researchReportTabLoading">
+              <div class="report-content-tab-wrapper">
                 <div class="result-card-container">
                   <div class="result-card cropped">
                      <div  class="content"  *ngIf="nSources">
@@ -127,8 +135,6 @@
                 <div class="prelimiary-answer-container">
                   <h3 class="chunk-title" *ngIf="!fullReport">Preliminary Answer</h3>
 
-                  <app-loading-state-bars *ngIf="!preliminaryAnswer && !fullReport"></app-loading-state-bars>
-
                   <div *ngIf="preliminaryAnswer">
 
                     <p>    When considering the termination of an employee for a social media comment, it is crucial to first assess the nature of the comment and the context in which it was made. Additionally, understanding the employment status is important; if the employee is at-will
@@ -156,10 +162,6 @@
                 </div>
 
                 <h3 *ngIf="!fullReport">Full Report</h3>
-
-                <app-loading-state-bars *ngIf="!fullReport"></app-loading-state-bars>
-                <app-loading-state-bars *ngIf="!fullReport"></app-loading-state-bars>
-                <app-loading-state-bars *ngIf="!fullReport"></app-loading-state-bars>
 
                 <div class="chunk" *ngIf="fullReport">
                   <h3>Quick Summary</h3>
@@ -260,7 +262,7 @@
               </div>
               <!-- end report -->
 
-              <saf-progress-ring role="progressbar" max="100" min="0" progressSize="large" indeterminate="true" id="research-report-tab-loader"></saf-progress-ring>
+              <saf-progress-ring *ngIf="researchReportTabLoading" role="progressbar" max="100" min="0" progressSize="large" indeterminate="true" id="research-report-tab-loader"></saf-progress-ring>
           </saf-tab-panel>
 
           <saf-tab-panel data-rel="Clarifying Questions">
