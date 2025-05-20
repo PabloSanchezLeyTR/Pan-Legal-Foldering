@@ -48,7 +48,7 @@
               <div class="step-description">Choose longer times for more accurate and thorough reports.</div>
 
               <div class="select-card-row">
-                <div class="select-time-card" [class.selected]="longerTime === 'two'">
+                <div class="select-time-card" [class.selected]="longerTime === 'two'" (click)="onTimeChange('two')">
                     <div class="cardBody">
                         <div class="btnText">
                             ~2 min.
@@ -58,12 +58,10 @@
                         </div>
                     </div>
 
-                  <div *ngIf="longerTime !== 'two'; else circleCheck">
-                    <span class="circle-uncheck" (click)="onTimeChange('two')"></span>
-                  </div>
+                    <ng-container *ngIf="longerTime === 'two'; then circleCheck else circleUncheck" />
               </div>
 
-              <div class="select-time-card" [class.selected]="longerTime === 'five'">
+              <div class="select-time-card" [class.selected]="longerTime === 'five'" (click)="onTimeChange('five')">
                     <div class="cardBody">
                         <div class="btnText">
                             ~5 min.
@@ -73,12 +71,10 @@
                         </div>
                     </div>
 
-                  <div *ngIf="longerTime !== 'five'; else circleCheck">
-                    <span class="circle-uncheck" (click)="onTimeChange('five')"></span>
-                  </div>
+                    <ng-container *ngIf="longerTime === 'five'; then circleCheck else circleUncheck" />
               </div>
 
-              <div class="select-time-card" [class.selected]="longerTime === 'ten'">
+              <div class="select-time-card" [class.selected]="longerTime === 'ten'" (click)="onTimeChange('ten')">
                     <div class="cardBody">
                         <div class="btnText">
                             ~10 min.
@@ -87,12 +83,11 @@
                             More time will be spent on exceptions and creative perspectives.
                         </div>
                     </div>
-                    <div *ngIf="longerTime !== 'ten'; else circleCheck">
-                      <span class="circle-uncheck" (click)="onTimeChange('ten')"></span>
-                    </div>
+
+                    <ng-container *ngIf="longerTime === 'ten'; then circleCheck else circleUncheck" />
                 </div>
 
-              <div class="select-time-card" [class.selected]="longerTime === 'thirty'">
+              <div class="select-time-card" [class.selected]="longerTime === 'thirty'" (click)="onTimeChange('thirty')">
                     <div class="cardBody">
                         <div class="btnText">
                             ~30 min.
@@ -102,9 +97,7 @@
                         </div>
                     </div>
 
-                    <div *ngIf="longerTime !== 'thirty'; else circleCheck">
-                      <span class="circle-uncheck" (click)="onTimeChange('thirty')"></span>
-                    </div>
+                    <ng-container *ngIf="longerTime === 'thirty'; then circleCheck else circleUncheck" />
               </div>
 
               </div>
@@ -155,4 +148,7 @@
 
 <ng-template #circleCheck>
   <saf-icon appearance="solid" icon-name="circle-check" class="circle-check" (click)="onTimeChange(null)"></saf-icon>
+</ng-template>
+<ng-template #circleUncheck>
+  <span class="circle-uncheck"></span>
 </ng-template>
