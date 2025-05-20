@@ -1,7 +1,9 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  Output,
   QueryList,
   Renderer2,
   ViewChild,
@@ -20,6 +22,7 @@ import { Router } from '@angular/router';
 export class SearchBarComponent {
   @ViewChild('responseTimeMenu') responseTimeMenu!: ElementRef<HTMLDivElement>;
   @ViewChild('deepResearchMenu') deepResearchMenu!: ElementRef<HTMLDivElement>;
+  @ViewChild('compactSearchBar') compactSearchBar!: ElementRef<HTMLDivElement>;
 
   openAttachmentDialog: boolean = false;
   openTaskLibraryDialog: boolean = false;
@@ -76,6 +79,10 @@ export class SearchBarComponent {
   ]
   mentionTop = 0;
   mentionLeft = 0;
+
+  isCompactSearchBarFocused: boolean = false;
+  @Output() compactSearchBarFocused: EventEmitter<null> = new EventEmitter<null>();
+  @Output() compactSearchBarBlur: EventEmitter<null> = new EventEmitter<null>();
 
   constructor(private renderer: Renderer2, private router: Router) {
     this.renderer.listen('document', 'click', (event: Event) => {
@@ -168,6 +175,12 @@ export class SearchBarComponent {
     if (!this.deepResearchMenu?.nativeElement.contains(event.target)) {
       if (this.showDeepResearchMenu) {
         this.showDeepResearchMenu = false;
+      }
+    }
+
+    if(!this.compactSearchBar?.nativeElement.contains(event.target)) {
+      if(this.isCompactSearchBarFocused) {
+        this.blurCompactModeSearchBar()
       }
     }
   }
@@ -297,5 +310,16 @@ export class SearchBarComponent {
       selection!.removeAllRanges();
       selection!.addRange(range);
     }
+  }
+
+  focusCompactModeSearchBar() {
+    this.isCompactSearchBarFocused = true;
+    this.compactSearchBarFocused.emit(null);
+
+  }
+
+  blurCompactModeSearchBar() {
+    this.isCompactSearchBarFocused = false;
+    this.compactSearchBarBlur.emit(null);
   }
 }

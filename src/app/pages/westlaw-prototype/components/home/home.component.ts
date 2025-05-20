@@ -15,6 +15,7 @@ export class HomeComponent {
   showSearchBarFooter: boolean = true;
   hideFooter: boolean = false;
   showBanner: boolean = true;
+  expandedFooter: boolean = false;
 
   constructor(public location: Location, private router: Router) {
     this.router.events
@@ -23,7 +24,7 @@ export class HomeComponent {
       ).subscribe(() => {
         const urls = this.location.path().split('/').filter(Boolean);
         this.showTitle = !urls.includes('case-details');
-        this.showSearchBarFooter = urls.includes('deep-research') || urls.includes('keyword-search');
+        this.showSearchBarFooter = urls.includes('research-confirmation') || urls.includes('keyword-search');
         this.showBanner = !(urls.includes('deep-research') || urls.includes('keyword-search') || urls.includes('case-details'));
         this.hideFooter = urls.includes('case-details')  || urls.includes('research-results');
       });
@@ -32,5 +33,13 @@ export class HomeComponent {
 
   toggleSidebar(collapse: boolean) {
     this.sidebarCollapsed = collapse;
+  }
+
+  searchBarFocused() {
+    this.expandedFooter = true;
+  }
+
+  searchBarBlur() {
+    this.expandedFooter = false;
   }
 }
