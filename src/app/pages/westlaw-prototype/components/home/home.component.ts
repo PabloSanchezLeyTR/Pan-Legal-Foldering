@@ -10,7 +10,7 @@ import { filter } from 'rxjs';
 })
 export class HomeComponent {
 
-  sidebarCollapsed: boolean = false;
+  sidebarCollapsed: boolean = true;
   showTitle: boolean = true;
   showSearchBarFooter: boolean = true;
   hideFooter: boolean = false;

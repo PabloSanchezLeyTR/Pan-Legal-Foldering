@@ -21,4 +21,5 @@ export class ButtonComponent {
   @Input() disabled: boolean | undefined = false;
   @Input() width!: string;
   @Input() height!: string;
+  @Input() font!: string;
 }

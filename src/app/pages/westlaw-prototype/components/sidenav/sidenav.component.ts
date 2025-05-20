@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,13 +14,11 @@ export class SidenavComponent {
   
   showSettings: boolean = false;
 
-  collapsed = false;
-
-  constructor(private router: Router) { }
+  collapsed = true;
   
   menuButtons = [
     { icon: 'circle-plus', label: 'New chat', action: () => this.navigateTo('westlaw-prototype/new-research') },
-    { icon: 'message-dots', label: 'Current Chat' },
+    { icon: 'message-dots', label: 'Current chat' },
     { icon: 'clock-rotate-left', label: 'History' },
     { icon: 'books', label: 'Browse' },
     { icon: 'folders', label: 'Folders' },
@@ -34,6 +34,17 @@ export class SidenavComponent {
 
   selectedFontSize: number = 2;
   selectedMode: number = 1;
+  activeMenu: string = 'New chat';
+
+  constructor(private router: Router, private location: Location) {
+    this.router.events
+          .pipe(
+            filter(event => event instanceof NavigationEnd)
+          ).subscribe(() => {
+            const urls = this.location.path().split('/').filter(Boolean);
+            this.activeMenu = (urls.includes('deep-research') || urls.includes('keyword-search') || urls.includes('case-details')) ? 'Current chat' : 'New chat';
+          });
+  }
 
   toggleNav() {
     this.collapsed = !this.collapsed;
@@ -46,6 +57,12 @@ export class SidenavComponent {
 
   toggleSettings() {
     this.showSettings = !this.showSettings;
+    if(this.showSettings) {
+      this.activeMenu = 'Settings';
+    } else {
+      const urls = this.location.path().split('/').filter(Boolean);
+      this.activeMenu = (urls.includes('deep-research') || urls.includes('keyword-search') || urls.includes('case-details')) ? 'Current chat' : 'New chat';
+    }
   }
 
 }

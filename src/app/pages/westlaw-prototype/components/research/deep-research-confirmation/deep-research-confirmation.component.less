@@ -23,6 +23,66 @@
   line-height: 135%; /* 21.6px */
 }
 
+h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.select-card-row {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 16px;
+
+}
+
+.select-time-card {
+  display: flex;
+  flex-direction: row;
+  width: 182px;
+  height: 160px;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2.5px solid var(--saf-color-border-strong, #D2D2D2);
+
+
+
+  &.selected {
+    border: 2.5px solid var(--color-data-viz-sky-700, #032E5B);
+  }
+}
+
+.cardContent {
+  overflow: hidden;
+  color: var(--color-text-subtle, #666);
+  text-overflow: ellipsis;
+  margin-top: 2px;
+
+  /* type/body/default/sm/regular/standard */
+  font-family: "Source Sans 3";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  /* 18.9px */
+}
+
+.safIconLight {
+  color: var(--color-border-strong, #D2D2D2);
+}
+
+.cardBody {
+  margin-top: 2px;
+
+  .btnText {
+    font: var(--saf-type-heading-default-md-strong-standard);
+    color: #404040;
+  }
+}
+
 .prompt-response-confirmation {
   margin-bottom: 68px;
 }
@@ -107,15 +167,17 @@
 }
 
 .steps-listing {
-  padding-left: 20px;
+  padding-left: 32px;
   padding-right: 20px;
   margin-bottom: 0;
   height: 100%;
   overflow-y: scroll;
+  margin-top: 7px;
 
   li {
     padding-left: 8px;
     color: var(--color-text-heavy, #212223);
+    margin-bottom: 10px;
 
     /* type/body/default/md/regular/standard */
     font-family: "Source Sans 3";
@@ -127,7 +189,7 @@
 }
 
 .step-title {
-  color: var(--color-text-heavy, #212223);
+  color: var(--saf-color-black);
 
   /* type/body/default/md/regular/standard */
   font-family: "Source Sans 3";
@@ -137,14 +199,8 @@
   line-height: 150%; /* 24px */
 
   &.highlighted-step{
-    color: var(--color-text-heavy, #212223);
-
-    /* type/body/default/md/strong/standard */
-    font-family: "Source Sans 3";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 150%; /* 24px */
+    color: var(--saf-color-black);
+    font: var(--saf-type-heading-default-md-strong-standard);
   }
 }
 
@@ -153,10 +209,10 @@
 
     /* type/body/default/xs/regular/standard */
     font-family: "Source Sans 3";
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 135%; /* 16.2px */
+    line-height: 145%; /* 16.2px */
 
     max-width: 384px;
     padding-bottom: 8px;

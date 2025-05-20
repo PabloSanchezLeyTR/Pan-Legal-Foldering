@@ -2,7 +2,7 @@
   <div class="main-content chat-ui">
 
     <div class="chat-bubble client-side prompt-submitted">
-      In New York, is it permissible to terminate an employee for cause due to a comment they made on social media? 
+      In New York, is it permissible to terminate an employee for cause due to a comment they made on social media?
     </div>
 
     <div class="chat-bubble ai-side prompt-response-confirmation">
@@ -27,7 +27,9 @@
 
       <div class="card">
 
-        <div class="step-wrapper">
+        <saf-text appearance="heading-md" density="inherit"><h2>Confirm research plan</h2></saf-text>
+
+        <!-- <div class="step-wrapper">
           <div class="step-left">
             <saf-icon class="step-icon" icon-name="circle-check"></saf-icon>
             <div class="line-progress"></div>
@@ -38,17 +40,77 @@
 
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="step-wrapper editable">
-          <div class="step-left">
+        <!-- <div class="step-wrapper editable"> -->
+          <!-- <div class="st ep-left">
             <saf-icon class="step-icon" icon-name="pen-circle"></saf-icon>
             <div class="line-progress"></div>
-          </div>
+          </div> -->
           <div class="step-right">
             <div class="step-header">
-              <div class="step-title highlighted-step">Confirm research plan</div>
-              <div class="step-description">These are the steps Westlaw will follow when performing your research. Review and make any edits before Westlaw starts researching.</div>
+              <div class="step-title highlighted-step">How Deep?</div>
+              <div class="step-description">Choose longer times for more accurate and thorough reports.</div>
+
+              <div class="select-card-row">
+                <div class="select-time-card">
+                    <div class="cardBody">
+                        <div class="btnText">
+                            ~2 min.
+                        </div>
+                        <div class="cardContent">
+                            Works well for simple questions and high-level overviews of more complex questions.
+                        </div>
+                    </div>
+
+                    <saf-radio value="check"></saf-radio>
+              </div>
+
+              <div class="select-time-card selected">
+                    <div class="cardBody">
+                        <div class="btnText">
+                            ~5 min.
+                        </div>
+                        <div class="cardContent">
+                            Works well for most questions.
+                        </div>
+                    </div>
+
+                    <saf-icon appearance="solid" icon-name="circle-check" size="18px" class="safIcon"></saf-icon>
+              </div>
+
+              <div class="select-time-card">
+                    <div class="cardBody">
+                        <div class="btnText">
+                            ~10 min.
+                        </div>
+                        <div class="cardContent">
+                            More time will be spent on exceptions and creative perspectives.
+                        </div>
+                    </div>
+
+                    <saf-radio value="check"></saf-radio>
+
+              </div>
+
+              <div class="select-time-card">
+                    <div class="cardBody">
+                        <div class="btnText">
+                            ~30 min.
+                        </div>
+                        <div class="cardContent">
+                            Exhaustive review with Deep Verification.
+                        </div>
+                    </div>
+
+                    <saf-radio value="check"></saf-radio>
+              </div>
+
+              </div>
+
+
+              <div class="step-title highlighted-step">Deep AI research tasks</div>
+              <div class="step-description">Editing the tasks may affect load times.</div>
             </div>
 
             <div class="listing-wrapper">
@@ -72,9 +134,9 @@
               </button>
             </div>
           </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="step-wrapper previous-step">
+        <!-- <div class="step-wrapper previous-step">
           <div class="step-left">
             <saf-icon class="step-icon" icon-name="circle-minus"></saf-icon>
           </div>
@@ -84,7 +146,7 @@
 
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

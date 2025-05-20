@@ -23,7 +23,7 @@
     <div class="left-buttons">
       <app-toggle [options]="toggleOptions" (selectedOptionChanged)="toggleOptionSelected($event)"
         (click)="isFileUploadedDone = false; isFileLoading = false"></app-toggle>
-      <app-button [label]="'New York'" [icon]="'location-dot'" [color]="'blue'" [includeDropdown]="false"
+      <app-button [label]="'New York'" [font]="'clario'" [icon]="'location-dot'" [color]="'blue'" [includeDropdown]="false"
         (click)="clickJurisdiction()"></app-button>
     </div>
     <div class="right-buttons">
@@ -98,7 +98,7 @@
   <div class="dialog-content">
     <div class="drop-area">
       <p class="drop-area-text">Choose “Select files” or drag files into this space.</p>
-      <app-button [label]="'Select files'" [addBorder]="true" (click)="uploadFile()"></app-button>
+      <app-button [label]="'Select files'" [addBorder]="true" (click)="uploadFile()" backgroundColor="attach" height="40px" width="113px"></app-button>
 
       <p>
         <span>Supported file types: TXT, HTM, HTML, RTF (20 MB per file)</span><br>
@@ -178,7 +178,7 @@
         <div class="results-title">
           <saf-text appearance="heading-md" density="inherit" class="card-title">Showing 42 results</saf-text>
           <app-button [label]="'Sort by recent'" [icon]="'arrow-up-arrow-down'" [addBorder]="true"
-            [backgroundColor]="'white'" [color]="'blue'"></app-button>
+            [backgroundColor]="'white'" [color]="'#1D4B34'"></app-button>
         </div>
         <div class="results-cards">
           <div class="result-card">
@@ -267,7 +267,7 @@
   (hide)="closeJurisdictionDialog()" triggerId="button-dialog-trigger">
   <div class="jurisdiction-dialog">
     <div class="dialog-row">
-      <app-button [addBorder]="true" label="Clear All"></app-button>
+      <app-button [addBorder]="true" label="Clear All" color="racing-green"></app-button>
       <app-button [icon]="'keyboard'"></app-button>
     </div>
 
@@ -396,7 +396,7 @@
   </div>
 
   <div slot="footer" style="display: flex; gap: 12px; justify-content: flex-end; width: 100%">
-    <app-button [label]="'Cancel'" [addBorder]="true" (click)="closeJurisdictionDialog()"></app-button>
+    <app-button [label]="'Cancel'" [addBorder]="true" color="secondary" (click)="closeJurisdictionDialog()"></app-button>
     <app-button [label]="'Save'" [backgroundColor]="'blue'" [color]="'white'"
       (click)="closeJurisdictionDialog()"></app-button>
   </div>
