@@ -96,10 +96,195 @@
               </div>
           </div>
 
-          <!-- <h3 *ngIf="!fullReport">Full Report</h3> -->
-        </div>
+          <div *ngIf="fullReport">
+            <h2 class="report-title">Economic loss rule and its applicability to tort actions</h2>
+            <div>
+              <p class="report-content-title">Report contents</p>
+              <ul class="report-contents">
+                <li><a href="#">Executive summary</a></li>
+                <li><a href="#">Detailed analysis</a></li>
+                <li><a href="#">Unusual situations</a></li>
+                <li><a href="#">Jurisdictional differences</a></li>
+                <li><a href="#">Related issues</a></li>
+                <li><a href="#">Supplements</a></li>
+              </ul>
+            </div>
 
-        <button class="togglePlanButton" (click)="toggleShow()">
+            <div class="final-summary">
+              <h3 class="chunk-title">Summary</h3>
+              <p>In California, the economic loss rule generally bars recovery of purely economic losses in tort actions, limiting recovery to contract remedies. There are exceptions, particularly in cases involving fraud.</p>
+
+              <p>The economic loss rule may not bar the fraud claim If your client can establish that:</p>
+                <ol>
+                  <li>The manufacturer intentionally concealed a defect with the intent to defraud.</li>
+                  <li>The duty to disclose the defect involves a separate duty to disclose that arises independently of the contract.</li>
+                  <li>The concealment exposed your client to a risk of harm beyond what was reasonably contemplated by the parties when they entered the contract; and  </li>
+                  <li>your client relied on the omission to their detriment.</li>
+                </ol>
+            </div>
+
+            <div class="final-analysis">
+              <h3 class="chunk-title">Analysis</h3>
+              <p><b>Economic Loss Rule and Fraud Generally:</b> The California Supreme Court in <a href="#">Robinson Helicopter Co., Inc. v. Dana Corp.</a> held that the economic loss rule does not bar claims for intentional misrepresentation or fraud in the performance of a contract when the fraud is independent of the breach of contract <a href="#">(Robinson Helicopter Co., Inc. v. Dana Corp., 34 Cal.4th 979 (2004))[1]</a>.</p>
+              <p><b>Fraudulent Inducement:</b>In<a href="#">Dhital v. Nissan North America, Inc.</a>, the court clarified that the economic loss rule does not bar tort damages in cases where the contract was fraudulently induced, including claims of intentional concealment <a href="#">(Dhital v. Nissan North America, Inc., 84 Cal.App.5th 828 (2022))[2]</a>. This suggests that if your client's claim involves fraudulent inducement, it may not be barred by the economic loss rule.</p>
+              <p><b>Independent Duty:</b> The court in <a href="#">Foster Poultry Farms v. Alkar-Rapidpak-MP Equipment, Inc.</a>emphasized that to maintain a fraud claim based on the same factual allegations as a breach of contract claim, the plaintiff must show that the duty giving rise to tort liability is either completely independent of the contract or arises from conduct that is both intentional and intended to harm <a href="#">(Foster Poultry Farms v. Alkar-Rapidpak-MP Equipment, Inc., 868 F.Supp.2d 983 (2012))[3]</a>.</p>
+              <p><b>Fraudulent Omission:</b> The court in <a href="#">In re Ford Motor Co. DPS6 Powershift Transmission Products Liability Litigation</a> held that fraudulent omission claims are barred by the economic loss rule when the damages are purely economic and derive from the defendant's breach of warranty obligations <a href="#">(In re Ford Motor Co. DPS6 Powershift Transmission Products Liability Litigation, 483 F.Supp.3d 838 (2020))[4]</a>. This aligns with the general principle that the economic loss rule bars tort recovery for economic damages unless accompanied by physical harm or personal injury <a href="#">(In re Ford Motor Co. DPS6 Powershift Transmission Products Liability Litigation, 483 F.Supp.3d 838 (2020))[4]</a>.</p>
+              <p><b>Fraudulent Concealment:</b> <a href="#">In Rattagan v. Uber Technologies, Inc., 17 Cal.5th 1 (2024)[5]</a> the court fount that a plaintiff may assert a cause of action for fraudulent concealment based on conduct occurring in the course of a contractual relationship, but only if two conditions are met: (1) the elements of the claim can be established independently of the parties’ contractual rights and obligations and (2) the tortious conduct exposes the plaintiff to a risk of harm beyond the reasonable contemplation of the parties when they entered into the contract.</p>
+            </div>
+
+            <div class="final-situations">
+              <h3 class="chunk-title">Unusual situations</h3>
+              <p>Non-contractual application: The economic loss rule most generally applies to suits between the parties to a contract. But as observed in <a href='#'>Sheen v. Wells Fargo Bank, 12 Cal.5th 905, 922[6]</a>, a version of the doctrine may also apply in cases involving parties not in contractual privity, such as when a plaintiff seeks to impose liability in an indeterminate amount for an indeterminate time to an indeterminate class. See <a href='#'>Rattagan v. Uber Techs., Inc., 17 Cal. 5th 1, 19, 553 P.3d 1213, 1223 (2024)[5]</a></p>
+            </div>
+
+            <div class="final-juris-diff">
+              <h3 class="chunk-title">Jurisdictional differences</h3>
+              <ol>
+                <li><b>Florida Courts:</b> Florida courts generally recognize a fraud exception to the economic loss rule. In Florida, if a party can prove that fraud occurred, they may be able to pursue tort claims even if the losses are purely economic and related to a contract.</li>
+                <li><b>California Courts:</b> California courts also recognize a fraud exception to the economic loss rule. They allow claims for fraud in the inducement of a contract, meaning if a party was fraudulently led into entering a contract, they can seek tort remedies.</li>
+                <li><b>New York Courts:</b> New York takes a narrower approach. The fraud exception is recognized, but the fraud must be "extraneous" to the contract. This means the fraudulent behavior must be separate from the contract terms themselves, not just a breach of contract disguised as fraud.</li>
+                <li><b>Illinois Courts:</b> Illinois courts generally do not recognize a broad fraud exception to the economic loss rule. The rule is applied strictly to maintain the boundary between contract and tort law. However, exceptions may exist if the fraud involves a duty independent of the contract.</li>
+                <li><b>Texas Courts:</b> Texas courts allow for a fraud exception but emphasize the need for a clear distinction between a tort duty and a contractual obligation. The fraud must be independent of the contract terms to pursue a tort claim.</li>
+                <li><b>Michigan Courts:</b> Michigan courts have a more restrictive view, often limiting the fraud exception. The focus is on whether the fraud is separate from the contract obligations, similar to New York's approach.</li>
+              </ol>
+              <p>Some states do not apply the ELR or have exceptions to it, including Oklahoma and Tennessee (where the ELR applies only to products liability cases). Texas (where the courts have prohibited the application of the ELR as a defense to various statutory claims) and Colorado (where the courts have ruled the Colorado Legislature has the power to create causes of action that trump the ELR). </p>
+            </div>
+
+            <div class="final-related-issues">
+              <h3 class="chunk-title">Related Issues</h3>
+              <p><a href="#">Pleading sufficiency of the fraudulent omission claim.</a></p>
+            </div>
+
+            <div class="final-supplements">
+              <h3 class="chunk-title">Supplements</h3>
+              <p><a href="#">Sources</a></p>
+              <p><a href="#">Questions</a></p>
+            </div>
+
+          </div>
+
+          <!-- <h3 *ngIf="!fullReport">Full Report</h3> -->
+          <!-- <div class="chunk" *ngIf="fullReport">
+            <h3>Summary</h3>
+
+            <ng-template #pop1Content>
+              <div class="popover-wrapper">
+                <div class="question-wrapper">
+                  <div class="question">
+                    Did anything in the employee’s contract impact their at-will status?
+                  </div>
+                  <div class="info">
+                    <saf-icon class="information" slot="end" icon-name="circle-info" appearance="light" presentation></saf-icon>
+                  </div>
+                </div>
+                <div class="answer-wrapper">
+                  <saf-button density="extra-compact" appearance="secondary">
+                    Yes
+                  </saf-button>
+                  <saf-button density="extra-compact" appearance="secondary">
+                    No
+                  </saf-button>
+                </div>
+                <div class="actions-wrapper">
+                  <saf-button density="extra-compact" appearance="secondary" disabled>
+                    Cancel
+                  </saf-button>
+                  <saf-button density="extra-compact" appearance="secondary" disabled>
+                    Apply answer
+                  </saf-button>
+                </div>
+              </div>
+            </ng-template>
+
+            <ng-template #pop2Content>
+              <div class="popover-wrapper">
+                <div class="question-wrapper">
+                  <div class="question">
+                    Was the employee a public employee?
+                  </div>
+                  <div class="info">
+                    <saf-icon class="information" slot="end" icon-name="circle-info" appearance="light" presentation></saf-icon>
+                  </div>
+                </div>
+                <div class="answer-wrapper">
+                  <saf-button density="extra-compact" appearance="secondary">
+                    Yes
+                  </saf-button>
+                  <saf-button density="extra-compact" appearance="secondary">
+                    No
+                  </saf-button>
+                </div>
+                <div class="actions-wrapper">
+                  <saf-button density="extra-compact" appearance="secondary" disabled>
+                    Cancel
+                  </saf-button>
+                  <saf-button density="extra-compact" appearance="secondary" disabled>
+                    Apply answer
+                  </saf-button>
+                </div>
+              </div>
+            </ng-template>
+
+
+            <p>When considering the termination of an employee for a social media comment, it is crucial to first assess the nature of the comment and the context in which it was made. Additionally, understanding the employment status is important; if the employee is at-will
+              <button type="button" class="icon-popup" [ngbPopover]="pop1Content">
+                <saf-icon class="information" slot="end" class="chevron-end" color="#054688" icon-name="circle-question" appearance="solid" presentation>
+                </saf-icon>
+              </button>,
+              the employer generally has more flexibility to terminate employment for any lawful reason, including social media activity, provided it does not violate public policy or statutory rights. Employers must evaluate whether the comment violates company policies or codes of conduct, such as those related to harassment, discrimination, confidentiality, or bringing the organization into disrepute. It's important to differentiate between comments made in a personal capacity and those that could be construed as representative of the company. Additionally, the impact of the comment on the workplace environment or company reputation should be carefully considered.
+
+              <span class="footnotes">
+                <span class="item">1</span>
+                <span class="item">2</span>
+                <span class="item">3</span>
+                <span class="item">4</span>
+              </span>
+            </p>
+
+            <p>Legal considerations also play a significant role in determining the permissibility of such a termination. In many jurisdictions, employees may have protections related to free speech, privacy, or engaging in "concerted activities" under labor laws, especially if the comments pertain to working conditions.
+
+              <span class="footnotes">
+                <span class="item">1</span>
+                <span class="item">3</span>
+              </span>
+            </p>
+
+            <h3>First Amendment</h3>
+
+            <p>Public Employees in New York have additional protections under the First Amendment that call for a larger analysis
+              <button type="button" class="icon-popup" [ngbPopover]="pop2Content">
+                <saf-icon class="information" slot="end" class="chevron-end" color="#054688" icon-name="circle-question" appearance="solid" presentation>
+                </saf-icon>
+              </button> .
+              In <a href="#">Pickering v. Board of Education, 391 U.S. 563, 88 S. Ct. 1731 (1968)</a>, the U.S. Supreme Court established that public employees have a right to speak on matters of public concern without fear of retaliation. However, this right must be balanced against the government's interest as an employer.
+              The case of <a href="#">Connick v. Myers, 461 U.S. 138, 103 S. Ct. 1684 (1983)</a> further refined this standard, emphasizing that speech must relate to matters of public concern to receive First Amendment protection. </p>
+
+            <h3 style="font-family: Source Sans 3; font-weight: 600; font-size: 20px; line-height: 135%; letter-spacing: 0px; vertical-align: middle; color: #404040;">National labor Relations Act (NLRA)</h3>
+            <p>The NLRA safeguards employees' rights to engage in "concerted activities" for mutual aid or protection, which can include discussions about working conditions on social media, as seen in
+              <a href="#">Three D, LLC v. Nat'l Labor Relations Bd., 629 F. App'x 33 (2d Cir. 2015).</a>
+            </p>
+
+            <p>
+              The NLRA further supports employee rights in cases such as
+              <a href="#">Hispanics United of Buffalo, Inc., 355 NLRB No. 37 (December 14, 2012)</a>
+              where the National Labor Relations Board (NLRB) ruled that discussing work conditions on social media is protected, and firing for such comments violated the NLRA. The context of the social media comment is crucial in determining the legality of termination circle-question. Comments that are discriminatory, reveal confidential information, or contravene company policies are more likely to be lawful grounds for termination, as indicated in
+              <a href="#">Pappas v. Giuliani, 290 F.3d 143 (2d Cir. 2002).</a>
+              Conversely, comments relating to working conditions, union activities, or other protected speech may be shielded from employer retaliation, as noted in
+              <a href="#">Matter of Richardson v. Saratoga Springs, 246 A.D.2d 900, 667 N.Y.S.2d 995 (N.Y. App. Div. 1998).</a>
+            </p>
+
+            <h3>New York Labor Law</h3>
+            <p>
+              New York Labor Law Section 201-d prohibits discrimination against employees for legal "political activities" and "recreational activities" conducted outside work hours, potentially covering social media use. Nonetheless, this protection may not apply if the content itself is the issue, as illustrated in
+              <a href="#">Sander v. Westchester Reform Temple, 2024 N.Y. Slip Op. 3064 (N.Y. App. Div. 2024), </a>
+              where an employee was discharged for the content of a blog post. It may depend on whether the comment related to political or recreational activities, and whether it was made during work hours
+            </p>
+            </div>
+
+          -->
+        </div>
+        <!-- <button class="togglePlanButton" (click)="toggleShow()" *ngIf="!fullReport"> -->
+        <button class="togglePlanButton" (click)="toggleShow()" >
           <h3 class="task-plan-title">
             <i class="fa" [class.fa-chevron-down]="!this.togglePlan" [class.fa-chevron-right]="this.togglePlan"></i> Plan
           </h3>
