@@ -1,4 +1,4 @@
-<div class="search-bar" *ngIf="!compactMode">
+<div class="search-bar" id="search-bar" *ngIf="!compactMode">
   <div class="border-gradient">
     <div class="input-container">
       <div contenteditable="true" class="text-editor"
@@ -404,7 +404,7 @@
   </div>
 </saf-dialog>
 
-<div class="compact-search-container" *ngIf="compactMode" #compactSearchBar>
+<div class="compact-search-container" id="search-bar" *ngIf="compactMode" #compactSearchBar>
   <div class="search-bar-compact">
     <div class="input-container-compact">
       <div class="compact-input" [class.focused]="isCompactSearchBarFocused" contenteditable="true"

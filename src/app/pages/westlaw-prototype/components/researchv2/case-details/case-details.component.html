@@ -1,0 +1,155 @@
+<div class="case-details">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-section-1">
+            <app-button class="back-button" icon="arrow-left" [expanded]="false" (click)="goBack()"></app-button>
+            <div class="title-section">
+              <saf-icon class="flag-icon" [appearance]="'solid'" icon-name="flag" color="#E9B045"
+              size="16px"></saf-icon>
+                <div class="title-information">
+                  <span class="case-title">Gorman v. Covidien, LLC</span>
+                <span class="case-subtitle">United States District Court, S.D. New York. • November 19, 2015 • 146
+                    F.Supp.3d 509 • 32 A.D. Cases 902</span>
+                </div>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <app-button [label]="'Ask CoCounsel'" icon="sparkles" iconColor="orange" [iconAppearance]="'solid'"
+                [expanded]="true"></app-button>
+            <div class="button-group">
+                <div class="back-icon">
+                    <saf-icon icon-name="chevron-left" size="16"></saf-icon>
+                </div>
+                <div class="forward-icon">
+                    <saf-icon icon-name="chevron-right" size="16"></saf-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="tabs">
+            <saf-tabs>
+                <saf-tab class="tab" aria-label="document">Document</saf-tab>
+                <saf-tab aria-label="fillings">Fillings (2)</saf-tab>
+                <saf-tab aria-label="treatment">Negative Treatment (1)</saf-tab>
+                <saf-tab aria-label="history">History (2)</saf-tab>
+                <saf-tab aria-label="citing">Citing References (254)</saf-tab>
+                <saf-tab aria-label="table">Table of Authorities</saf-tab>
+                <saf-tab aria-label="related">Related Documents</saf-tab>
+                <saf-tab-panel></saf-tab-panel>
+                <saf-tab-panel></saf-tab-panel>
+                <saf-tab-panel></saf-tab-panel>
+                <saf-tab-panel></saf-tab-panel>
+                <saf-tab-panel></saf-tab-panel>
+                <saf-tab-panel></saf-tab-panel>
+                <saf-tab-panel></saf-tab-panel>
+            </saf-tabs>
+        </div>
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="left-section">
+                <div class="squared-icon">
+                    <saf-icon icon-name="file-magnifying-glass" size="16"></saf-icon>
+                </div>
+                <div class="terms-group">
+                    <div class="back-icon">
+                        <saf-icon icon-name="chevron-left" size="16"></saf-icon>
+                    </div>
+                    <div class="terms-select">
+                        <div class="yellow-highlight"></div>
+                        <span>Original terms</span>
+                        <saf-icon icon-name="chevron-down" size="16"></saf-icon>
+                    </div>
+                    <div class="forward-icon">
+                        <saf-icon icon-name="chevron-right" size="16"></saf-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="squared-icon">
+                    <saf-icon icon-name="bookmark" size="16"></saf-icon>
+                </div>
+                <div class="squared-icon">
+                    <saf-icon icon-name="folder-arrow-up" size="16"></saf-icon>
+                </div>
+                <div class="squared-icon">
+                    <saf-icon icon-name="link-simple" size="16"></saf-icon>
+                </div>
+                <div class="squared-icon">
+                    <saf-icon icon-name="arrow-down-to-bracket" size="16"></saf-icon>
+                </div>
+                <div class="squared-icon">
+                    <saf-icon icon-name="ellipsis-stroke-vertical" size="16"></saf-icon>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Content -->
+        <div class="case-content">
+            <aside class="table-of-contents">
+                <div class="toc-title">
+                    <span >Table of contents</span>
+                </div>
+                <div class="toc-list">
+                    <a>Synopsis</a>
+                    <a>West Headnote</a>
+                    <a>Attorneys and Law Firms</a>
+                    <a>Opinion and Order <saf-icon icon-name="chevron-down" size="16"></saf-icon></a>
+                    <a>All Citations</a>
+                    <a>Footnotes</a>
+                </div>
+            </aside>
+            <main class="document">
+                <div class="keysite-note">
+                  <saf-icon class="flag-icon" [appearance]="'solid'" icon-name="flag" color="#E9B045"
+                  size="16px"></saf-icon>
+                  <span>Declined to Extend by <a href="#">In re Lopez-Munoz</a>, 1st Cir., August 9, 2017</span>
+
+                </div>
+                <div class="document-title">
+                    <span class="document-title-text-1">146 F.Supp.3d 509</span>
+                    <span class="document-title-text-1">United States District Court, S.D. New York.</span>
+                    <span class="document-title-text-2">John GORMAN, Plaintiff,</span>
+                    <span class="document-title-text-2">v.</span>
+                    <span class="document-title-text-2">COVIDIEN, LLC, d/b/a Covidien, et al., Defendants.</span>
+                    <span class="document-title-text-3">13 Civ. 6486 (KPF)</span>
+                    <span class="document-title-text-3">Signed 11/19/2015</span>
+                </div>
+                <span class="document-title-text-4">Synopsis</span>
+                <p class="document-text">
+                    <span style="font-weight: 600;">Background:</span> Former employee, who worked in sales branch of medical device and supplies manufacturer, brought action in state court against his former employer and supervisor, alleging that he was discriminated against on basis of his status as veteran and his actual or perceived disability of post-traumatic stress disorder (PTSD), and retaliated against, in violation of New York State Human Rights Law (NYSHRL) and New York City Human Rights Law (NYCHRL), and asserting claim for intentional infliction of emotional distress (IIED). Defendants removed action to federal court and moved for summary judgment.
+                </p>
+                <p class="document-text">
+                    <span style="font-weight: 600;">Holdings:</span> The District Court, <a href="#">Katherine Polk Failla</a>, J., held that:
+                </p>
+                <ol class="document-text">
+                    <li>placement of employee on performance improvement plan (PIP) was not adverse
+                        action;
+                    </li>
+                    <li>
+                        employer's actions did not amount to constructive discharge;
+                    </li>
+                    <li>supervisors' alleged actions were not sufficiently severe or pervasive to rise to level
+                        of hostile work environment;
+                    </li>
+                    <li>
+                        act issues precluded summary judgment on discrimination claim under NYCHRL;
+                    </li>
+                    <li>
+                        PIP could not form basis of retaliation claim; and
+                    </li>
+                    <li>
+                        employee could not maintain IIED claim against supervisor.
+                    </li>
+                </ol>
+                <p class="document-text">
+                    Motion granted in part and denied in part.
+                </p>
+                <p>
+                    Procedural Posture(s): Motion for Summary Judgment.
+                </p>
+            </main>
+        </div>
+    </div>
+</div>

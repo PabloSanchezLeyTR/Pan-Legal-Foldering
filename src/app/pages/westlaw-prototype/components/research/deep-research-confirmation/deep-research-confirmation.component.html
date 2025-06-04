@@ -48,23 +48,12 @@
               <div class="step-description">Choose longer times for more accurate and thorough reports.</div>
 
               <div class="select-card-row">
-                <div class="select-time-card" [class.selected]="longerTime === 'two'" (click)="onTimeChange('two')">
-                    <div class="cardBody">
-                        <div class="btnText">
-                            ~2 min.
-                        </div>
-                        <div class="cardContent">
-                            Works well for simple questions and high-level overviews of more complex questions.
-                        </div>
-                    </div>
 
-                    <ng-container *ngIf="longerTime === 'two'; then circleCheck else circleUncheck" />
-              </div>
 
               <div class="select-time-card" [class.selected]="longerTime === 'five'" (click)="onTimeChange('five')">
                     <div class="cardBody">
                         <div class="btnText">
-                            ~5 min.
+                            2 - 5 min.
                         </div>
                         <div class="cardContent">
                             Works well for most questions.
@@ -77,7 +66,7 @@
               <div class="select-time-card" [class.selected]="longerTime === 'ten'" (click)="onTimeChange('ten')">
                     <div class="cardBody">
                         <div class="btnText">
-                            ~10 min.
+                            10 - 15 min.
                         </div>
                         <div class="cardContent">
                             More time will be spent on exceptions and creative perspectives.
@@ -90,7 +79,7 @@
               <div class="select-time-card" [class.selected]="longerTime === 'thirty'" (click)="onTimeChange('thirty')">
                     <div class="cardBody">
                         <div class="btnText">
-                            ~30 min.
+                            30+ min.
                         </div>
                         <div class="cardContent">
                             Exhaustive review with Deep Verification.

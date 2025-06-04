@@ -1,5 +1,6 @@
 .chat-ui {
   max-height: 90%;
+  overflow: scroll;
 }
 
 .chat-bubble.client-side {
@@ -23,6 +24,10 @@
   line-height: 135%; /* 21.6px */
 }
 
+.response-paragraph{
+  padding:0px 34px;
+}
+
 h2 {
   font-size: 20px;
   margin-bottom: 16px;
@@ -39,7 +44,7 @@ h2 {
 .select-time-card {
   display: flex;
   flex-direction: row;
-  width: 182px;
+  width: 242px;
   height: 160px;
   align-items: flex-start;
   gap: 8px;
@@ -98,6 +103,14 @@ h2 {
 
 .prompt-response-confirmation {
   margin-bottom: 68px;
+}
+
+.chat-bubble-client{
+  margin-bottom:20px;
+
+  .card{
+    padding-bottom: 0px;
+  }
 }
 
 .step-wrapper {

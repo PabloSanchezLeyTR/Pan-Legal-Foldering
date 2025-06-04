@@ -1,0 +1,100 @@
+//clarifying-questions
+.clarifying-questions {
+  max-width: 700px;
+  padding: 0px 12px;
+
+  .title {
+    color: var(--color-text-heavy, #212223);
+    /* type/heading/default/md/strong/standard */
+    font-family: Clario;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 19.2px */
+  }
+
+  .instructional {
+    color: #212223;
+    font-family: Source Sans 3;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+  }
+
+  .question {
+    color: #212223;
+    font-family: Source Sans 3;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+  }
+
+  .question-wrapper {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 20px;
+
+    .question-right {
+      margin-left: auto;
+    }
+  }
+
+  .actions {
+    margin-top: 4px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .wl-button {
+    border: none;
+    background: none;
+
+    border-radius: 4px;
+    border: 1px solid var(--color-data-viz-sky-700, #032e5b);
+    background: var(--color-interactive-secondary-default, #fff);
+    display: flex;
+    height: 24px;
+    padding: var(--spacing-1, 4px) var(--spacing-2, 8px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2, 8px);
+
+    border-radius: 4px;
+
+    color: var(--color-data-viz-sky-700, #032e5b);
+    /* type/label-text/default/sm/strong/compact */
+    font-family: Clario;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 16.8px */
+  }
+
+  .apply {
+    border: none;
+    display: flex;
+    min-height: 40px;
+    padding: var(--spacing-0, 0px);
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--spacing-0, 0px);
+
+    display: flex;
+    padding: var(--spacing-2, 8px) var(--spacing-4, 16px);
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--spacing-2, 8px);
+
+    color: var(--color-interactive-on-disabled-subtle, #8a8a8a);
+    /* type/label-text/default/md/strong/standard */
+    font-family: Clario;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 24px */
+  }
+}

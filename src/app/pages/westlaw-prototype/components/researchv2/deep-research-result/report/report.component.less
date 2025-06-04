@@ -1,0 +1,118 @@
+.result-card-container {
+  display: flex;
+  height: 92px;
+  padding-bottom: 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1 0 0;
+  padding: 9px 10px;
+
+  min-height: 84px;
+
+  border-radius: 8px;
+  border: 0px solid var(--color-border-subtle, #E5E5E5);
+  background: #F5F4F0;
+
+
+  color: var(--color-text-strong, #404040);
+  text-overflow: ellipsis;
+  font-family: "Source Sans 3";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+
+  .content {
+    overflow: hidden;
+  }
+
+  &.cropped {
+    overflow: hidden;
+    max-height: 84px;
+  }
+
+  .title {
+    color: var(--color-sky-800, #032F5B);
+    width: 200px;
+
+
+    /* type/body/default/sm/strong/standard */
+    font-family: "Source Sans 3";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 135%; /* 18.9px */
+    margin-bottom: 2px;
+    &.cropped {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  span {
+    margin-bottom: 3px;
+  }
+}
+
+.show-more {
+  color: var(--color-text-strong, #404040);
+  font-family: "Source Sans 3";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+  display: flex;
+  width: 70px;
+  padding: 9px 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  border-radius: 8px;
+  border: 0px solid var(--color-border-subtle, #E5E5E5);
+  background: #F5F4F0;
+  &.loading {
+    color: #F0F0F0;
+  }
+}
+
+ .footnotes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+    .item {
+      display: flex;
+      width: 16px;
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      border-radius: 4px;
+      border: 1px solid var(--color-background-strong, #F2F2F2);
+      background: #F3F2EE;
+      color: var(--color-data-viz-sky-700, #032E5B);
+      text-align: center;
+      font-family: "Source Sans 3";
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 100%; /* 12px */
+      //cursor: pointer;
+    }
+ }
+
+
+ .information {
+  color: var(--color-data-viz-sky-600, #054688);
+
+ }

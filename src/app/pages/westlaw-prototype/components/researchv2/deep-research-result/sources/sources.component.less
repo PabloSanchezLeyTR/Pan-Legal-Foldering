@@ -1,0 +1,108 @@
+.sources-content {
+  width: 100%;
+  max-width: 700px;
+  padding: 0px 12px;
+
+  .title {
+    color: var(--color-text-heavy, #212223);
+    /* type/heading/default/md/strong/standard */
+    font-family: Clario;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 19.2px */
+  }
+
+  .sub-header-toolbar {
+    display: flex;
+    gap: 2px;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+
+
+    .heading-left {
+      display: flex;
+      height: 24px;
+      padding: 4px 8px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+    .filter-label {
+      display: block;
+      color: var(--color-interactive-on-tertiary-default, #1F1F1F);
+      /* type/body/default/sm/strong/compact */
+      font-family: "Source Sans 3";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 120%; /* 16.8px */
+    }
+  }
+}
+
+.sources-listing {
+
+  ol {
+    padding-left: 32px;
+
+    ::marker {
+      color: var(--color-text-strong, #404040);
+      text-align: right;
+
+      /* type/body/default/md/regular/compact */
+      font-family: "Source Sans 3";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 135%; /* 21.6px */
+    }
+  }
+
+  .source-item {
+    margin: 8px 0;
+    padding-left: 8px;
+  }
+
+ .source-title {
+  color: var(--color-data-viz-sky-700, #032E5B);
+  font-family: "Source Sans 3";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 135%; /* 21.6px */
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+ }
+
+ .source-metadata {
+  display: block;
+  color: var(--color-text-strong, #404040);
+
+  /* type/body/default/sm/regular/compact */
+  font-family: "Source Sans 3";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+  margin-bottom: 8px;
+ }
+
+ .source-content {
+  display: block;
+  color: var(--color-text-strong, #404040);
+
+  /* type/body/default/md/regular/compact */
+  font-family: "Source Sans 3";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%; /* 21.6px */
+ }
+}

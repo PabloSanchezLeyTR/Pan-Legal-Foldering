@@ -39,6 +39,17 @@ import { QuickCheckComponent } from './pages/westlaw-prototype/components/resear
 import { BookmarksComponent } from './pages/westlaw-prototype/components/bookmarks/bookmarks.component';
 import { DeepResearchMenuComponent } from './pages/westlaw-prototype/components/common/search-bar/deep-research-menu/deep-research-menu.component';
 import { PlanTasksComponent } from './pages/westlaw-prototype/components/research/deep-research-result/plan-tasks/plan-tasks.component';
+import { PlanTasksComponentv2 } from './pages/westlaw-prototype/components/researchv2/deep-research-result/plan-tasks/plan-tasks.component';
+import { KeywordSearchResultsComponentv2 } from './pages/westlaw-prototype/components/researchv2/keyword-search-results/keyword-search-results.component';
+import { DeepResearchConfirmationComponentv2 } from './pages/westlaw-prototype/components/researchv2/deep-research-confirmation/deep-research-confirmation.component';
+import { DeepResearchResultComponentv2 } from './pages/westlaw-prototype/components/researchv2/deep-research-result/deep-research-result.component';
+import { CaseDetailsComponentv2 } from './pages/westlaw-prototype/components/researchv2/case-details/case-details.component';
+import { LoadingStateBarsComponentv2 } from './pages/westlaw-prototype/components/researchv2/deep-research-result/loading-state-bars/loading-state-bars.component';
+import { ClarifyingQuestionsComponentv2 } from './pages/westlaw-prototype/components/researchv2/deep-research-result/clarifiying-questions/clarifiying-questions.component';
+import { SourcesComponentv2 } from './pages/westlaw-prototype/components/researchv2/deep-research-result/sources/sources.component';
+import { NotesComponentv2 } from './pages/westlaw-prototype/components/researchv2/deep-research-result/notes/notes.component'; // Verify this path exists or correct it
+import { QuickCheckComponentv2 } from './pages/westlaw-prototype/components/researchv2/quick-check/quick-check.component';
+import { NewResearchComponentv2 } from './pages/westlaw-prototype/components/researchv2/new-research/new-research.component';
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [
@@ -52,6 +63,7 @@ import { PlanTasksComponent } from './pages/westlaw-prototype/components/researc
     SelectComponent,
     FooterComponent,
     NewResearchComponent,
+    NewResearchComponentv2,
     SearchBarComponent,
     ToggleComponent,
     ResponseTimeMenuComponent,
@@ -65,7 +77,18 @@ import { PlanTasksComponent } from './pages/westlaw-prototype/components/researc
     SourcesComponent,
     NotesComponent,
     QuickCheckComponent,
-    BookmarksComponent, DeepResearchMenuComponent,
+    BookmarksComponent,
+    DeepResearchMenuComponent,
+    PlanTasksComponentv2,
+    KeywordSearchResultsComponentv2,
+    DeepResearchConfirmationComponentv2,
+    DeepResearchResultComponentv2,
+    CaseDetailsComponentv2,
+    LoadingStateBarsComponentv2,
+    ClarifyingQuestionsComponentv2,
+    SourcesComponentv2,
+    NotesComponentv2,
+    QuickCheckComponentv2,
   ],
   imports: [
     BrowserModule,

@@ -25,7 +25,9 @@ export class HomeComponent {
         const urls = this.location.path().split('/').filter(Boolean);
         this.showTitle = !urls.includes('case-details');
         this.showSearchBarFooter = urls.includes('research-confirmation') || urls.includes('keyword-search');
-        this.showBanner = !(urls.includes('deep-research') || urls.includes('keyword-search') || urls.includes('case-details'));
+
+        this.showSearchBarFooter = urls.includes('keyword-search');
+        this.showBanner = !(urls.includes('deep-research') || urls.includes('deep-research-v2') || urls.includes('keyword-search') || urls.includes('case-details'));
         this.hideFooter = urls.includes('case-details')  || urls.includes('research-results');
       });
 

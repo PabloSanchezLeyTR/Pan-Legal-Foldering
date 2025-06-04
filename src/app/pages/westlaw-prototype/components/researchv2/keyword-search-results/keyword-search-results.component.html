@@ -1,0 +1,71 @@
+<!-- keyword-search-result.component.html -->
+<div class="centered-page">
+    <div class="keyword-search-result">
+        <div class="utility-bar">
+            <div class="content-type-selector">
+                <app-select [options]="contentTypes" [label]="'Content type:'"></app-select>
+            </div>
+            <div class="filters">
+                <div class="filter-title">Filter options:</div>
+                <div class="filter-options">
+                    <app-button [label]="'Search within'" [includeDropdown]="true"></app-button>
+                    <app-button [label]="'Jurisdiction'" [includeDropdown]="true"></app-button>
+                    <app-button [label]="'Date'" [includeDropdown]="true"></app-button>
+                    <app-button [label]="'Legal issue'" [includeDropdown]="true"></app-button>
+                    <app-button [label]="'Fact pattern'" [includeDropdown]="true"></app-button>
+                    <app-button [label]="'All filters'" [icon]="'filter'"></app-button>
+                </div>
+            </div>
+        </div>
+        <div class="results-list">
+            <div class="result-item" *ngFor="let result of results; let i = index">
+                <div class="result-header">
+                    <div class="header-left">
+                        <div class="header-icon">
+                            <saf-icon icon-name="square" size="16px"></saf-icon>
+                        </div>
+                        <div class="header-info">
+                            <div>
+                                <saf-icon *ngIf="i == 0" class="flag" [appearance]="'solid'" icon-name="flag"
+                                    size="16px"></saf-icon>
+                                <a class="result-title" (click)="redirectToCaseDetails()">{{ result.title }}</a>
+                            </div>
+                            <div class="result-subtitle">{{ result.subtitle }}</div>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <app-button [icon]="'bookmark'" [expanded]="false"></app-button>
+                        <app-button [icon]="'circle-chevron-up'" [expanded]="false"></app-button>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="result-summary">
+                        <span class="summary-title">AI Summary</span>
+                        <p class="summary-text">{{ result.summary }}</p>
+                    </div>
+
+                    <div class="result-snippets">
+                        <div>
+                            <div class="snippets-title">
+                                <span class="part-1">Snippets </span>
+                                <span class="part-2">1 - 3 (of 70)</span>
+                            </div>
+                            <div class="snippets">
+                                <div *ngFor="let snippet of result.snippets" [innerHtml]="snippet"></div>
+                            </div>
+                        </div>
+                        <div class="snippets-actions">
+                            <saf-icon icon-name="chevron-left"></saf-icon>
+                            <saf-icon icon-name="chevron-right"></saf-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div hidden="true">
+    <span class="keyword" #keywordElement>
+        {{ keyword }}
+    </span>
+</div>

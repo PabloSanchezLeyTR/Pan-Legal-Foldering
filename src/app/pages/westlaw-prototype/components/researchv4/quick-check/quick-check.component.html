@@ -1,0 +1,181 @@
+<div class="centered-page overflow-header">
+
+  <div class="file-chat">
+
+    <span>Analyse using Quick Check</span>
+    <app-button
+    [label]="'Opponents-Work.docx'"
+    [addBorder]="true"
+    [icon]="'file-word'"
+    iconColor="blue-light"
+    iconAppearance="solid"
+    [backgroundColor]="'white'"
+    ></app-button>
+  </div>
+
+  <div class="header-controller">
+    <div class="meta-data">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect width="24" height="24" rx="12" fill="url(#pattern0_1398_27510)"/>
+          <rect width="24" height="24" rx="12" stroke="#E6E6E6"/>
+          <defs>
+          <pattern id="pattern0_1398_27510" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlink:href="#image0_1398_27510" transform="translate(0 -0.0223881) scale(0.00746269)"/>
+          </pattern>
+          <image id="image0_1398_27510" width="134" height="140" preserveAspectRatio="none" xlink:href="data:image/png;base64,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"/>
+          </defs>
+          </svg>
+      </div>
+      <span class="text">Westlaw - Deep Research - 2:44 PM</span>
+    </div>
+  </div>
+
+  <div class="quick-check-report-container">
+    <saf-text appearance="heading-2xl"><h1 class="quick-check-title">Quick check report</h1></saf-text>
+
+    <saf-tabs>
+
+
+      <saf-tab aria-label="Tab one"><saf-icon slot="start" icon-name="flag" appearance="light" presentation>
+      </saf-icon>Warnings for Cited Authority</saf-tab>
+
+      <saf-tab aria-label="Tab two"><saf-icon slot="start" icon-name="quotes" appearance="light" presentation>
+      </saf-icon>Quotation analysis</saf-tab>
+
+      <saf-tab aria-label="Tab three"><saf-icon slot="start" icon-name="list" appearance="light" presentation>
+      </saf-icon>Table of authorities</saf-tab>
+
+      <saf-tab aria-label="Tab four"><saf-icon slot="start" icon-name="circle-check" appearance="light" presentation>
+      </saf-icon>Recommendations</saf-tab>
+
+
+      <saf-tab-panel>
+
+        <div class="warnings-toolbar">
+          <div class="left-filters">
+
+            <saf-select density="inherit" label="Content type:" invalid="false" aria-invalid="false" select-aria-label="">
+              <saf-listbox-option value="">
+                  Cases
+              </saf-listbox-option>
+
+              <saf-listbox-option value="1">
+                  Case 1
+              </saf-listbox-option>
+
+              <saf-listbox-option value="2">
+                  Case 2
+              </saf-listbox-option>
+
+              <saf-listbox-option value="3">
+                  Case 3
+              </saf-listbox-option>
+            </saf-select>
+
+            <saf-select density="inherit" label="Keycite treatment:" invalid="false" aria-invalid="false" select-aria-label="">
+              <saf-listbox-option value="">
+                  All
+              </saf-listbox-option>
+
+              <saf-listbox-option value="1">
+                  Case 1
+              </saf-listbox-option>
+
+              <saf-listbox-option value="2">
+                  Case 2
+              </saf-listbox-option>
+
+              <saf-listbox-option value="3">
+                  Case 3
+              </saf-listbox-option>
+            </saf-select>
+          </div>
+
+          <div class="right-filters">
+            <app-button
+            [label]="'All filters'"
+            [icon]="'filter'"
+            iconColor="black"
+            iconAppearance="light"
+            [backgroundColor]="'white'"></app-button>
+          </div>
+        </div>
+
+        <saf-text appearance="heading-xl"><h3>Cases (42)</h3></saf-text>
+
+        <div class="case-container">
+          <saf-checkbox></saf-checkbox>
+
+          <saf-icon icon-name="flag" color="#D2D2D2" appearance="solid" presentation>
+          </saf-icon>
+
+          <div class="case-square"></div>
+
+          <div class="case-paragraph">
+            <div class="main-paragraph loading-state-text">
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle last"></div>
+
+            </div>
+            <div class="case-card loading-state-text">
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle last"></div>
+            </div>
+
+            <div class="last-paragraph loading-state-text">
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle last"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="case-container">
+          <saf-checkbox></saf-checkbox>
+
+          <saf-icon icon-name="flag" color="#D2D2D2" appearance="solid" presentation>
+          </saf-icon>
+
+          <div class="case-square"></div>
+
+          <div class="case-paragraph">
+            <div class="main-paragraph loading-state-text">
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle last"></div>
+
+            </div>
+            <div class="case-card loading-state-text">
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle last"></div>
+            </div>
+
+            <div class="last-paragraph loading-state-text">
+              <div class="loading-state-rectangle"></div>
+              <div class="loading-state-rectangle last"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </saf-tab-panel>
+
+      <saf-tab-panel></saf-tab-panel>
+
+      <saf-tab-panel></saf-tab-panel>
+
+      <saf-tab-panel></saf-tab-panel>
+
+      </saf-tabs>
+  </div>
+</div>
+
+
