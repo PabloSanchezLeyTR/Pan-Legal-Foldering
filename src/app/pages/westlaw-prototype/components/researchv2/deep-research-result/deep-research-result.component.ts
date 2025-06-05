@@ -17,6 +17,23 @@ export class DeepResearchResultComponentv2 {
     this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0);
   }
 
+  public onGoTo(section: string, event:any): void {
+    event.preventDefault();
+    let element = document.getElementById(section);
+    const container = document.querySelector('.left-panel-content');
+
+    if (container && element) {
+      const containerRect = container.getBoundingClientRect();
+      const targetRect = element.getBoundingClientRect();
+
+      const offsetTop = targetRect.top - containerRect.top + container.scrollTop;
+
+      container.scrollTo({
+      top: offsetTop-0,
+      behavior: 'smooth',
+      });
+    }
+  }
 
   updateProgressBar() {
     if (this.progressBarIndicator) {

@@ -2,9 +2,9 @@
 
 
   <div class="left-panel">
-    <div class="chat-bubble client-side prompt-submitted">
+    <!-- <div class="chat-bubble client-side prompt-submitted">
       In New York, is it permissible to terminate an employee for cause due to a comment they made on social media? 
-    </div>
+    </div> -->
 
     <div class="meta-data">
         <div class="logo">
@@ -25,7 +25,7 @@
       <div class="left-panel-wrapper">
 
         <div class="chat-input-heading">
-         In New York, is it permissible to terminate an employee for cause due to a comment they made on social media?
+          A manufacturer concealed a defect in the product it sold my client, and my client suffered economic losses from the fraudulent omission. Does the economic loss rule bar my client’s fraud claim?
         </div>
 
       <div class="report-status-section" (click)="nextStep()">
@@ -42,7 +42,7 @@
             </svg>
           </div>
           <div class="info">
-            <div class="report-title">Permissibility of terminating an employee for cause due to social media...</div>
+            <div class="report-title">Economic loss rule and its applicability to tort actions.</div>
             <div class="status">Researching...</div>
           </div>
           <div class="buttons" *ngIf="!fullReport">
@@ -61,14 +61,14 @@
       <div class="plans" *ngIf="fullReport">
         <p>Report Contents</p>
         <ul>
-          <li><a href="#">Summary</a></li>
-          <li><a href="#">Analysis</a></li>
-          <li><a href="#">Governing law characterizations</a></li>
-          <li><a href="#">Arguments</a></li>
-          <li><a href="#">Cases on both sides</a></li>
-          <li><a href="#">Jurisdiction differences</a></li>
-          <li><a href="#">Unusual situations</a></li>
-          <li><a href="#">Related issues</a></li>
+          <li><a href="#" fragment="summary" (click)="onGoTo('summary',$event)">Summary</a></li>
+          <li><a href="#" fragment="analysis" (click)="onGoTo('analysis',$event)">Analysis</a></li>
+          <li><a href="#" fragment="governing" (click)="onGoTo('governing',$event)">Governing law characterizations</a></li>
+          <li><a href="#" fragment="arguments" (click)="onGoTo('arguments',$event)">Arguments</a></li>
+          <li><a href="#" fragment="cases" (click)="onGoTo('cases',$event)">Cases on both sides</a></li>
+          <li><a href="#" fragment="jurisdiction" (click)="onGoTo('jurisdiction',$event)">Jurisdiction differences</a></li>
+          <li><a href="#" fragement="unusual" (click)="onGoTo('unusual',$event)">Unusual situations</a></li>
+          <li><a href="#" fragment="related" (click)="onGoTo('related',$event)">Related issues</a></li>
         </ul>
       </div>
     </div>
@@ -82,8 +82,8 @@
 
     <div class="right-panel-header">
       <div class="info-wrapper">
-        <div class="header-title">Permissibility of terminating an employee for cause due to social media comment</div>
-        <div class="header-subtitle">Deep AI Research</div>
+        <div class="header-title">Economic loss rule and its applicability to tort actions</div>
+
       </div>
       <div class="buttons">
         <saf-icon slot="end" color="#404040" icon-name="arrow-down-left-and-arrow-up-right-to-center" appearance="light" presentation></saf-icon>
@@ -109,8 +109,8 @@
           <saf-tab aria-label="Research Report"><saf-icon slot="start" icon-name="file-lines" appearance="light" presentation>
       </saf-icon>Research Report</saf-tab>
 
-          <saf-tab aria-label="Clarifying Questions"><saf-icon slot="start" icon-name="circle-question" appearance="light" presentation>
-      </saf-icon>Clarifying Questions ({{nQuestions}})</saf-tab>
+          <saf-tab aria-label="Questions"><saf-icon slot="start" icon-name="circle-question" appearance="light" presentation>
+      </saf-icon>Questions ({{nQuestions}})</saf-tab>
 
           <saf-tab aria-label="Sources"><saf-icon slot="start" icon-name="link-horizontal" appearance="light" presentation>
       </saf-icon>Sources ({{nSources}})</saf-tab>
@@ -119,6 +119,7 @@
       </saf-icon>Research Notes</saf-tab>
 
           <saf-tab-panel data-rel="Research Report" id="research-report-tab">
+            <saf-progress-ring *ngIf="researchReportTabLoading" role="progressbar" max="100" min="0" progressSize="large" indeterminate="true" id="research-report-tab-loader"></saf-progress-ring>
               <!-- start report -->
               <div class="report-content-tab-wrapper">
                 <!-- Commented Due to design change -->
@@ -148,7 +149,7 @@
                   <div class="show-more" [class.loading]="!nSources"><span>+9 more</span></div>
                 </div> -->
 
-                <div class="prelimiary-answer-container">
+                <!-- <div class="prelimiary-answer-container">
                   <h3 class="chunk-title" *ngIf="preliminaryAnswer">Preliminary Answer</h3>
 
                   <div *ngIf="preliminaryAnswer">
@@ -183,13 +184,29 @@
                     </p>
 
                     </div>
+                </div> -->
+                <div class="prelimiary-answer-container">
+                  <h3 class="chunk-title" *ngIf="preliminaryAnswer">Preliminary answer</h3>
+
+                  <div *ngIf="preliminaryAnswer">
+
+                    <p>The economic loss rule generally bars recovery in tort for purely economic losses arising from a breach of contract, but there are exceptions related to fraud. A claim resulting from a concealed defect likely would not be barred by the economic loss rule.</p>
+
+                    <ol class="prelim">
+                      <li>The California Supreme Court in <a href='#'>Robinson Helicopter Co., Inc. v. Dana Corp.</a>held that the economic loss rule does not bar claims for intentional misrepresentation or fraud in the performance of a contract when the fraud is independent of the breach of contract (<a href="#">Robinson Helicopter Co., Inc. v. Dana Corp., 34 Cal.4th 979 (2004)</a>).</li>
+                      <li>In<a href="#">Dhital v. Nissan North America, Inc.</a>, the court clarified that the economic loss rule does not bar tort damages in cases where the contract was fraudulently induced, including claims of intentional concealment(<a href="#">Dhital v. Nissan North America, Inc., 84 Cal.App.5th 828 (2022)</a>). This suggests that if your client's claim involves fraudulent inducement, it may not be barred by the economic loss rule.</li>
+                      <li>The court in <a href="#">In re Ford Motor Co. DPS6 Powershift Transmission Products Liability Litigation</a> held that fraudulent omission claims are barred by the economic loss rule when the damages are purely economic and derive from the defendant's breach of warranty obligations (<a href="#">In re Ford Motor Co. DPS6 Powershift Transmission Products Liability Litigation, 483 F.Supp.3d 838 (2020)</a>). This aligns with the general principle that the economic loss rule bars tort recovery for economic damages unless accompanied by physical harm or personal injury<a href="#">(In re Ford Motor Co. DPS6 Powershift Transmission Products Liability Litigation, 483 F.Supp.3d 838 (2020)</a>).</li>
+                      <li>The court in<a href="#">Foster Poultry Farms v. Alkar-Rapidpak-MP Equipment, Inc.</a> emphasized that to maintain a fraud claim based on the same factual allegations as a breach of contract claim, the plaintiff must show that the duty giving rise to tort liability is either completely independent of the contract or arises from conduct that is both intentional and intended to harm <a href="#">(Foster Poultry Farms v. Alkar-Rapidpak-MP Equipment, Inc., 868 F.Supp.2d 983 (2012)</a>).</li>
+                    </ol>
+
+                  </div>
                 </div>
 
                 <!-- <h3 *ngIf="!fullReport">Full Report</h3> -->
 
                 <div class="chunk" *ngIf="fullReport">
                   <div class="final-summary">
-                    <h3 class="chunk-title">Summary</h3>
+                    <h3 class="chunk-title" id="summary">Summary</h3>
                     <p>In California, the economic loss rule generally bars recovery of purely economic losses in tort actions, limiting recovery to contract remedies. There are exceptions, particularly in cases involving fraud.</p>
 
                     <p>The economic loss rule may not bar the fraud claim If your client can establish that:</p>
@@ -202,7 +219,7 @@
                   </div>
 
                   <div class="final-analysis">
-                    <h3 class="chunk-title">Analysis</h3>
+                    <h3 class="chunk-title" id="analysis">Analysis</h3>
                     <p><b>Economic Loss Rule and Fraud Generally:</b> The California Supreme Court in <a href="#">Robinson Helicopter Co., Inc. v. Dana Corp.</a> held that the economic loss rule does not bar claims for intentional misrepresentation or fraud in the performance of a contract when the fraud is independent of the breach of contract <a href="#">(Robinson Helicopter Co., Inc. v. Dana Corp., 34 Cal.4th 979 (2004))[1]</a>.</p>
                     <p><b>Fraudulent Inducement:</b>In<a href="#">Dhital v. Nissan North America, Inc.</a>, the court clarified that the economic loss rule does not bar tort damages in cases where the contract was fraudulently induced, including claims of intentional concealment <a href="#">(Dhital v. Nissan North America, Inc., 84 Cal.App.5th 828 (2022))[2]</a>. This suggests that if your client's claim involves fraudulent inducement, it may not be barred by the economic loss rule.</p>
                     <p><b>Independent Duty:</b> The court in <a href="#">Foster Poultry Farms v. Alkar-Rapidpak-MP Equipment, Inc.</a>emphasized that to maintain a fraud claim based on the same factual allegations as a breach of contract claim, the plaintiff must show that the duty giving rise to tort liability is either completely independent of the contract or arises from conduct that is both intentional and intended to harm <a href="#">(Foster Poultry Farms v. Alkar-Rapidpak-MP Equipment, Inc., 868 F.Supp.2d 983 (2012))[3]</a>.</p>
@@ -211,7 +228,7 @@
                   </div>
 
                   <div class="final-governing">
-                    <h3 class="chunk-title">Governing Law Characterizations</h3>
+                    <h3 class="chunk-title" id="governing">Governing Law Characterizations</h3>
                     <h4>Characterizations for preclusion</h4>
                     <ol>
                       <li>Fraud-based claims can be excluded from the reach of the economic loss rule, but only when the fraudulent conduct at issue is independent from the breach of a contractual promise. See <a href="#">Robinson Helicopter Co. v. Dana Corp., 34 Cal. 4th 979, 991 (2004)</a>. For garden-variety fraud cases, the fraud exemption is “narrow in scope and limited to a defendant's affirmative representations on which a plaintiff relies, and which expose a plaintiff to liability for personal damages independent of the plaintiff's economic loss.” Representations only concern the “quality or character of the goods sold” and are not actionable. <a href='#'>Klein v. Ljubljana Inter Auto d.o.o., 2024 WL 5185311 (C.D.Cal., 2024)</a></li>
@@ -229,7 +246,7 @@
                   </div>
 
                   <div class="final-arguements">
-                    <h3 class="chunk-title">Arguments</h3>
+                    <h3 class="chunk-title" id="arguments">Arguments</h3>
                     <h4>Arguments for preclusion</h4>
                     <p>These are some of the arguments that manufacturers of defective products are likely to argue when a purchaser of the product seeks damages beyond the contract:</p>
                     <ol>
@@ -273,7 +290,7 @@
                   </div>
 
                   <div class="final-cases">
-                    <h3 class="chunk-title">Cases on both sides</h3>
+                    <h3 class="chunk-title" id="cases">Cases on both sides</h3>
                     <h4>Cases for preclusion</h4>
                     <div>
                       <p><a href="#">Robinson Helicopter Co., Inc. v. Dana Corp., 34 Cal.4th 979 (Cal., 2004)</a></p>
@@ -304,7 +321,7 @@
                   </div>
 
                   <div class="final-juris-diff">
-                    <h3 class="chunk-title">Jurisdictional differences</h3>
+                    <h3 class="chunk-title" id="jurisdiction">Jurisdictional differences</h3>
                     <ol>
                       <li><b>Florida Courts:</b> Florida courts generally recognize a fraud exception to the economic loss rule. In Florida, if a party can prove that fraud occurred, they may be able to pursue tort claims even if the losses are purely economic and related to a contract.</li>
                       <li><b>California Courts:</b> California courts also recognize a fraud exception to the economic loss rule. They allow claims for fraud in the inducement of a contract, meaning if a party was fraudulently led into entering a contract, they can seek tort remedies.</li>
@@ -317,12 +334,12 @@
                   </div>
 
                   <div class="final-situations">
-                    <h3 class="chunk-title">Unusual situations</h3>
+                    <h3 class="chunk-title" id="unusual">Unusual situations</h3>
                     <p>Non-contractual application: The economic loss rule most generally applies to suits between the parties to a contract. But as observed in <a href='#'>Sheen v. Wells Fargo Bank, 12 Cal.5th 905, 922[6]</a>, a version of the doctrine may also apply in cases involving parties not in contractual privity, such as when a plaintiff seeks to impose liability in an indeterminate amount for an indeterminate time to an indeterminate class. See <a href='#'>Rattagan v. Uber Techs., Inc., 17 Cal. 5th 1, 19, 553 P.3d 1213, 1223 (2024)[5]</a></p>
                   </div>
 
                   <div class="final-related-issues">
-                    <h3 class="chunk-title">Related Issues</h3>
+                    <h3 class="chunk-title" id="related">Related Issues</h3>
                     <p><a href="#">Pleading sufficiency of the fraudulent omission claim.</a></p>
                   </div>
 
@@ -414,7 +431,7 @@
               <!-- end report -->
                   </div>
                   </div>
-              <saf-progress-ring *ngIf="researchReportTabLoading" role="progressbar" max="100" min="0" progressSize="large" indeterminate="true" id="research-report-tab-loader"></saf-progress-ring>
+
           </saf-tab-panel>
 
           <saf-tab-panel data-rel="Clarifying Questions">

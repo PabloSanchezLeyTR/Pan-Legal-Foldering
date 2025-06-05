@@ -1,5 +1,6 @@
 import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { PlanTasksComponent } from './plan-tasks/plan-tasks.component';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-deep-research-result',
@@ -11,12 +12,29 @@ export class DeepResearchResultComponent {
   @ViewChild('progressBarIndicator') progressBarIndicator!: ElementRef<HTMLDivElement>;
   @ViewChild('dialog', { static: false }) fullPlanDialog: any;
   @ViewChild('planTasks') planTasksComponent!: PlanTasksComponent;
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  constructor(private viewportScroller: ViewportScroller,private renderer: Renderer2, private el: ElementRef) {}
 
   scrollToTop() {
     this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0);
   }
 
+  public onGoTo(section: string, event:any): void {
+    event.preventDefault();
+    let element = document.getElementById(section);
+    const container = document.querySelector('.right-panel');
+
+    if (container && element) {
+      const containerRect = container.getBoundingClientRect();
+      const targetRect = element.getBoundingClientRect();
+
+      const offsetTop = targetRect.top - containerRect.top + container.scrollTop;
+
+      container.scrollTo({
+      top: offsetTop-60,
+      behavior: 'smooth',
+      });
+    }
+  }
 
   updateProgressBar() {
     if (this.progressBarIndicator) {
