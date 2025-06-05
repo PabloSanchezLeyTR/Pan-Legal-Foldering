@@ -85,9 +85,15 @@ export class DeepResearchResultComponentv2 {
   nQuestions: number = 0;
   nSources: number = 0;
   nNotes: number = 0;
+  hasViewedSource: boolean = true;
 
   expandedFooter: boolean = false;
   togglePlan: boolean = false;
+  selectedTabIndex: number = 0;
+
+  onTabChange(event:any){
+    this.selectedTabIndex = event.detail.index;
+  }
 
   ngOnInit() {
     this.scrollToTop();
@@ -139,11 +145,30 @@ export class DeepResearchResultComponentv2 {
   //   this.nSources = 12;
   // }
 
+  waitForElement(selector: string, callback: (element: Element) => void) {
+    const interval = setInterval(() => {
+        const element = document.querySelector(selector);
+        if (element) {
+            clearInterval(interval);
+            callback(element);
+        }
+    }, 100); // Check every 100ms
+  }
+
   getPremilinaryAnswer() {
     this.preliminaryAnswer = true;
   }
   getFullReport() {
     this.fullReport = true;
+
+    // const tabElement = document.querySelector('#tab-4');
+    // (tabElement as HTMLElement).click();
+    this.waitForElement('#tab-4', (element: Element) => {
+      console.log('Element exists:', element);
+      // Perform actions on the element
+      (element as HTMLElement).click();
+      this.hasViewedSource = false;
+  });
   }
 
   //advance the current step by 1

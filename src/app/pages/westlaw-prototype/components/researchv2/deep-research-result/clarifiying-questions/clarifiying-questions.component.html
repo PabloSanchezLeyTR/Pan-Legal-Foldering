@@ -1,19 +1,35 @@
 <div class="clarifying-questions">
-  <p class="instructional">Answering these questions will help tailor the report specifically for your needs.</p>
+  <h3>Questions</h3>
+  <p class="instructional">All questions are optional, but answering more will better refine your report.</p>
 
  <div class="question-wrapper">
   <div class="question-left">
-    <p class="question">Did anything in the employee’s contract impact their at-will status?</p>
+    <p class="question">What is the product? <saf-icon slot="start" icon-name="circle-info" appearance="light" presentation /></p>
     <div class="actions">
-      <button class="wl-button">Yes</button>
-      <button class="wl-button">No</button>
+      <saf-text-field />
     </div>
   </div>
-  <div class="question-right">
-    <saf-icon class="information" slot="end" class="chevron-end"  icon-name="circle-info" appearance="light" presentation>
-    </saf-icon>
+ </div>
+
+ <div class="question-wrapper">
+  <div class="question-left">
+    <p class="question">What defect was not disclosed? <saf-icon slot="start" icon-name="circle-info" appearance="light" presentation /></p>
+    <div class="actions">
+      <saf-text-field />
+    </div>
   </div>
  </div>
+
+ <div class="question-wrapper">
+  <div class="question-left">
+    <p class="question">What harm resulted from the lack of disclosure? <saf-icon slot="start" icon-name="circle-info" appearance="light" presentation /></p>
+    <div class="actions">
+      <saf-text-field />
+    </div>
+  </div>
+ </div>
+
+<!--
  <div class="question-wrapper">
   <div class="question-left">
     <p class="question">Was the employee a public employee?</p>
@@ -27,6 +43,7 @@
     </saf-icon>
   </div>
  </div>
+
  <div class="question-wrapper">
   <div class="question-left">
     <p class="question">Did the comment relate to the employee’s working conditions or union activities?</p>
@@ -40,6 +57,7 @@
     </saf-icon>
   </div>
  </div>
+
  <div class="question-wrapper">
   <div class="question-left">
     <p class="question">Was the comment related to any political or recreational activities?</p>
@@ -53,6 +71,7 @@
     </saf-icon>
   </div>
  </div>
+
  <div class="question-wrapper">
   <div class="question-left">
     <p class="question">Was the comment made during work hours?</p>
@@ -65,7 +84,7 @@
     <saf-icon class="information" slot="end" class="chevron-end"  icon-name="circle-info" appearance="light" presentation>
     </saf-icon>
   </div>
- </div>
+ </div> -->
 
- <app-button [label]="'Apply answers to report'" [backgroundColor]="'blue'" [color]="'white'"></app-button>
+ <app-button [label]="'Refine report'" [backgroundColor]="'blue'" [color]="'white'"></app-button>
 </div>
