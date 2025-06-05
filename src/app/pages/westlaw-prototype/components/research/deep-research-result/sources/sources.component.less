@@ -17,8 +17,8 @@
     display: flex;
     gap: 2px;
     justify-content: space-between;
-    margin-bottom: 8px;
-    padding-bottom: 12px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
     padding-left: 8px;
 
 
@@ -39,6 +39,69 @@
       font-style: normal;
       font-weight: 600;
       line-height: 120%; /* 16.8px */
+    }
+  }
+}
+
+.source-filter{
+  position: relative;
+  top: 2px;
+  font-weight: 600;
+  color: #032E5B;
+  cursor: pointer;
+  right:20px;
+
+  saf-icon{
+    padding-right:10px;
+    position: relative;
+    top:1px;
+  }
+}
+
+.source-content{
+  padding: 16px;
+  border: 1px solid silver;
+  border-radius: 8px 8px 0px 0px;
+
+  p{
+    margin-bottom:0px;
+  }
+
+  .source-content-header {
+    padding-bottom:10px;
+
+    span{
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+}
+
+.source-content-2{
+  padding: 16px;
+  border: 1px solid silver;
+  border-radius: 0px 0px 8px 8px;
+  border-top:1px solid transparent;
+
+  p{
+    margin-bottom:0px;
+  }
+
+  .source-content-2-header{
+    padding-bottom:15px;
+
+    span{
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  .source-content-2-controls{
+    position: relative;
+    float:right;
+
+    saf-icon{
+      padding:0px 10px;
     }
   }
 }
@@ -64,6 +127,8 @@
   .source-item {
     margin: 8px 0;
     padding-left: 8px;
+    padding-right: 30px;
+    padding-bottom: 30px;
   }
 
  .source-title {

@@ -43,15 +43,29 @@
           </div>
           <div class="info">
             <div class="report-title">Economic loss rule and its applicability to tort actions.</div>
-            <div class="status">Researching...</div>
+            <div class="status" *ngIf="!fullReport">Researching...</div>
+            <div class="status" *ngIf="fullReport">Completed</div>
           </div>
           <div class="buttons" *ngIf="!fullReport">
               <saf-icon slot="end" icon-name="circle-stop" appearance="light" presentation></saf-icon>
               <saf-icon slot="end" icon-name="bell" appearance="light" presentation></saf-icon>
-            </div>
+          </div>
+          <div class="button-kabob" *ngIf="fullReport">
+            <saf-icon slot="end" icon-name="ellipsis-stroke-vertical" appearance="light" presentation [ngbPopover]="kebabMenu" placement="start"></saf-icon>
+            <ng-template #kebabMenu>
+              <div class="popover-wrapper">
+                <div class="download">
+                  <saf-icon slot="end" icon-name="download" appearance="light" presentation></saf-icon> <span>Download</span>
+                </div>
+                <div class="email">
+                  <saf-icon slot="end" icon-name="envelope" appearance="light" presentation></saf-icon> <span>Email</span>
+                </div>
+              </div>
+            </ng-template>
+        </div>
         </div>
         <div class="progress-bar">
-          <div class="indicator" #progressBarIndicator id="progressBarIndicator"></div>
+          <div class="indicator" #progressBarIndicator id="progressBarIndicator" *ngIf="!fullReport"></div>
         </div>
       </div>
       <div class="plans" *ngIf="!fullReport">
@@ -59,7 +73,7 @@
         <app-plan-tasks #planTasks></app-plan-tasks>
       </div>
       <div class="plans" *ngIf="fullReport">
-        <p>Report Contents</p>
+        <p>Report contents</p>
         <ul>
           <li><a href="#" fragment="summary" (click)="onGoTo('summary',$event)">Summary</a></li>
           <li><a href="#" fragment="analysis" (click)="onGoTo('analysis',$event)">Analysis</a></li>

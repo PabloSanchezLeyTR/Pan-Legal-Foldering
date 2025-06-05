@@ -181,13 +181,13 @@ export class DeepResearchResultComponent {
       this.nSources = 4;
       this.getPremilinaryAnswer();
       this.taskCurrent = 5;
-      this.nQuestions = 1;
+      this.nQuestions = 3;
     }
     if(step === 5) {
       //preliminary answer and loader visible, 2 tasks completed, 1 question, 6 sources
       this.nSources = 8;
       this.taskCurrent = 8;
-      this.nQuestions = 5;
+      this.nQuestions = 3;
       this.nNotes = 4;
     }
 
@@ -195,7 +195,7 @@ export class DeepResearchResultComponent {
       //preliminary answer and loader visible, at least 4 tasks completed, 1 question, 6 sources
       this.nSources = 8;
       this.taskCurrent = 8;
-      this.nQuestions = 5;
+      this.nQuestions = 3;
       this.nNotes = 4;
     }
 
@@ -203,7 +203,7 @@ export class DeepResearchResultComponent {
       //preliminary answer and loader visible, seems all visible tasks completed, 1 question, 8 sources
       this.nSources = 8;
       this.taskCurrent = 8;
-      this.nQuestions = 5;
+      this.nQuestions = 3;
       this.nNotes = 4;
     }
 
@@ -212,7 +212,7 @@ export class DeepResearchResultComponent {
       this.nSources = 8;
       this.getFullReport();
       this.taskCurrent = 8;
-      this.nQuestions = 5;
+      this.nQuestions =3;
       this.nNotes = 4;
       this.researchReportTabLoading = false;
       this.preliminaryAnswer = false;
