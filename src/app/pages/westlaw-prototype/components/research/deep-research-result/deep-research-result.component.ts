@@ -198,7 +198,7 @@ export class DeepResearchResultComponent {
     }
     if(step === 5) {
       //preliminary answer and loader visible, 2 tasks completed, 1 question, 6 sources
-      this.nSources = 8;
+      this.nSources = 4;
       this.taskCurrent = 8;
       this.nQuestions = 3;
       this.nNotes = 4;
@@ -206,7 +206,7 @@ export class DeepResearchResultComponent {
 
     if(step === 6) {
       //preliminary answer and loader visible, at least 4 tasks completed, 1 question, 6 sources
-      this.nSources = 8;
+      this.nSources = 4;
       this.taskCurrent = 8;
       this.nQuestions = 3;
       this.nNotes = 4;
@@ -214,7 +214,7 @@ export class DeepResearchResultComponent {
 
     if(step === 7) {
       //preliminary answer and loader visible, seems all visible tasks completed, 1 question, 8 sources
-      this.nSources = 8;
+      this.nSources = 4;
       this.taskCurrent = 8;
       this.nQuestions = 3;
       this.nNotes = 4;
@@ -256,7 +256,7 @@ export class DeepResearchResultComponent {
    * Shows the popover and dynamically calculates its position after rendering.
    */
   showPopover(event: MouseEvent) {
-    console.log(event.target ? (event.target as HTMLElement).innerText || 'no target' : 'no target');
+    event.preventDefault();
     const target = event.target;
     const caseName = target ? (target as HTMLElement).innerText : 'no target';
     const splitCaseName = caseName.split(',');

@@ -12,14 +12,14 @@
       </div>
 
     </div>
-    <div class="source-filter">
+    <div class="source-filter" *ngIf="fullReport">
       <saf-icon slot="start" icon-name="filter" appearance="light" presentation /><span>Filters</span>
     </div>
   </div>
 
   <div class="sources-listing">
     <ol>
-      <li class="source-item">
+      <li class="source-item" [class.prelim]="!fullReport">
         <a href="#" class="source-title">Robinson Helicopter Co., Inc. v. Dana Corp.</a>
         <span class="source-metadata">Supreme Court of California • December 23, 2004 • 34 Cal.4th 979</span>
         <div class="source-content">
@@ -40,7 +40,7 @@
         </div>
       </li>
 
-      <li class="source-item">
+      <li class="source-item" [class.prelim]="!fullReport" >
         <a href="#" class="source-title">Dhital v. Nissan North America, Inc.</a>
         <span class="source-metadata">Supreme Court of California • December 23, 2004 • 34 Cal.4th 979</span>
         <div class="source-content">
@@ -61,7 +61,7 @@
         </div>
       </li>
 
-      <li class="source-item">
+      <li class="source-item" *ngIf="fullReport">
         <a href="#" class="source-title">Foster Poultry Farms v. Alkar-Rapidpak-MP Equipment, Inc.</a>
         <span class="source-metadata">Supreme Court of California • December 23, 2004 • 34 Cal.4th 979</span>
         <div class="source-content">
@@ -82,7 +82,7 @@
         </div>
       </li>
 
-      <li class="source-item">
+      <li class="source-item" *ngIf="fullReport">
         <a href="#" class="source-title">In re Ford Motor Co. DPS6 Powershift Transmission Products Liability Litigation</a>
         <span class="source-metadata">Supreme Court of California • December 23, 2004 • 34 Cal.4th 979</span>
         <div class="source-content">
@@ -103,7 +103,7 @@
         </div>
       </li>
 
-      <li class="source-item">
+      <li class="source-item" [class.prelim]="!fullReport">
         <a href="#" class="source-title">Rattagan v. Uber Technologies, Inc.</a>
         <span class="source-metadata">Supreme Court of California • December 23, 2004 • 34 Cal.4th 979</span>
         <div class="source-content">
@@ -124,7 +124,7 @@
         </div>
       </li>
 
-      <li class="source-item">
+      <li class="source-item" [class.prelim]="!fullReport">
         <a href="#" class="source-title">Sheen v. Wells Fargo Bank</a>
         <span class="source-metadata">Supreme Court of California • December 23, 2004 • 34 Cal.4th 979</span>
         <div class="source-content">
@@ -145,7 +145,7 @@
         </div>
       </li>
 
-      <li class="source-item">
+      <li class="source-item" *ngIf="fullReport">
         <a href="#" class="source-title">Scherer v. FCA US, LLC</a>
         <span class="source-metadata">Supreme Court of California • December 23, 2004 • 34 Cal.4th 979</span>
         <div class="source-content">
@@ -166,7 +166,7 @@
         </div>
       </li>
 
-      <li class="source-item">
+      <li class="source-item" *ngIf="fullReport">
         <a href="#" class="source-title">Aas v. Superior Court</a>
         <span class="source-metadata">Supreme Court of California • December 23, 2004 • 34 Cal.4th 979</span>
         <div class="source-content">

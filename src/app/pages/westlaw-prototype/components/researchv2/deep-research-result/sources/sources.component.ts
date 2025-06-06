@@ -7,5 +7,5 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   styleUrls: ['./sources.component.less']
 })
 export class SourcesComponentv2 {
-
+  @Input() fullReport: boolean = false;
 }
