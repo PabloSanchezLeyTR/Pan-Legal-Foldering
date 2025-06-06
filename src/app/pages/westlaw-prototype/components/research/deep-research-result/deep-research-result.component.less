@@ -667,9 +667,11 @@ h3 {
 }
 
 .pop-center{
-  width: calc(100% - 57.5px);
+  width: 100%;
   position: relative;
   float: left;
+  max-height:200px;
+  overflow-y:scroll;
 }
 
 .pop-right-control{
@@ -679,5 +681,20 @@ h3 {
 
   saf-icon{
     cursor:pointer;
+  }
+}
+
+.pop-controls{
+  padding-bottom:5px;
+  height:30px;
+
+  saf-icon, span{
+    position:relative;
+    float:right;
+    padding:0px 5px;
+  }
+
+  saf-icon{
+    cursor: pointer;
   }
 }

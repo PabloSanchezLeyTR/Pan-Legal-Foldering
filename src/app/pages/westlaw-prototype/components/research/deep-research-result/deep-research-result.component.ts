@@ -307,7 +307,7 @@ export class DeepResearchResultComponent {
     this.hideTimeoutId = window.setTimeout(() => {
       this.isVisible = false;
       this.currentTarget = null; // Clear the target when hiding
-    }, 200);
+    }, 500);
   }
 
   /** Cancels any pending hide actions. */
