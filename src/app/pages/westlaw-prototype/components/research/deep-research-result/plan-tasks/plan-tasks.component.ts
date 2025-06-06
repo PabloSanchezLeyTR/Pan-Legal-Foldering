@@ -13,27 +13,27 @@ export class PlanTasksComponent {
     {
       "taskName": "Task 1",
       "taskStatus": "in-progress",
-      "taskDescription": "Research California State Economic loss rule and its applicability to tort actions."
+      "taskDescription": "Researching California State Economic loss rule and its applicability to tort actions."
     },
     {
       "taskName": "Task 2",
       "taskStatus": "",
-      "taskDescription": "Investigate Exceptions to Economic Loss Rule in California."
+      "taskDescription": "Investigating Exceptions to Economic Loss Rule in California."
     },
     {
       "taskName": "Task 3",
       "taskStatus": "",
-      "taskDescription": "Find information on conditions under which Economic Loss Rule may not bar Fraud Claim."
+      "taskDescription": "Finding information on conditions under which Economic Loss Rule may not bar Fraud Claim."
     },
     {
       "taskName": "Task 4",
       "taskStatus": "",
-      "taskDescription": "Explore key considerations for Assessing Fraud claims in the Context of the Economic Loss Rule in California State."
+      "taskDescription": "Exploring key considerations for Assessing Fraud claims in the Context of the Economic Loss Rule in California State."
     },
     {
       "taskName": "Task 5",
       "taskStatus": "",
-      "taskDescription": "Search for unusual situations regarding Economic loss rule and it’s applicability to tort actions."
+      "taskDescription": "Searching for unusual situations regarding Economic loss rule and it’s applicability to tort actions."
     }
   ]
 
