@@ -12,6 +12,7 @@ export class DeepResearchResultComponent {
   @ViewChild('progressBarIndicator') progressBarIndicator!: ElementRef<HTMLDivElement>;
   @ViewChild('dialog', { static: false }) fullPlanDialog: any;
   @ViewChild('planTasks') planTasksComponent!: PlanTasksComponent;
+  @ViewChild('popover') popoverRef!: ElementRef<HTMLDivElement>;
   constructor(private viewportScroller: ViewportScroller,private renderer: Renderer2, private el: ElementRef) {}
 
   scrollToTop() {
@@ -88,6 +89,18 @@ export class DeepResearchResultComponent {
   nNotes: number = 0;
 
   expandedFooter: boolean = false;
+
+   // --- State Properties ---
+   data: {title: string, details: string} | null = null;
+   isVisible: boolean = false;
+   top: number = 0;
+   left: number = 0;
+
+   // --- Tab State ---
+   activeTab = 'outcome';
+
+   private hideTimeoutId?: number;
+   private currentTarget: HTMLElement | null = null; // Track the current element
 
   ngOnInit() {
     this.scrollToTop();
@@ -237,5 +250,89 @@ export class DeepResearchResultComponent {
 
   searchBarBlur() {
     this.expandedFooter = false;
+  }
+
+  /**
+   * Shows the popover and dynamically calculates its position after rendering.
+   */
+  showPopover(event: MouseEvent) {
+    console.log(event.target ? (event.target as HTMLElement).innerText || 'no target' : 'no target');
+    const target = event.target;
+    const caseName = target ? (target as HTMLElement).innerText : 'no target';
+    const splitCaseName = caseName.split(',');
+    const snippetLocation = splitCaseName[splitCaseName.length-1];
+    let newTitleDetail = '';
+    if(this.checkFirstThree(snippetLocation)){
+      newTitleDetail = snippetLocation;
+      splitCaseName.pop();
+    }
+
+    const newTitle = splitCaseName.join(',');
+
+    this.cancelHide();
+    this.currentTarget = event.currentTarget as HTMLElement; // Set the current target
+    this.data = { title: newTitle, details: newTitleDetail };
+    this.isVisible = true;
+    this.switchTab('outcome');
+
+    // Wait for the next tick for Angular to render the popover in the DOM.
+    setTimeout(() => {
+      // Only proceed if the popover is still visible and we have a reference to it
+      if (!this.isVisible || !this.popoverRef || !this.currentTarget) {
+        return;
+      }
+
+      const hostRect = this.currentTarget.getBoundingClientRect();
+
+      const popoverElement = this.popoverRef.nativeElement;
+      const popoverRect = popoverElement.getBoundingClientRect();
+      const popoverWidth = popoverRect.width;
+      const popoverHeight = popoverRect.height;
+
+      let topPos = hostRect.top - popoverHeight - 10;
+      let leftPos = hostRect.left + (hostRect.width / 2) - (popoverWidth / 2);
+
+      // Adjust if it goes off-screen
+      if (topPos < 0) { topPos = hostRect.bottom + 10; }
+      if (leftPos < 0) { leftPos = 10; }
+      if (leftPos + popoverWidth > window.innerWidth) { leftPos = window.innerWidth - popoverWidth - 10; }
+
+      this.top = topPos + window.scrollY;
+      this.left = leftPos + window.scrollX;
+    }, 0);
+  }
+
+  /** Hides the popover after a delay. */
+  hideWithDelay() {
+    this.hideTimeoutId = window.setTimeout(() => {
+      this.isVisible = false;
+      this.currentTarget = null; // Clear the target when hiding
+    }, 200);
+  }
+
+  /** Cancels any pending hide actions. */
+  cancelHide() {
+    if (this.hideTimeoutId) {
+      clearTimeout(this.hideTimeoutId);
+    }
+  }
+
+  /** Switches the active tab. */
+  switchTab(tabName: string) {
+    this.activeTab = tabName;
+  }
+
+
+  checkFirstThree(str:string) {
+    if (str.length < 3) return false;
+
+    for (let i = 0; i < 3; i++) {
+      const char = str[i];
+      if (!(char === ' ' || !isNaN(parseInt(char)))) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }
