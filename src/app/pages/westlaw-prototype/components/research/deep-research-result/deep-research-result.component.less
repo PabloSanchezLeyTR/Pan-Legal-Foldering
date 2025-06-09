@@ -314,7 +314,6 @@ h3 {
 }
 
 .prelimiary-answer-container {
-  margin-bottom: 24px;
   font-family: Source Sans 3;
   font-weight: 400;
   font-size: 16px;
@@ -600,8 +599,19 @@ h3 {
 }
 
 .popover-title {
-    font-weight: 700;
-    color: #1f2937;
+  font-weight: 700;
+  color: #1f2937;
+  width: calc(100% - 20px);
+}
+
+.popover-close {
+position: absolute;
+top: 15px;
+right: 15px;
+button{
+  border: none;
+  background-color: transparent;
+}
 }
 
 .popover-details {

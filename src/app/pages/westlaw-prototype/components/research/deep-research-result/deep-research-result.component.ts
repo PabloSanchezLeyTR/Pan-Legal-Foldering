@@ -302,12 +302,17 @@ export class DeepResearchResultComponent {
     }, 0);
   }
 
-  /** Hides the popover after a delay. */
-  hideWithDelay() {
-    this.hideTimeoutId = window.setTimeout(() => {
-      this.isVisible = false;
-      this.currentTarget = null; // Clear the target when hiding
-    }, 500);
+   /** Hides the popover after a delay. */
+   hideWithDelay() {
+    // this.hideTimeoutId = window.setTimeout(() => {
+    //   this.isVisible = false;
+    //   this.currentTarget = null; // Clear the target when hiding
+    // }, 500);
+  }
+
+  closePopover(){
+    this.isVisible = false;
+    this.currentTarget = null;
   }
 
   /** Cancels any pending hide actions. */

@@ -575,8 +575,9 @@ class="source-popover"
 
 <!-- Title and Details -->
 <div class="popover-header" *ngIf="data as popoverData">
-  <h3 class="popover-title">{{ popoverData.title }}</h3>
+  <h3 class="popover-title"><a href="#">{{ popoverData.title }}</a></h3>
   <p class="popover-details">{{ popoverData.details }}</p>
+  <div class="popover-close"><button (click)="closePopover()"><saf-icon slot="end" icon-name="close" appearance="light" class="pop-left" presentation /></button></div>
 </div>
 
 <!-- Tab Navigation -->
