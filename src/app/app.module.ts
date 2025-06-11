@@ -50,6 +50,7 @@ import { SourcesComponentv2 } from './pages/westlaw-prototype/components/researc
 import { NotesComponentv2 } from './pages/westlaw-prototype/components/researchv2/deep-research-result/notes/notes.component'; // Verify this path exists or correct it
 import { QuickCheckComponentv2 } from './pages/westlaw-prototype/components/researchv2/quick-check/quick-check.component';
 import { NewResearchComponentv2 } from './pages/westlaw-prototype/components/researchv2/new-research/new-research.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [
@@ -89,6 +90,7 @@ import { NewResearchComponentv2 } from './pages/westlaw-prototype/components/res
     SourcesComponentv2,
     NotesComponentv2,
     QuickCheckComponentv2,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
